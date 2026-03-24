@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="google" content="notranslate">
   <title>Wedding Andrea &amp; Pedro</title>
-  <meta name="description" content="Wedding invitation for Andrea & Pedro - 12 September 2026, Ronda, Spain">
+  <meta name="description" content="Wedding invitation for Andrea & Pedro - 5 January 2027, Ronda, Spain">
   <link rel="stylesheet" href="https://use.typekit.net/xoc5iak.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -120,6 +120,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: center 20%;
     }
     .hero-overlay {
       position: absolute;
@@ -946,16 +947,16 @@
     <!-- ===== HERO ===== -->
     <section class="hero" id="hero">
       <video autoplay muted loop playsinline>
-        <source src="assets/hero-video-BkP1eoiB.mp4" type="video/mp4">
+        <source src="assets/herovideo.mp4" type="video/mp4">
       </video>
       <div class="hero-overlay"></div>
 
       <div class="hero-top">
         <p class="hero-subtitle fade-up">We're getting married</p>
         <h1>
-          <span class="hero-name fade-up delay-1">Andrea</span>
+          <span class="hero-name fade-up delay-1">Larisa</span>
           <span class="hero-ampersand fade-up delay-2">&amp;</span>
-          <span class="hero-name fade-up delay-2">Pedro</span>
+          <span class="hero-name fade-up delay-2">Shine</span>
         </h1>
       </div>
 
@@ -967,7 +968,7 @@
           <span class="star">&#10022;</span>
           <span class="line"></span>
         </div>
-        <p class="hero-date fade-up" style="transition-delay:0.8s;">12 September 2026</p>
+        <p class="hero-date fade-up" style="transition-delay:0.8s;">5 January 2027</p>
       </div>
 
       <button class="hero-rsvp-btn fade-in-only" style="transition-delay:1.2s;" onclick="document.getElementById('countdown').scrollIntoView({behavior:'smooth'})">
@@ -979,7 +980,7 @@
     <!-- ===== COUNTDOWN ===== -->
     <section class="countdown-section" id="countdown">
       <h2 class="countdown-title fade-up">Countdown</h2>
-      <p class="countdown-until fade-up delay-1">Until 12 September 2026</p>
+      <p class="countdown-until fade-up delay-1">Until 5 January 2027</p>
       <div class="countdown-grid fade-up delay-2">
         <div class="countdown-item">
           <span class="countdown-number" id="cd-days">---</span>
@@ -1038,7 +1039,7 @@
           <img src="assets/venue-hedsor-DSq2yQw3.png" alt="Finca El Olivar" class="venue-illustration">
           <h3 class="venue-name">Finca El Olivar</h3>
           <div class="venue-detail-row">
-            <span class="date-text">12 September 2026</span>
+            <span class="date-text">5 January 2027</span>
             <span class="dot">&middot;</span>
             <span class="time-text">14:00</span>
           </div>
@@ -1065,7 +1066,7 @@
     <section class="programme-section" id="programme">
       <div class="programme-inner">
         <h2 class="programme-title fade-up">Day Programme</h2>
-        <p class="programme-date fade-up delay-1">12 September 2026</p>
+        <p class="programme-date fade-up delay-1">5 January 2027</p>
         <div class="timeline fade-up delay-2">
           <div class="timeline-line"></div>
           <div class="timeline-item"><div class="timeline-tick"></div><div class="timeline-half left"></div><div class="timeline-half right"><p class="timeline-time">14:00</p><p class="timeline-label">Arrival</p></div></div>
@@ -1291,7 +1292,7 @@ BIC/SWIFT: XXXXXXXXXX</p>
         <p class="footer-name">Andrea</p>
         <span class="footer-amp">&amp;</span>
         <p class="footer-name">Pedro</p>
-        <p class="footer-date">12 September 2026</p>
+        <p class="footer-date">5 January 2027</p>
       </div>
     </footer>
 
@@ -1313,7 +1314,7 @@ BIC/SWIFT: XXXXXXXXXX</p>
   <script>
     // Countdown
     function updateCountdown() {
-      var target = new Date('2026-09-12T14:00:00+02:00').getTime();
+      var target = new Date('2027-01-05T14:00:00+00:00').getTime();
       var now = Date.now();
       var diff = target - now;
       if (diff <= 0) { diff = 0; }
