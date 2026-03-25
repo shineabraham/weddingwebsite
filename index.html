@@ -813,6 +813,70 @@
     .bank-name { font-family: "arek-armenian", serif; font-size: 0.875rem; letter-spacing: 0.15em; text-transform: uppercase; color: hsl(33 47% 35%); font-weight: 500; margin-bottom: 0.75rem; }
     .bank-details { font-family: "arek-armenian", serif; font-size: 0.875rem; color: hsl(33 47% 35% / 0.7); line-height: 1.6; white-space: pre-line; }
 
+    /* ===== RING TOSS GAME ===== */
+    .game-section {
+      padding: 3rem 1rem;
+      text-align: center;
+      background: hsl(40 37% 96%);
+    }
+    @media (min-width: 768px) { .game-section { padding: 4rem 1.5rem; } }
+    .game-title {
+      font-family: "Great Vibes", cursive;
+      font-size: 2.5rem;
+      color: hsl(33 47% 35%);
+      margin-bottom: 0.25rem;
+    }
+    @media (min-width: 768px) { .game-title { font-size: 3.5rem; } }
+    .game-subtitle {
+      font-family: "arek-armenian", serif;
+      font-size: 0.9rem;
+      color: hsl(33 47% 35% / 0.7);
+      margin-bottom: 1.5rem;
+    }
+    .game-container {
+      position: relative;
+      width: 300px;
+      height: 380px;
+      margin: 0 auto;
+      background: hsl(40 24% 95%);
+      border-radius: 1rem;
+      border: 1px solid hsl(38 43% 60% / 0.2);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.06);
+      overflow: hidden;
+      touch-action: manipulation;
+      user-select: none;
+      cursor: pointer;
+    }
+    .game-canvas {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+    .game-score {
+      font-family: "arek-armenian", serif;
+      font-size: 0.95rem;
+      color: hsl(33 47% 35%);
+      margin-top: 1rem;
+      letter-spacing: 0.05em;
+    }
+    .game-score span {
+      font-weight: 700;
+      color: hsl(38 43% 50%);
+    }
+    .game-best {
+      font-family: "arek-armenian", serif;
+      font-size: 0.8rem;
+      color: hsl(33 47% 35% / 0.5);
+      margin-top: 0.25rem;
+    }
+    .game-hint {
+      font-family: "arek-armenian", serif;
+      font-size: 0.8rem;
+      color: hsl(33 47% 35% / 0.5);
+      margin-top: 0.75rem;
+      font-style: italic;
+    }
+
     /* ===== RSVP (GOLD BG) ===== */
     .rsvp-section {
       padding: 5rem 1.5rem;
@@ -1292,10 +1356,17 @@
       </div>
     </section>
 
-    <!-- DIVIDER: wedding rings -->
-    <div class="ivory-divider">
-      <img src="assets/wedding-rings-_6IG5mf0.webp" alt="" style="width:6rem;" class="fade-up" loading="lazy">
-    </div>
+    <!-- ===== RING TOSS GAME ===== -->
+    <section class="game-section" id="game">
+      <h2 class="game-title fade-up">Catch the Ring</h2>
+      <p class="game-subtitle fade-up delay-1">Tap at the right moment to land the ring on the pillar!</p>
+      <div class="game-container fade-up delay-2" id="game-container">
+        <canvas class="game-canvas" id="game-canvas" width="300" height="380"></canvas>
+      </div>
+      <p class="game-score fade-up">Score: <span id="game-score-val">0</span></p>
+      <p class="game-best fade-up" id="game-best">Best: 0</p>
+      <p class="game-hint fade-up" id="game-hint">Tap to drop the ring!</p>
+    </section>
 
     <!-- ===== FOOTER ===== -->
     <footer class="footer">
@@ -1435,6 +1506,254 @@
     });
 
     // RSVP form handler (visual only)
+    // ===== RING TOSS GAME =====
+    (function() {
+      var canvas = document.getElementById('game-canvas');
+      var ctx = canvas.getContext('2d');
+      var container = document.getElementById('game-container');
+      var scoreEl = document.getElementById('game-score-val');
+      var bestEl = document.getElementById('game-best');
+      var hintEl = document.getElementById('game-hint');
+
+      var W = 300, H = 380;
+      var score = 0;
+      var best = 0;
+      var goldColor = '#c5a46d';
+      var goldDark = '#8b6f3a';
+      var pillarX = W / 2;
+      var pillarY = H - 60;
+      var pillarW = 8;
+      var pillarH = 50;
+
+      // Ring physics
+      var ropeLen = 120;
+      var anchorX = W / 2;
+      var anchorY = 20;
+      var angle = 0;
+      var angleSpeed = 0.03;
+      var direction = 1;
+      var maxAngle = 1.2;
+      var ringRadius = 18;
+      var ringThickness = 4;
+
+      // Drop state
+      var dropping = false;
+      var ringX, ringY, ringVY;
+      var landed = false;
+      var missed = false;
+      var feedbackTimer = 0;
+      var sparkles = [];
+
+      function resetRing() {
+        dropping = false;
+        landed = false;
+        missed = false;
+        feedbackTimer = 0;
+        sparkles = [];
+      }
+
+      function dropRing() {
+        if (dropping) return;
+        dropping = true;
+        ringX = anchorX + Math.sin(angle) * ropeLen;
+        ringY = anchorY + Math.cos(angle) * ropeLen;
+        ringVY = 2;
+        hintEl.textContent = '';
+      }
+
+      function createSparkles(x, y) {
+        for (var i = 0; i < 8; i++) {
+          sparkles.push({
+            x: x, y: y,
+            vx: (Math.random() - 0.5) * 4,
+            vy: -Math.random() * 3 - 1,
+            life: 1,
+            size: Math.random() * 3 + 1
+          });
+        }
+      }
+
+      function update() {
+        if (!dropping) {
+          angle += angleSpeed * direction;
+          if (angle > maxAngle || angle < -maxAngle) {
+            direction *= -1;
+          }
+        } else if (!landed && !missed) {
+          ringVY += 0.25;
+          ringY += ringVY;
+
+          var onPillar = Math.abs(ringX - pillarX) < ringRadius + pillarW / 2;
+          var atPillarTop = ringY + ringRadius >= pillarY - pillarH / 2 && ringY + ringRadius <= pillarY + 10;
+
+          if (onPillar && atPillarTop && Math.abs(ringX - pillarX) < ringRadius * 0.85) {
+            landed = true;
+            ringY = pillarY - pillarH / 2 - ringRadius + 4;
+            ringX = pillarX;
+            feedbackTimer = 60;
+            score++;
+            scoreEl.textContent = score;
+            if (score > best) { best = score; bestEl.textContent = 'Best: ' + best; }
+            createSparkles(pillarX, pillarY - pillarH / 2);
+            angleSpeed = Math.min(0.07, 0.03 + score * 0.004);
+          } else if (ringY > H + 30) {
+            missed = true;
+            feedbackTimer = 50;
+            score = 0;
+            scoreEl.textContent = '0';
+          }
+        }
+
+        if (feedbackTimer > 0) {
+          feedbackTimer--;
+          if (feedbackTimer <= 0) {
+            if (missed) hintEl.textContent = 'Try again! Tap to drop.';
+            else hintEl.textContent = 'Nice! Keep going!';
+            resetRing();
+          }
+        }
+
+        for (var i = sparkles.length - 1; i >= 0; i--) {
+          sparkles[i].x += sparkles[i].vx;
+          sparkles[i].y += sparkles[i].vy;
+          sparkles[i].vy += 0.1;
+          sparkles[i].life -= 0.025;
+          if (sparkles[i].life <= 0) sparkles.splice(i, 1);
+        }
+      }
+
+      function draw() {
+        ctx.clearRect(0, 0, W, H);
+
+        // Background subtle pattern
+        ctx.fillStyle = 'hsl(40, 24%, 95%)';
+        ctx.fillRect(0, 0, W, H);
+
+        // Pillar base
+        ctx.fillStyle = goldDark;
+        ctx.fillRect(pillarX - 20, pillarY + pillarH / 2 - 6, 40, 10);
+        ctx.beginPath();
+        ctx.roundRect(pillarX - 20, pillarY + pillarH / 2 - 6, 40, 10, 3);
+        ctx.fill();
+
+        // Pillar
+        var grad = ctx.createLinearGradient(pillarX - pillarW / 2, 0, pillarX + pillarW / 2, 0);
+        grad.addColorStop(0, goldDark);
+        grad.addColorStop(0.5, goldColor);
+        grad.addColorStop(1, goldDark);
+        ctx.fillStyle = grad;
+        ctx.fillRect(pillarX - pillarW / 2, pillarY - pillarH / 2, pillarW, pillarH);
+
+        // Pillar top gem
+        ctx.fillStyle = goldColor;
+        ctx.beginPath();
+        ctx.arc(pillarX, pillarY - pillarH / 2, 6, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.fillStyle = '#e8d5a8';
+        ctx.beginPath();
+        ctx.arc(pillarX, pillarY - pillarH / 2, 3, 0, Math.PI * 2);
+        ctx.fill();
+
+        if (!dropping) {
+          // Rope
+          var rx = anchorX + Math.sin(angle) * ropeLen;
+          var ry = anchorY + Math.cos(angle) * ropeLen;
+          ctx.strokeStyle = 'hsl(33, 30%, 65%)';
+          ctx.lineWidth = 1.5;
+          ctx.beginPath();
+          ctx.moveTo(anchorX, anchorY);
+          ctx.lineTo(rx, ry);
+          ctx.stroke();
+
+          // Ring
+          drawRing(rx, ry);
+
+          // Anchor dot
+          ctx.fillStyle = goldDark;
+          ctx.beginPath();
+          ctx.arc(anchorX, anchorY, 4, 0, Math.PI * 2);
+          ctx.fill();
+        } else {
+          // Anchor dot
+          ctx.fillStyle = goldDark;
+          ctx.beginPath();
+          ctx.arc(anchorX, anchorY, 4, 0, Math.PI * 2);
+          ctx.fill();
+
+          // Dropping ring
+          drawRing(ringX, ringY);
+        }
+
+        // Sparkles
+        for (var i = 0; i < sparkles.length; i++) {
+          var s = sparkles[i];
+          ctx.globalAlpha = s.life;
+          ctx.fillStyle = goldColor;
+          ctx.beginPath();
+          ctx.arc(s.x, s.y, s.size, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.globalAlpha = 1;
+        }
+
+        // Landed feedback
+        if (landed && feedbackTimer > 0) {
+          ctx.globalAlpha = feedbackTimer / 60;
+          ctx.fillStyle = goldColor;
+          ctx.font = '700 1.5rem "Great Vibes", cursive';
+          ctx.textAlign = 'center';
+          ctx.fillText('Perfect!', W / 2, H / 2 - 20);
+          ctx.globalAlpha = 1;
+        }
+
+        if (missed && feedbackTimer > 0) {
+          ctx.globalAlpha = feedbackTimer / 50;
+          ctx.fillStyle = '#a07050';
+          ctx.font = '700 1.2rem "Great Vibes", cursive';
+          ctx.textAlign = 'center';
+          ctx.fillText('Missed!', W / 2, H / 2 - 20);
+          ctx.globalAlpha = 1;
+        }
+      }
+
+      function drawRing(x, y) {
+        // Outer ring
+        ctx.strokeStyle = goldColor;
+        ctx.lineWidth = ringThickness;
+        ctx.beginPath();
+        ctx.arc(x, y, ringRadius, 0, Math.PI * 2);
+        ctx.stroke();
+        // Inner shine
+        ctx.strokeStyle = '#e8d5a8';
+        ctx.lineWidth = 1.5;
+        ctx.beginPath();
+        ctx.arc(x, y, ringRadius - 2, 0, Math.PI * 2);
+        ctx.stroke();
+        // Diamond
+        ctx.fillStyle = '#f5ece0';
+        ctx.beginPath();
+        ctx.moveTo(x, y - ringRadius - 5);
+        ctx.lineTo(x - 5, y - ringRadius);
+        ctx.lineTo(x, y - ringRadius + 3);
+        ctx.lineTo(x + 5, y - ringRadius);
+        ctx.closePath();
+        ctx.fill();
+        ctx.strokeStyle = goldDark;
+        ctx.lineWidth = 0.8;
+        ctx.stroke();
+      }
+
+      function loop() {
+        update();
+        draw();
+        requestAnimationFrame(loop);
+      }
+
+      container.addEventListener('click', dropRing);
+      container.addEventListener('touchstart', function(e) { e.preventDefault(); dropRing(); }, { passive: false });
+
+      loop();
+    })();
+
     function handleRSVP(e) {
       e.preventDefault();
       var form = e.target;
