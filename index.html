@@ -12,34 +12,25 @@
   <style>
     :root {
       --background: 40 24% 95%;
-      --foreground: 33 47% 35%;
+      --foreground: 135 12% 26%;
       --card: 30 20% 92%;
-      --card-foreground: 25 49% 15%;
-      --primary: 38 43% 40%;
-      --primary-foreground: 50 52% 96%;
+      --card-foreground: 135 12% 20%;
+      --primary: 135 11% 48%;
+      --primary-foreground: 40 37% 96%;
       --secondary: 50 52% 92%;
-      --secondary-foreground: 25 49% 15%;
+      --secondary-foreground: 135 12% 20%;
       --muted: 50 30% 87%;
-      --muted-foreground: 25 20% 35%;
-      --accent: 50 33% 24%;
-      --accent-foreground: 50 52% 92%;
-      --border: 40 25% 80%;
-      --ring: 38 43% 60%;
+      --muted-foreground: 135 12% 35%;
+      --accent: 135 11% 48%;
+      --accent-foreground: 40 37% 96%;
+      --border: 135 11% 75%;
+      --ring: 135 11% 48%;
       --radius: 0.5rem;
       --ivory: 40 37% 96%;
       --cream: 50 45% 89%;
-      --sage: 50 33% 24%;
-      --sage-dark: 33 47% 35%;
-      --sage-light: 50 25% 38%;
-      --gold: 38 43% 60%;
-      --gold-soft: 38 35% 50%;
-      --terracotta: 25 49% 15%;
-      --olive: 50 33% 24%;
-      --carbon: 25 49% 12%;
-      --burgundy: 38 43% 40%;
-      --champagne: 50 40% 85%;
-      --champagne-light: 50 52% 92%;
-      --champagne-gold: 38 43% 60%;
+      --sage: 135 11% 48%;
+      --sage-dark: 135 12% 26%;
+      --sage-light: 135 11% 38%;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -47,7 +38,7 @@
 
     body {
       background-color: hsl(40 24% 95%);
-      color: hsl(33 47% 35%);
+      color: #3D4A38;
       font-family: "arek-armenian", serif;
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
       background-blend-mode: overlay;
@@ -61,8 +52,8 @@
     .font-body { font-family: "arek-armenian", serif; }
 
     /* Colors */
-    .text-sage-dark { color: hsl(33 47% 35%); }
-    .text-gold { color: hsl(38 43% 60%); }
+    .text-sage-dark { color: #3D4A38; }
+    .text-gold { color: #75886D; }
     .text-white { color: #fff; }
     .bg-ivory { background-color: hsl(40 37% 96%); }
     .bg-background { background-color: hsl(40 24% 95%); }
@@ -229,7 +220,7 @@
       text-shadow: 0 2px 8px rgba(0,0,0,0.3);
       transition: color 0.3s;
     }
-    .hero-rsvp-btn:hover { color: hsl(38 43% 60%); }
+    .hero-rsvp-btn:hover { color: #75886D; }
     .hero-rsvp-btn:focus-visible { outline: 2px solid #fff; outline-offset: 4px; }
     .hero-rsvp-btn:active { opacity: 0.8; }
     @keyframes bounce-arrow {
@@ -254,7 +245,7 @@
     .countdown-title {
       font-family: "Great Vibes", cursive;
       font-size: 2.5rem;
-      color: hsl(33 47% 35%);
+      color: #3D4A38;
       margin-bottom: 0.25rem;
     }
     @media (min-width: 768px) { .countdown-title { font-size: 4.5rem; } }
@@ -263,7 +254,7 @@
       font-size: 0.7rem;
       letter-spacing: 0.25em;
       text-transform: uppercase;
-      color: hsl(33 47% 35% / 0.6);
+      color: #6B7D63;
       margin-bottom: 2.5rem;
     }
     .countdown-grid {
@@ -281,22 +272,22 @@
     .countdown-number {
       font-family: "Great Vibes", cursive;
       font-size: 2.5rem;
-      color: hsl(33 47% 35%);
+      color: #3D4A38;
       line-height: 1;
     }
     @media (min-width: 768px) { .countdown-number { font-size: 3.75rem; } }
     .countdown-label {
       margin-top: 0.5rem;
       font-family: "arek-armenian", serif;
-      font-size: 0.6rem;
+      font-size: 0.7rem;
       letter-spacing: 0.25em;
       text-transform: uppercase;
-      color: hsl(38 43% 60% / 0.8);
+      color: #75886D;
     }
     .countdown-sep {
       width: 1px;
       height: 2rem;
-      background: hsl(33 47% 35% / 0.2);
+      background: rgba(117,136,109,0.2);
       margin: 0 0.25rem 1rem;
     }
 
@@ -316,15 +307,15 @@
     .welcome-title {
       font-family: "Great Vibes", cursive;
       font-size: 2.5rem;
-      color: hsl(33 47% 35%);
+      color: #3D4A38;
       margin-bottom: 1.5rem;
     }
     @media (min-width: 768px) { .welcome-title { font-size: 4.5rem; } }
     .welcome-text {
       font-family: "arek-armenian", serif;
-      font-size: 1.125rem;
+      font-size: 1.3rem;
       line-height: 1.7;
-      color: hsl(33 47% 35% / 0.9);
+      color: #4E5E47;
       font-style: italic;
     }
     .marquee-strip {
@@ -356,9 +347,9 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 4rem 0;
+      padding: 1.25rem 0;
     }
-    @media (min-width: 768px) { .ivory-divider { padding: 5rem 0; } }
+    @media (min-width: 768px) { .ivory-divider { padding: 1.5rem 0; } }
     .ivory-divider img {
       height: auto;
       opacity: 0.8;
@@ -366,14 +357,60 @@
     .ivory-divider .divider-line {
       width: 6rem;
       height: 1px;
-      background: hsl(33 47% 35% / 0.2);
+      background: rgba(117,136,109,0.2);
       margin-bottom: 2.5rem;
+    }
+
+    /* ===== KNANAYA HERITAGE ===== */
+    .heritage-section {
+      padding: 1.5rem 1.5rem 4rem;
+      background: hsl(40 37% 96%);
+      text-align: center;
+    }
+    @media (min-width: 768px) { .heritage-section { padding: 2rem 3rem 5rem; } }
+    .heritage-inner {
+      max-width: 42rem;
+      margin: 0 auto;
+    }
+    .heritage-suptitle {
+      font-family: "arek-armenian", serif;
+      font-size: 0.9rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: #6B7D63;
+      margin-bottom: 1rem;
+    }
+    .heritage-title {
+      font-family: "Great Vibes", cursive;
+      font-size: 2.5rem;
+      color: #3D4A38;
+      margin-bottom: 1.5rem;
+    }
+    @media (min-width: 768px) { .heritage-title { font-size: 4.5rem; } }
+    .heritage-divider {
+      width: 3rem;
+      height: 1px;
+      background: rgba(117,136,109,0.25);
+      margin: 0 auto 2rem;
+    }
+    .heritage-text {
+      font-family: "arek-armenian", serif;
+      font-size: 1.2rem;
+      line-height: 1.8;
+      color: #4E5E47;
+      margin-bottom: 1.5rem;
+    }
+    .heritage-text:last-child { margin-bottom: 0; }
+    .heritage-text em {
+      font-style: italic;
+      color: #3D4A38;
+      font-weight: 500;
     }
 
     /* ===== VENUE (GOLD BG) ===== */
     .venue-gold {
       padding: 5rem 1.5rem;
-      background-color: #c5a46d;
+      background-color: #75886D;
     }
     @media (min-width: 768px) { .venue-gold { padding: 8rem 3rem; } }
     .venue-gold-inner {
@@ -393,7 +430,7 @@
     @media (min-width: 768px) { .venue-gold-title { font-size: 4.5rem; } }
     .venue-gold-subtitle {
       font-family: "arek-armenian", serif;
-      font-size: 1.05rem;
+      font-size: 1.2rem;
       color: #f9f7f2;
       letter-spacing: 0.05em;
       font-weight: 500;
@@ -402,7 +439,7 @@
     .venue-card {
       background: #fff;
       border-radius: 1rem;
-      border: 1px solid hsl(38 43% 60% / 0.2);
+      border: 1px solid rgba(117,136,109, 0.2);
       padding: 2rem;
       box-shadow: 0 8px 32px rgba(0,0,0,0.08);
       text-align: center;
@@ -418,9 +455,9 @@
     .venue-card .venue-name {
       font-family: "Great Vibes", cursive;
       font-size: 1.875rem;
-      color: hsl(33 47% 35%);
+      color: #3D4A38;
       margin-bottom: 1.5rem;
-      border-bottom: 1px solid hsl(38 43% 60% / 0.2);
+      border-bottom: 1px solid rgba(117,136,109, 0.2);
       padding-bottom: 1rem;
     }
     @media (min-width: 768px) { .venue-card .venue-name { font-size: 2.25rem; } }
@@ -429,17 +466,17 @@
       align-items: center;
       justify-content: center;
       gap: 0.75rem;
-      color: hsl(33 47% 35%);
+      color: #3D4A38;
       margin-bottom: 0.75rem;
     }
     .venue-detail-row .date-text {
       font-family: "arek-armenian", serif;
-      font-size: 1rem;
+      font-size: 1.15rem;
       letter-spacing: 0.03em;
       font-style: italic;
       opacity: 0.7;
     }
-    .venue-detail-row .dot { color: hsl(38 43% 60% / 0.4); }
+    .venue-detail-row .dot { color: rgba(117,136,109, 0.4); }
     .venue-detail-row .time-text {
       font-family: "Great Vibes", cursive;
       font-size: 1.5rem;
@@ -447,20 +484,20 @@
     .venue-separator {
       width: 3rem;
       height: 1px;
-      background: hsl(38 43% 60% / 0.3);
+      background: rgba(117,136,109, 0.3);
       margin: 0.75rem auto 1rem;
     }
     .venue-address-text {
       font-family: "arek-armenian", serif;
-      font-size: 1rem;
+      font-size: 1.15rem;
       letter-spacing: 0.03em;
-      color: hsl(33 47% 35%);
+      color: #3D4A38;
     }
     .venue-address-sub {
       font-family: "arek-armenian", serif;
-      font-size: 0.875rem;
+      font-size: 1.05rem;
       letter-spacing: 0.03em;
-      color: hsl(33 47% 35% / 0.7);
+      color: #5C6E54;
       margin-top: 0.25rem;
       margin-bottom: 2rem;
     }
@@ -482,17 +519,17 @@
       align-items: center;
       gap: 0.5rem;
       font-family: "arek-armenian", serif;
-      font-size: 0.875rem;
+      font-size: 1rem;
       letter-spacing: 0.15em;
       text-transform: uppercase;
-      color: hsl(33 47% 35% / 0.7);
+      color: #5C6E54;
       text-decoration: none;
-      border-bottom: 1px solid hsl(38 43% 60% / 0.3);
+      border-bottom: 1px solid rgba(117,136,109, 0.3);
       padding-bottom: 0.25rem;
       transition: color 0.3s, border-color 0.3s;
     }
-    .map-link:hover { color: hsl(38 43% 60%); border-color: hsl(38 43% 60%); }
-    .map-link:focus-visible { outline: 2px solid hsl(38 43% 60%); outline-offset: 2px; }
+    .map-link:hover { color: #75886D; border-color: #75886D; }
+    .map-link:focus-visible { outline: 2px solid #75886D; outline-offset: 2px; }
 
     /* ===== PROGRAMME ===== */
     .programme-section {
@@ -508,66 +545,193 @@
     .programme-title {
       font-family: "Great Vibes", cursive;
       font-size: 2.5rem;
-      color: hsl(33 47% 35%);
+      color: #3D4A38;
       text-align: center;
       margin-bottom: 0.5rem;
     }
     @media (min-width: 768px) { .programme-title { font-size: 4.5rem; } }
     .programme-date {
       font-family: "arek-armenian", serif;
-      font-size: 0.875rem;
+      font-size: 1.05rem;
       letter-spacing: 0.15em;
-      color: hsl(38 43% 60%);
+      color: #75886D;
       text-align: center;
       font-weight: 500;
-      margin-bottom: 3rem;
+      margin-bottom: 1.5rem;
     }
-    .timeline { position: relative; }
-    .timeline-line {
+    .programme-desc {
+      font-family: "arek-armenian", serif;
+      font-size: 1.2rem;
+      line-height: 1.8;
+      color: #5C6E54;
+      text-align: center;
+      max-width: 36rem;
+      margin: 0 auto 3rem;
+      font-style: italic;
+    }
+    /* ===== ALTERNATING CENTRE-LINE TIMELINE ===== */
+    .timeline {
+      position: relative;
+      max-width: 44rem;
+      margin: 0 auto;
+    }
+    /* centre vertical line */
+    .timeline::before {
+      content: '';
       position: absolute;
-      left: 50%;
-      top: 0.75rem;
-      bottom: 0.75rem;
+      left: 1.5rem;
+      top: 0;
+      bottom: 0;
       width: 1px;
-      background: hsl(33 47% 35% / 0.4);
-      transform: translateX(-50%);
+      background: rgba(117,136,109,0.2);
     }
-    .timeline-item {
+    @media (min-width: 768px) {
+      .timeline::before { left: 50%; transform: translateX(-50%); }
+    }
+
+    /* each row */
+    .tl-row {
       position: relative;
       display: flex;
-      align-items: center;
-      padding: 0.75rem 0;
+      align-items: flex-start;
+      padding: 0 0 2rem;
+      cursor: pointer;
     }
-    .timeline-tick {
+    .tl-row:last-child { padding-bottom: 0; }
+
+    /* horizontal tick from centre line */
+    .tl-row::before {
+      content: '';
       position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 1rem;
+      left: 1.5rem;
+      top: 0.65rem;
+      width: 1.5rem;
       height: 1px;
-      background: hsl(33 47% 35% / 0.4);
+      background: rgba(117,136,109,0.2);
     }
-    .timeline-half {
-      width: 50%;
+    @media (min-width: 768px) {
+      .tl-row::before { left: auto; width: 2rem; }
+      .tl-row:nth-child(odd)::before { right: 50%; left: auto; }
+      .tl-row:nth-child(even)::before { left: 50%; }
     }
-    .timeline-half.left { padding-right: 2rem; text-align: right; }
-    .timeline-half.right { padding-left: 2rem; text-align: left; }
-    .timeline-time {
+
+    /* small dot on the line */
+    .tl-row::after {
+      content: '';
+      position: absolute;
+      left: 1.5rem;
+      top: 0.4rem;
+      width: 0.45rem;
+      height: 0.45rem;
+      border-radius: 50%;
+      background: #75886D;
+      transform: translateX(-50%);
+      z-index: 2;
+      transition: transform 0.3s cubic-bezier(.22,1,.36,1), box-shadow 0.3s ease;
+    }
+    .tl-row:hover::after, .tl-row.tl-active::after {
+      transform: translateX(-50%) scale(1.6);
+      box-shadow: 0 0 0 4px rgba(117,136,109,0.2);
+    }
+    @media (min-width: 768px) {
+      .tl-row::after { left: 50%; }
+    }
+
+    /* content block */
+    .tl-content {
+      margin-left: 3.5rem;
+      text-align: left;
+    }
+    @media (min-width: 768px) {
+      .tl-content { width: calc(50% - 3rem); margin-left: 0; }
+      .tl-row:nth-child(odd) { justify-content: flex-start; }
+      .tl-row:nth-child(odd) .tl-content { text-align: right; margin-right: 3rem; }
+      .tl-row:nth-child(even) { justify-content: flex-end; }
+      .tl-row:nth-child(even) .tl-content { text-align: left; margin-left: 3rem; }
+    }
+
+    /* time */
+    .tl-time {
       font-family: "arek-armenian", serif;
       font-weight: 700;
-      font-size: 0.875rem;
-      letter-spacing: 0.15em;
-      color: hsl(33 47% 35%);
+      font-size: 1.2rem;
+      color: #4E5E47;
+      letter-spacing: 0.03em;
+      line-height: 1;
     }
-    @media (min-width: 768px) { .timeline-time { font-size: 1rem; } }
-    .timeline-label {
+    @media (min-width: 768px) { .tl-time { font-size: 1.3rem; } }
+
+    /* event name */
+    .tl-label {
       font-family: "arek-armenian", serif;
-      font-size: 0.7rem;
-      letter-spacing: 0.15em;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: hsl(33 47% 35% / 0.8);
-      margin-top: 0.125rem;
+      color: #6B7D63;
+      margin-top: 0.2rem;
     }
-    @media (min-width: 768px) { .timeline-label { font-size: 0.875rem; } }
+    @media (min-width: 768px) { .tl-label { font-size: 1rem; } }
+
+    /* subtitle */
+    .tl-sublabel {
+      font-family: "arek-armenian", serif;
+      font-size: 0.95rem;
+      font-style: italic;
+      color: #8A9B83;
+      margin-top: 0.15rem;
+    }
+
+    /* tap hint — pulsing ring on clickable items */
+    .tl-row.tl-has-detail .tl-label::after {
+      content: '  ↓';
+      font-size: 0.6rem;
+      color: #75886D;
+      opacity: 0.6;
+      transition: opacity 0.3s ease;
+    }
+    .tl-row.tl-has-detail.tl-active .tl-label::after {
+      content: '  ↑';
+    }
+
+    /* expandable detail panel */
+    .tl-detail {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 0.5s cubic-bezier(.22,1,.36,1);
+    }
+    .tl-detail-inner {
+      overflow: hidden;
+    }
+    .tl-row.tl-active .tl-detail {
+      grid-template-rows: 1fr;
+    }
+    .tl-detail-text {
+      font-family: "arek-armenian", serif;
+      font-size: 1rem;
+      line-height: 1.8;
+      color: #6B7D63;
+      padding-top: 0.75rem;
+      opacity: 0;
+      transform: translateY(-6px);
+      transition: opacity 0.35s ease 0.15s, transform 0.35s ease 0.15s;
+    }
+    .tl-row.tl-active .tl-detail-text {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    @media (min-width: 768px) { .tl-detail-text { font-size: 1.05rem; } }
+
+    /* scroll-in stagger */
+    .tl-row {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    .tl-row.tl-visible {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.55s cubic-bezier(.22,1,.36,1), transform 0.55s cubic-bezier(.22,1,.36,1);
+    }
 
     /* ===== DRESS CODE (overlay on photo) ===== */
     .dress-section {
@@ -605,21 +769,21 @@
     .dress-title {
       font-family: "Great Vibes", cursive;
       font-size: 2.5rem;
-      color: hsl(33 47% 35%);
+      color: #3D4A38;
       margin-bottom: 2rem;
     }
     @media (min-width: 768px) { .dress-title { font-size: 4.5rem; } }
     .dress-gender {
       font-family: "Great Vibes", cursive;
       font-size: 1.875rem;
-      color: hsl(33 47% 35%);
+      color: #3D4A38;
       margin-bottom: 0.5rem;
     }
     @media (min-width: 768px) { .dress-gender { font-size: 2.25rem; } }
     .dress-desc {
       font-family: "arek-armenian", serif;
-      font-size: 0.875rem;
-      color: hsl(33 47% 35% / 0.7);
+      font-size: 1.05rem;
+      color: #5C6E54;
       font-style: italic;
       line-height: 1.6;
       max-width: 28rem;
@@ -635,13 +799,13 @@
     /* ===== PRE-WEDDING EVENTS (GOLD BG) ===== */
     .events-gold {
       padding: 5rem 1.5rem;
-      background-color: #c5a46d;
+      background-color: #75886D;
     }
     @media (min-width: 768px) { .events-gold { padding: 8rem 3rem; } }
     .events-gold-inner { max-width: 48rem; margin: 0 auto; }
     .events-suptitle {
       font-family: "arek-armenian", serif;
-      font-size: 0.75rem;
+      font-size: 0.9rem;
       letter-spacing: 0.3em;
       text-transform: uppercase;
       color: rgba(255,255,255,0.8);
@@ -658,7 +822,7 @@
     @media (min-width: 768px) { .events-title { font-size: 4.5rem; } }
     .events-subtitle {
       font-family: "arek-armenian", serif;
-      font-size: 0.875rem;
+      font-size: 1.05rem;
       color: rgba(255,255,255,0.8);
       text-align: center;
       margin-bottom: 2rem;
@@ -678,45 +842,45 @@
     .event-card-title {
       font-family: "Great Vibes", cursive;
       font-size: 1.875rem;
-      color: #825f30;
+      color: #3D4A38;
       margin-bottom: 0.75rem;
     }
     @media (min-width: 768px) { .event-card-title { font-size: 2.25rem; } }
-    .event-card-divider { width: 2.5rem; height: 1px; background: rgba(130,95,48,0.2); margin: 0 auto 0.75rem; }
-    .event-card-date { font-family: "arek-armenian", serif; font-size: 0.875rem; font-weight: 500; color: rgba(130,95,48,0.85); margin-bottom: 0.25rem; }
-    .event-card-time { font-family: "arek-armenian", serif; font-size: 0.875rem; color: rgba(130,95,48,0.7); margin-bottom: 0.25rem; }
-    .event-card-location { font-family: "arek-armenian", serif; font-size: 0.875rem; font-style: italic; color: rgba(130,95,48,0.6); }
+    .event-card-divider { width: 2.5rem; height: 1px; background: rgba(117,136,109,0.2); margin: 0 auto 0.75rem; }
+    .event-card-date { font-family: "arek-armenian", serif; font-size: 1.05rem; font-weight: 500; color: #3D4A38; margin-bottom: 0.25rem; }
+    .event-card-time { font-family: "arek-armenian", serif; font-size: 1.05rem; color: #3D4A38; margin-bottom: 0.25rem; }
+    .event-card-location { font-family: "arek-armenian", serif; font-size: 1.05rem; font-style: italic; color: #4E5E47; }
 
     /* ===== ACCOMMODATION ===== */
     .accommodation-section {
-      padding: 5rem 1.5rem;
+      padding: 3.5rem 1.5rem 5rem;
       position: relative;
       overflow: hidden;
       background-image: url('assets/white-textured-paper-KasY8RAJ.webp');
       background-size: cover;
       background-position: center;
     }
-    @media (min-width: 768px) { .accommodation-section { padding: 8rem 3rem; } }
+    @media (min-width: 768px) { .accommodation-section { padding: 4rem 3rem 6rem; } }
     .accommodation-inner { max-width: 48rem; margin: 0 auto; position: relative; z-index: 1; }
     .accommodation-title {
       font-family: "Great Vibes", cursive;
       font-size: 2.5rem;
-      color: hsl(33 47% 35%);
+      color: #3D4A38;
       text-align: center;
       line-height: 1.1;
     }
     @media (min-width: 768px) { .accommodation-title { font-size: 4.5rem; } }
     .accommodation-subtitle {
       font-family: "arek-armenian", serif;
-      font-size: 0.875rem;
-      color: hsl(33 47% 35% / 0.7);
+      font-size: 1.05rem;
+      color: #5C6E54;
       text-align: center;
       margin: 1rem 0 2rem;
     }
     .accommodation-card {
       background: rgba(255,255,255,0.8);
       backdrop-filter: blur(8px);
-      border: 1px solid hsl(38 43% 60% / 0.2);
+      border: 1px solid rgba(117,136,109, 0.2);
       border-radius: 1rem;
       padding: 2rem 2.5rem;
       box-shadow: 0 8px 32px rgba(0,0,0,0.06);
@@ -724,17 +888,17 @@
     .hotel-item { text-align: center; padding: 1.5rem 0; }
     .hotel-item:first-child { padding-top: 0; }
     .hotel-item:last-child { padding-bottom: 0; }
-    .hotel-divider { width: 3rem; height: 1px; background: hsl(38 43% 60% / 0.25); margin: 0 auto; }
-    .hotel-name { font-family: "arek-armenian", serif; font-size: 0.875rem; letter-spacing: 0.2em; text-transform: uppercase; color: hsl(33 47% 35%); font-weight: 500; }
-    .hotel-location { font-family: "arek-armenian", serif; font-size: 0.8rem; font-style: italic; color: hsl(33 47% 35% / 0.6); margin-top: 0.25rem; }
-    .hotel-details { font-family: "arek-armenian", serif; font-size: 0.75rem; color: hsl(33 47% 35% / 0.5); margin-top: 0.375rem; }
-    .hotel-phone { font-family: "arek-armenian", serif; font-size: 0.75rem; color: hsl(33 47% 35% / 0.5); margin-top: 0.125rem; }
+    .hotel-divider { width: 3rem; height: 1px; background: rgba(117,136,109, 0.25); margin: 0 auto; }
+    .hotel-name { font-family: "arek-armenian", serif; font-size: 1rem; letter-spacing: 0.2em; text-transform: uppercase; color: #3D4A38; font-weight: 500; }
+    .hotel-location { font-family: "arek-armenian", serif; font-size: 0.95rem; font-style: italic; color: #6B7D63; margin-top: 0.25rem; }
+    .hotel-details { font-family: "arek-armenian", serif; font-size: 0.9rem; color: #8A9B83; margin-top: 0.375rem; }
+    .hotel-phone { font-family: "arek-armenian", serif; font-size: 0.9rem; color: #8A9B83; margin-top: 0.125rem; }
     .hotel-phone a { color: inherit; text-decoration: underline; transition: color 0.3s; }
-    .hotel-phone a:hover { color: hsl(38 43% 60%); }
+    .hotel-phone a:hover { color: #75886D; }
     .hotel-website { margin-top: 0.5rem; }
-    .hotel-website a { font-family: "arek-armenian", serif; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: hsl(38 43% 60%); text-decoration: none; border-bottom: 1px solid hsl(38 43% 60% / 0.3); padding-bottom: 1px; transition: border-color 0.3s; }
-    .hotel-website a:hover { border-color: hsl(38 43% 60%); }
-    .hotel-website a:focus-visible { outline: 2px solid hsl(38 43% 60%); outline-offset: 2px; }
+    .hotel-website a { font-family: "arek-armenian", serif; font-size: 0.9rem; letter-spacing: 0.1em; text-transform: uppercase; color: #75886D; text-decoration: none; border-bottom: 1px solid rgba(117,136,109, 0.3); padding-bottom: 1px; transition: border-color 0.3s; }
+    .hotel-website a:hover { border-color: #75886D; }
+    .hotel-website a:focus-visible { outline: 2px solid #75886D; outline-offset: 2px; }
 
     /* ===== TRANSPORT ===== */
     .transport-section {
@@ -746,14 +910,14 @@
     .transport-title {
       font-family: "Great Vibes", cursive;
       font-size: 2.5rem;
-      color: hsl(33 47% 35%);
+      color: #3D4A38;
       margin-bottom: 1rem;
     }
     @media (min-width: 768px) { .transport-title { font-size: 4.5rem; } }
     .transport-card {
       background: rgba(255,255,255,0.8);
       backdrop-filter: blur(8px);
-      border: 1px solid hsl(38 43% 60% / 0.2);
+      border: 1px solid rgba(117,136,109, 0.2);
       border-radius: 1rem;
       padding: 2rem 2.5rem;
       box-shadow: 0 4px 24px rgba(0,0,0,0.06);
@@ -761,8 +925,8 @@
     }
     .transport-address {
       font-family: "arek-armenian", serif;
-      font-size: 1rem;
-      color: hsl(33 47% 35%);
+      font-size: 1.15rem;
+      color: #3D4A38;
       font-weight: 500;
       line-height: 1.6;
       margin-bottom: 1rem;
@@ -770,23 +934,23 @@
     .transport-map-link {
       display: inline-block;
       font-family: "arek-armenian", serif;
-      font-size: 0.75rem;
+      font-size: 0.9rem;
       letter-spacing: 0.15em;
       text-transform: uppercase;
-      color: hsl(38 43% 60%);
+      color: #75886D;
       text-decoration: none;
-      border-bottom: 1px solid hsl(38 43% 60% / 0.4);
+      border-bottom: 1px solid rgba(117,136,109, 0.4);
       padding-bottom: 2px;
       transition: color 0.3s, border-color 0.3s;
       margin-bottom: 1.5rem;
     }
-    .transport-map-link:hover { color: hsl(33 47% 35%); border-color: hsl(33 47% 35%); }
-    .transport-sep { width: 3rem; height: 1px; background: hsl(38 43% 60% / 0.2); margin: 1.5rem auto; }
+    .transport-map-link:hover { color: #3D4A38; border-color: #3D4A38; }
+    .transport-sep { width: 3rem; height: 1px; background: rgba(117,136,109, 0.2); margin: 1.5rem auto; }
     .transport-overview {
       font-family: "arek-armenian", serif;
-      font-size: 0.875rem;
+      font-size: 1.05rem;
       line-height: 1.7;
-      color: hsl(33 47% 35% / 0.7);
+      color: #5C6E54;
     }
 
     /* ===== GIFTS (overlay on photo) ===== */
@@ -805,13 +969,13 @@
       width: 100%;
     }
     @media (min-width: 768px) { .gifts-card { padding: 3.5rem; } }
-    .gifts-title { font-family: "Great Vibes", cursive; font-size: 2.5rem; color: hsl(33 47% 35%); margin-bottom: 1.5rem; }
+    .gifts-title { font-family: "Great Vibes", cursive; font-size: 2.5rem; color: #3D4A38; margin-bottom: 1.5rem; }
     @media (min-width: 768px) { .gifts-title { font-size: 4.5rem; } }
-    .gifts-text { font-family: "arek-armenian", serif; font-size: 1.125rem; line-height: 1.7; color: hsl(33 47% 35% / 0.8); font-style: italic; margin-bottom: 2rem; }
+    .gifts-text { font-family: "arek-armenian", serif; font-size: 1.3rem; line-height: 1.7; color: #4E5E47; font-style: italic; margin-bottom: 2rem; }
     .bank-card { background: hsl(40 37% 96%); border-radius: 0.5rem; padding: 1.5rem; text-align: left; margin-bottom: 1rem; }
     .bank-card:last-child { margin-bottom: 0; }
-    .bank-name { font-family: "arek-armenian", serif; font-size: 0.875rem; letter-spacing: 0.15em; text-transform: uppercase; color: hsl(33 47% 35%); font-weight: 500; margin-bottom: 0.75rem; }
-    .bank-details { font-family: "arek-armenian", serif; font-size: 0.875rem; color: hsl(33 47% 35% / 0.7); line-height: 1.6; white-space: pre-line; }
+    .bank-name { font-family: "arek-armenian", serif; font-size: 1rem; letter-spacing: 0.15em; text-transform: uppercase; color: #3D4A38; font-weight: 500; margin-bottom: 0.75rem; }
+    .bank-details { font-family: "arek-armenian", serif; font-size: 1rem; color: #5C6E54; line-height: 1.6; white-space: pre-line; }
 
     /* ===== RING TOSS GAME ===== */
     .game-section {
@@ -823,14 +987,14 @@
     .game-title {
       font-family: "Great Vibes", cursive;
       font-size: 2.5rem;
-      color: hsl(33 47% 35%);
+      color: #3D4A38;
       margin-bottom: 0.25rem;
     }
     @media (min-width: 768px) { .game-title { font-size: 3.5rem; } }
     .game-subtitle {
       font-family: "arek-armenian", serif;
-      font-size: 0.9rem;
-      color: hsl(33 47% 35% / 0.7);
+      font-size: 1.05rem;
+      color: #5C6E54;
       margin-bottom: 1.5rem;
     }
     .game-container {
@@ -840,7 +1004,7 @@
       margin: 0 auto;
       background: hsl(40 24% 95%);
       border-radius: 1rem;
-      border: 1px solid hsl(38 43% 60% / 0.2);
+      border: 1px solid rgba(117,136,109, 0.2);
       box-shadow: 0 8px 32px rgba(0,0,0,0.06);
       overflow: hidden;
       touch-action: manipulation;
@@ -854,25 +1018,25 @@
     }
     .game-score {
       font-family: "arek-armenian", serif;
-      font-size: 0.95rem;
-      color: hsl(33 47% 35%);
+      font-size: 1.1rem;
+      color: #3D4A38;
       margin-top: 1rem;
       letter-spacing: 0.05em;
     }
     .game-score span {
       font-weight: 700;
-      color: hsl(38 43% 50%);
+      color: #5C6E54;
     }
     .game-best {
       font-family: "arek-armenian", serif;
-      font-size: 0.8rem;
-      color: hsl(33 47% 35% / 0.5);
+      font-size: 0.95rem;
+      color: #8A9B83;
       margin-top: 0.25rem;
     }
     .game-hint {
       font-family: "arek-armenian", serif;
-      font-size: 0.8rem;
-      color: hsl(33 47% 35% / 0.5);
+      font-size: 0.95rem;
+      color: #8A9B83;
       margin-top: 0.75rem;
       font-style: italic;
     }
@@ -880,7 +1044,7 @@
     /* ===== RSVP (GOLD BG) ===== */
     .rsvp-section {
       padding: 5rem 1.5rem;
-      background-color: #c5a46d;
+      background-color: #75886D;
     }
     @media (min-width: 768px) { .rsvp-section { padding: 8rem 3rem; } }
     .rsvp-inner { max-width: 36rem; margin: 0 auto; }
@@ -896,34 +1060,34 @@
     }
     @media (min-width: 768px) { .rsvp-form-card { padding: 2.5rem; } }
     .form-group { margin-bottom: 1.25rem; }
-    .form-label { display: block; font-family: "arek-armenian", serif; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: hsl(33 47% 35%); font-weight: 500; margin-bottom: 0.5rem; }
+    .form-label { display: block; font-family: "arek-armenian", serif; font-size: 0.9rem; letter-spacing: 0.1em; text-transform: uppercase; color: #3D4A38; font-weight: 500; margin-bottom: 0.5rem; }
     .form-input, .form-select, .form-textarea {
       width: 100%;
       padding: 0.75rem 1rem;
       border: 1px solid hsl(40 25% 80%);
       border-radius: 0.5rem;
       font-family: "arek-armenian", serif;
-      font-size: 0.875rem;
-      color: hsl(33 47% 35%);
+      font-size: 1rem;
+      color: #3D4A38;
       background: #fff;
       transition: border-color 0.3s;
       outline: none;
     }
-    .form-input:focus, .form-select:focus, .form-textarea:focus { border-color: hsl(38 43% 60%); box-shadow: 0 0 0 3px hsl(38 43% 60% / 0.15); }
+    .form-input:focus, .form-select:focus, .form-textarea:focus { border-color: #75886D; box-shadow: 0 0 0 3px rgba(117,136,109, 0.15); }
     .form-textarea { resize: vertical; min-height: 100px; }
     .radio-group { display: flex; flex-direction: column; gap: 0.5rem; }
     .radio-option { display: flex; align-items: center; gap: 0.5rem; cursor: pointer; }
-    .radio-option input[type="radio"] { accent-color: hsl(38 43% 60%); width: 16px; height: 16px; }
-    .radio-option span { font-family: "arek-armenian", serif; font-size: 0.875rem; color: hsl(33 47% 35%); }
+    .radio-option input[type="radio"] { accent-color: #75886D; width: 16px; height: 16px; }
+    .radio-option span { font-family: "arek-armenian", serif; font-size: 1rem; color: #3D4A38; }
     .rsvp-submit {
       display: block; width: 100%; padding: 0.875rem;
-      background: hsl(33 47% 35%); color: #fff;
-      font-family: "arek-armenian", serif; font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase;
+      background: #75886D; color: #fff;
+      font-family: "arek-armenian", serif; font-size: 0.9rem; letter-spacing: 0.2em; text-transform: uppercase;
       border: none; border-radius: 0.5rem; cursor: pointer;
       transition: background 0.3s, transform 0.15s; margin-top: 1.5rem;
     }
-    .rsvp-submit:hover { background: hsl(33 47% 30%); }
-    .rsvp-submit:focus-visible { outline: 2px solid hsl(38 43% 60%); outline-offset: 2px; }
+    .rsvp-submit:hover { background: #5C6E54; }
+    .rsvp-submit:focus-visible { outline: 2px solid #75886D; outline-offset: 2px; }
     .rsvp-submit:active { transform: scale(0.98); }
 
     /* ===== FOOTER ===== */
@@ -936,26 +1100,26 @@
       background-size: cover;
       background-position: center;
     }
-    .footer-name { font-family: "Great Vibes", cursive; font-size: 3rem; color: hsl(33 47% 35%); line-height: 1; }
+    .footer-name { font-family: "Great Vibes", cursive; font-size: 3rem; color: #3D4A38; line-height: 1; }
     @media (min-width: 768px) { .footer-name { font-size: 3.75rem; } }
-    .footer-amp { font-family: "Great Vibes", cursive; font-size: 1.875rem; color: hsl(33 47% 35%); font-style: italic; display: block; margin: 0.25rem 0; }
+    .footer-amp { font-family: "Great Vibes", cursive; font-size: 1.875rem; color: #3D4A38; font-style: italic; display: block; margin: 0.25rem 0; }
     @media (min-width: 768px) { .footer-amp { font-size: 2.25rem; } }
-    .footer-date { font-size: 1.125rem; color: hsl(38 43% 60%); font-family: "arek-armenian", serif; font-weight: 600; margin-top: 0.5rem; }
+    .footer-date { font-size: 1.125rem; color: #75886D; font-family: "arek-armenian", serif; font-weight: 600; margin-top: 0.5rem; }
 
     /* ===== MUSIC TOGGLE ===== */
     .music-toggle {
       position: fixed; bottom: 1.5rem; right: 1.5rem;
       width: 48px; height: 48px; border-radius: 50%;
       background: rgba(255,255,255,0.9); backdrop-filter: blur(8px);
-      border: 1px solid hsl(38 43% 60% / 0.3);
-      color: hsl(33 47% 35%);
+      border: 1px solid rgba(117,136,109, 0.3);
+      color: #3D4A38;
       cursor: pointer; z-index: 40;
       display: flex; align-items: center; justify-content: center;
       box-shadow: 0 4px 16px rgba(0,0,0,0.1);
       transition: transform 0.3s, background 0.3s;
     }
     .music-toggle:hover { transform: scale(1.1); background: #fff; }
-    .music-toggle:focus-visible { outline: 2px solid hsl(38 43% 60%); outline-offset: 2px; }
+    .music-toggle:focus-visible { outline: 2px solid #75886D; outline-offset: 2px; }
     .music-toggle:active { transform: scale(0.95); }
     .music-toggle svg { width: 20px; height: 20px; }
 
@@ -992,9 +1156,9 @@
     .gallery-marquee-section {
       background: hsl(40 37% 96%);
       overflow: hidden;
-      padding-bottom: 4rem;
+      padding-bottom: 1.5rem;
     }
-    @media (min-width: 768px) { .gallery-marquee-section { padding-bottom: 5rem; } }
+    @media (min-width: 768px) { .gallery-marquee-section { padding-bottom: 2rem; } }
   </style>
 </head>
 <body>
@@ -1072,26 +1236,37 @@
       </div>
       <div class="marquee-strip fade-in-only delay-3">
         <div class="marquee-inner animate-marquee">
-          <div class="marquee-item"><img loading="lazy" src="assets/gal-1.webp" alt="" style="object-position:center 20%" draggable="false"></div>
-          <div class="marquee-item"><img loading="lazy" src="assets/gal-22.webp" alt="" style="object-position:center 55%" draggable="false"></div>
-          <div class="marquee-item"><img loading="lazy" src="assets/gal-33.webp" alt="" style="object-position:center 30%" draggable="false"></div>
-          <div class="marquee-item"><img loading="lazy" src="assets/gal-44.webp" alt="" style="object-position:center 40%" draggable="false"></div>
-          <div class="marquee-item"><img loading="lazy" src="assets/gal-55.webp" alt="" style="object-position:center 35%" draggable="false"></div>
+          <div class="marquee-item"><img loading="lazy" src="assets/uppics/uppic1.jpeg" alt="" style="object-position:center 20%" draggable="false"></div>
+          <div class="marquee-item"><img loading="lazy" src="assets/uppics/uppic2.jpeg" alt="" style="object-position:center 55%" draggable="false"></div>
+          <div class="marquee-item"><img loading="lazy" src="assets/uppics/uppic3.jpeg" alt="" style="object-position:center 30%" draggable="false"></div>
+          <div class="marquee-item"><img loading="lazy" src="assets/uppics/uppic4.jpeg" alt="" style="object-position:center 40%" draggable="false"></div>
+          <div class="marquee-item"><img loading="lazy" src="assets/uppics/uppic5.jpeg" alt="" style="object-position:center 35%" draggable="false"></div>
           <!-- duplicated for seamless loop -->
-          <div class="marquee-item"><img loading="lazy" src="assets/gal-1.webp" alt="" style="object-position:center 20%" draggable="false"></div>
-          <div class="marquee-item"><img loading="lazy" src="assets/gal-22.webp" alt="" style="object-position:center 55%" draggable="false"></div>
-          <div class="marquee-item"><img loading="lazy" src="assets/gal-33.webp" alt="" style="object-position:center 30%" draggable="false"></div>
-          <div class="marquee-item"><img loading="lazy" src="assets/gal-44.webp" alt="" style="object-position:center 40%" draggable="false"></div>
-          <div class="marquee-item"><img loading="lazy" src="assets/gal-55.webp" alt="" style="object-position:center 35%" draggable="false"></div>
+          <div class="marquee-item"><img loading="lazy" src="assets/uppics/uppic1.jpeg" alt="" style="object-position:center 20%" draggable="false"></div>
+          <div class="marquee-item"><img loading="lazy" src="assets/uppics/uppic2.jpeg" alt="" style="object-position:center 55%" draggable="false"></div>
+          <div class="marquee-item"><img loading="lazy" src="assets/uppics/uppic3.jpeg" alt="" style="object-position:center 30%" draggable="false"></div>
+          <div class="marquee-item"><img loading="lazy" src="assets/uppics/uppic4.jpeg" alt="" style="object-position:center 40%" draggable="false"></div>
+          <div class="marquee-item"><img loading="lazy" src="assets/uppics/uppic5.jpeg" alt="" style="object-position:center 35%" draggable="false"></div>
         </div>
       </div>
     </section>
 
-    <!-- DIVIDER: line + floral vase -->
+    <!-- DIVIDER -->
     <div class="ivory-divider">
-      <div class="divider-line"></div>
-      <img src="assets/floral-vase-6x28LN74.webp" alt="" style="width:8rem;" class="fade-up" loading="lazy">
+      <img src="assets/div-11.png" alt="" style="width:min(60%, 18rem);" class="fade-up" loading="lazy">
     </div>
+
+    <!-- ===== KNANAYA HERITAGE ===== -->
+    <section class="heritage-section">
+      <div class="heritage-inner">
+        <p class="heritage-suptitle fade-up">A Celebration of Heritage</p>
+        <h2 class="heritage-title fade-up delay-1">Our Knanaya Traditions</h2>
+        <div class="heritage-divider fade-up delay-2"></div>
+        <p class="heritage-text fade-up delay-2">We are so proud to celebrate our wedding in the spirit of our Knanaya roots—a community that has cherished a unique blend of faith and culture for generations. Our traditions are a beautiful reflection of our history, valuing the deep bonds of family and the sacredness of marriage.</p>
+        <p class="heritage-text fade-up delay-3">Throughout our celebration, you'll see special rituals that have been passed down through the centuries. On Day 1, we begin with the engagement ceremony in the church, followed by a reception where we also have <em>Mylanchi Ideel</em> (henna ceremony for the bride) and <em>Chantham Charthal</em> (Pre-wedding rituals). These customs aren't just rituals; they are joyful moments of prayer, song, and community that mark the beginning of our new life together.</p>
+        <p class="heritage-text fade-up delay-3">Whether these traditions are familiar to you or you are experiencing them for the first time, we are so honoured to share them with you. Get ready for a celebration full of heart, music, and the legendary Knanaya spirit of hospitality!</p>
+      </div>
+    </section>
 
     <!-- ===== VENUE (GOLD BG) ===== -->
     <section class="venue-gold">
@@ -1101,9 +1276,9 @@
           <p class="venue-gold-subtitle">In the presence of God, we will celebrate both our engagement and wedding ceremonies here, each on its own special day.</p>
         </div>
         <div class="venue-card fade-up delay-1">
-          <img src="assets/venue-img.webp" alt="Knanaya Catholic Metropolitan Archbishop's House" class="venue-illustration" loading="lazy">
+          <img src="assets/div-33.png" alt="Knanaya Catholic Metropolitan Archbishop's House" class="venue-illustration" loading="lazy">
           <h3 class="venue-name">Knanaya Catholic Metropolitan Archbishop's House</h3>
-          <p class="venue-name-sub" style="font-family:'arek-armenian',serif; font-size:1.5rem; color:hsl(33 47% 35%); margin-top:0.25rem;">Aramana Palli, Kottayam</p>
+          <p class="venue-name-sub" style="font-family:'arek-armenian',serif; font-size:1.5rem; color:#3D4A38; margin-top:0.25rem;">Aramana Palli, Kottayam</p>
           <div class="venue-separator" style="margin:1rem auto;"></div>
           <div class="venue-detail-row">
             <span class="date-text" style="font-size:1rem; font-weight:700;">Engagement Ceremony</span>
@@ -1139,16 +1314,50 @@
     <!-- ===== DAY PROGRAMME ===== -->
     <section class="programme-section" id="programme">
       <div class="programme-inner">
-        <h2 class="programme-title fade-up">Day 1 - Engagement, Mylanchi, Chandam Charthu</h2>
+        <h2 class="programme-title fade-up">Day 1 - Engagement, Mylanchi, Chantham Charthu</h2>
         <p class="programme-date fade-up delay-1">03 January 2027</p>
-        <div class="timeline fade-up delay-2">
-          <div class="timeline-line"></div>
-          <div class="timeline-item"><div class="timeline-tick"></div><div class="timeline-half left"></div><div class="timeline-half right"><p class="timeline-time">16:00</p><p class="timeline-label">Engagement Church Ceremony</p></div></div>
-          <div class="timeline-item"><div class="timeline-tick"></div><div class="timeline-half left"><p class="timeline-time">17:00</p><p class="timeline-label">Engagement Reception at Windsor Castle</p></div><div class="timeline-half right"></div></div>
-          <div class="timeline-item"><div class="timeline-tick"></div><div class="timeline-half left"></div><div class="timeline-half right"><p class="timeline-time">18:00</p><p class="timeline-label">Mylanchi</p></div></div>
-          <div class="timeline-item"><div class="timeline-tick"></div><div class="timeline-half left"><p class="timeline-time">19:00</p><p class="timeline-label">Chandam Charthu</p></div><div class="timeline-half right"></div></div>
-          <div class="timeline-item"><div class="timeline-tick"></div><div class="timeline-half left"></div><div class="timeline-half right"><p class="timeline-time">20:00</p><p class="timeline-label">Dinner and Cocktails</p></div></div>
-          <div class="timeline-item"><div class="timeline-tick"></div><div class="timeline-half left"><p class="timeline-time">23:00</p><p class="timeline-label">Finish</p></div><div class="timeline-half right"></div></div>
+        <div class="timeline" data-timeline>
+          <div class="tl-row tl-has-detail">
+            <div class="tl-content">
+              <span class="tl-time">16:00</span>
+              <p class="tl-label">Engagement Church Ceremony</p>
+              <div class="tl-detail"><div class="tl-detail-inner"><p class="tl-detail-text">A formal promise made in the presence of God and family. Our engagement ceremony at the church serves as the spiritual opening to our wedding festivities. It is a moment of sacred commitment and shared blessings before we transition into the music, laughter, and traditions of our Knanaya heritage.</p></div></div>
+            </div>
+          </div>
+          <div class="tl-row">
+            <div class="tl-content">
+              <span class="tl-time">17:00</span>
+              <p class="tl-label">Engagement Reception at Windsor Castle</p>
+            </div>
+          </div>
+          <div class="tl-row tl-has-detail">
+            <div class="tl-content">
+              <span class="tl-time">18:00</span>
+              <p class="tl-label">Mylanchi Ideel</p>
+              <p class="tl-sublabel">The Henna Ceremony</p>
+              <div class="tl-detail"><div class="tl-detail-inner"><p class="tl-detail-text">A vibrant tradition of beauty and blessing. The Mylanchi Ideel is a cherished Knanaya ritual where the bride is adorned with henna, symbolizing her transition into marriage. Accompanied by ancient folk songs (Purathanappattu), this ceremony is a joyful expression of community and heritage, celebrating the grace and new beginnings of the bride.</p></div></div>
+            </div>
+          </div>
+          <div class="tl-row tl-has-detail">
+            <div class="tl-content">
+              <span class="tl-time">19:00</span>
+              <p class="tl-label">Chantham Charthu</p>
+              <p class="tl-sublabel">Pre-wedding rituals</p>
+              <div class="tl-detail"><div class="tl-detail-inner"><p class="tl-detail-text">Chantham Charthu is a cherished pre-wedding ritual for the groom, involving a ceremonial shave and oiling. Accompanied by music, dance, and family blessings, this ritual prepares the groom for the wedding day and is a joyful expression of Knanaya tradition.</p></div></div>
+            </div>
+          </div>
+          <div class="tl-row">
+            <div class="tl-content">
+              <span class="tl-time">20:00</span>
+              <p class="tl-label">Dinner and Cocktails</p>
+            </div>
+          </div>
+          <div class="tl-row">
+            <div class="tl-content">
+              <span class="tl-time">23:00</span>
+              <p class="tl-label">Finish</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -1168,21 +1377,17 @@
       </div>
     </section>
 
-    <!-- DIVIDER: bow -->
-    <div class="ivory-divider">
-      <img src="assets/bow-illustration-DWFdIPv5.webp" alt="" style="width:4rem;" class="fade-up" loading="lazy">
-    </div>
 
     <!-- ===== DAY 1 TRANSPORT ===== -->
     <section class="transport-section" id="day1-transport">
       <div class="transport-inner">
         <h2 class="transport-title fade-up">Day 1 Location and Transportation</h2>
         <div class="transport-card fade-up delay-1">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="hsl(38,43%,60%)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin:0 auto 0.75rem;display:block;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#75886D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin:0 auto 0.75rem;display:block;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
           <p class="transport-address">Following the ceremony at Aramana Palli, the reception will be held at The Windsor Castle, Kodimatha, Kottayam.</p>
           <a href="https://maps.app.goo.gl/WiGJ1Zv1qzFMtBju7" target="_blank" rel="noopener noreferrer" class="transport-map-link">Google Maps</a>
           <div class="transport-sep"></div>
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="hsl(38,43%,60%)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin:0 auto 0.75rem;display:block;"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></svg>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#75886D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin:0 auto 0.75rem;display:block;"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></svg>
           <p class="transport-overview">A bus will be available to take guests from the church to the reception at Windsor Castle.</p>
         </div>
       </div>
@@ -1190,7 +1395,7 @@
 
     <!-- DIVIDER: champagne tower -->
     <div class="ivory-divider">
-      <img src="assets/champagne-tower-Or6MBjHQ.webp" alt="" style="width:8rem;" class="fade-up" loading="lazy">
+      <img src="assets/div-22.png" alt="" style="width:min(60%, 18rem);" class="fade-up" loading="lazy">
     </div>
 
     <!-- ===== DAY 2 PROGRAMME ===== -->
@@ -1198,14 +1403,43 @@
       <div class="programme-inner">
         <h2 class="programme-title fade-up">Day 2 - Wedding Day</h2>
         <p class="programme-date fade-up delay-1">05 January 2027</p>
-        <div class="timeline fade-up delay-2">
-          <div class="timeline-line"></div>
-          <div class="timeline-item"><div class="timeline-tick"></div><div class="timeline-half left"></div><div class="timeline-half right"><p class="timeline-time">15:00</p><p class="timeline-label">Church Wedding Ceremony</p></div></div>
-          <div class="timeline-item"><div class="timeline-tick"></div><div class="timeline-half left"><p class="timeline-time">17:00</p><p class="timeline-label">Wedding reception at Backwater Ripples</p></div><div class="timeline-half right"></div></div>
-          <div class="timeline-item"><div class="timeline-tick"></div><div class="timeline-half left"></div><div class="timeline-half right"><p class="timeline-time">17:30</p><p class="timeline-label">Cake Cutting</p></div></div>
-          <div class="timeline-item"><div class="timeline-tick"></div><div class="timeline-half left"><p class="timeline-time">18:00</p><p class="timeline-label">Cocktails</p></div><div class="timeline-half right"></div></div>
-          <div class="timeline-item"><div class="timeline-tick"></div><div class="timeline-half left"></div><div class="timeline-half right"><p class="timeline-time">20:00</p><p class="timeline-label">Dinner</p></div></div>
-          <div class="timeline-item"><div class="timeline-tick"></div><div class="timeline-half left"><p class="timeline-time">22:00</p><p class="timeline-label">Finish</p></div><div class="timeline-half right"></div></div>
+        <div class="timeline" data-timeline>
+          <div class="tl-row">
+            <div class="tl-content">
+              <span class="tl-time">15:00</span>
+              <p class="tl-label">Church Wedding Ceremony</p>
+            </div>
+          </div>
+          <div class="tl-row">
+            <div class="tl-content">
+              <span class="tl-time">17:00</span>
+              <p class="tl-label">Wedding Reception at Backwater Ripples</p>
+            </div>
+          </div>
+          <div class="tl-row">
+            <div class="tl-content">
+              <span class="tl-time">17:30</span>
+              <p class="tl-label">Cake Cutting</p>
+            </div>
+          </div>
+          <div class="tl-row">
+            <div class="tl-content">
+              <span class="tl-time">18:00</span>
+              <p class="tl-label">Cocktails</p>
+            </div>
+          </div>
+          <div class="tl-row">
+            <div class="tl-content">
+              <span class="tl-time">20:00</span>
+              <p class="tl-label">Dinner</p>
+            </div>
+          </div>
+          <div class="tl-row">
+            <div class="tl-content">
+              <span class="tl-time">22:00</span>
+              <p class="tl-label">Finish</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -1225,29 +1459,25 @@
       </div>
     </section>
 
-    <!-- DIVIDER: bow -->
-    <div class="ivory-divider">
-      <img src="assets/bow-illustration-DWFdIPv5.webp" alt="" style="width:4rem;" class="fade-up" loading="lazy">
-    </div>
 
     <!-- ===== DAY 2 TRANSPORT ===== -->
     <section class="transport-section" id="day2-transport">
       <div class="transport-inner">
         <h2 class="transport-title fade-up">Day 2 Location and Transportation</h2>
         <div class="transport-card fade-up delay-1">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="hsl(38,43%,60%)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin:0 auto 0.75rem;display:block;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#75886D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin:0 auto 0.75rem;display:block;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
           <p class="transport-address">Following the ceremony at Aramana Palli, the reception will be held at Backwater ripples, Kumarakom.</p>
           <a href="https://maps.app.goo.gl/N6ZYkhJHT9gvLB2A9" target="_blank" rel="noopener noreferrer" class="transport-map-link">Google Maps</a>
           <div class="transport-sep"></div>
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="hsl(38,43%,60%)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin:0 auto 0.75rem;display:block;"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></svg>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#75886D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin:0 auto 0.75rem;display:block;"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></svg>
           <p class="transport-overview">A bus will be available to take guests from the church to the reception at Backwater ripples.</p>
         </div>
       </div>
     </section>
 
-    <!-- DIVIDER: matchbox -->
+    <!-- DIVIDER -->
     <div class="ivory-divider">
-      <img src="assets/matchbox-illustration-Cje_YC4u.webp" alt="" style="width:6rem;" class="fade-up" loading="lazy">
+      <img src="assets/div-44.png" alt="" style="width:min(60%, 18rem);" class="fade-up" loading="lazy">
     </div>
 
     <!-- ===== ACCOMMODATION ===== -->
@@ -1283,33 +1513,34 @@
       </div>
     </section>
 
-    <!-- DIVIDER: locket -->
-    <div class="ivory-divider">
-      <img src="assets/locket-illustration-B7vFK6H-.webp" alt="" style="width:6rem;" class="fade-up" loading="lazy">
-    </div>
-
     <!-- ===== SECOND GALLERY MARQUEE ===== -->
     <section class="gallery-marquee-section">
       <div class="marquee-strip">
         <div class="marquee-inner animate-marquee" style="animation-direction:reverse;">
-          <div class="marquee-item"><img loading="lazy" src="assets/gal1.jpeg" alt="" style="object-position:30% 40%" draggable="false"></div>
-          <div class="marquee-item"><img loading="lazy" src="assets/gal2.jpeg" alt="" style="object-position:center 35%" draggable="false"></div>
-          <div class="marquee-item"><img loading="lazy" src="assets/gal3.jpeg" alt="" style="object-position:right 60%; object-fit:cover; transform:scale(1.3); transform-origin:right 60%" draggable="false"></div>
-          <div class="marquee-item"><img loading="lazy" src="assets/gal4.jpeg" alt="" style="object-position:60% 30%" draggable="false"></div>
-          <div class="marquee-item"><img loading="lazy" src="assets/gal5.jpeg" alt="" style="object-position:40% center" draggable="false"></div>
+          <div class="marquee-item"><img loading="lazy" src="assets/downpics/downpic1.jpeg" alt="" style="object-position:30% 40%" draggable="false"></div>
+          <div class="marquee-item"><img loading="lazy" src="assets/downpics/downpic2.jpeg" alt="" style="object-position:center 35%" draggable="false"></div>
+          <div class="marquee-item"><img loading="lazy" src="assets/downpics/downpic3.jpeg" alt="" style="object-position:20% center" draggable="false"></div>
+          <div class="marquee-item"><img loading="lazy" src="assets/downpics/downpic4.jpeg" alt="" style="object-position:60% 30%" draggable="false"></div>
+          <div class="marquee-item"><img loading="lazy" src="assets/downpics/downpic5.jpeg" alt="" style="object-position:40% center" draggable="false"></div>
+          <div class="marquee-item"><img loading="lazy" src="assets/downpics/downpic6.jpeg" alt="" style="object-position:center center" draggable="false"></div>
+          <div class="marquee-item"><img loading="lazy" src="assets/downpics/downpic7.jpeg" alt="" style="object-position:center center" draggable="false"></div>
+          <div class="marquee-item"><img loading="lazy" src="assets/downpics/downpic8.jpeg" alt="" style="object-position:center center" draggable="false"></div>
           <!-- duplicate for seamless loop -->
-          <div class="marquee-item"><img loading="lazy" src="assets/gal1.jpeg" alt="" style="object-position:30% 40%" draggable="false"></div>
-          <div class="marquee-item"><img loading="lazy" src="assets/gal2.jpeg" alt="" style="object-position:center 35%" draggable="false"></div>
-          <div class="marquee-item"><img loading="lazy" src="assets/gal3.jpeg" alt="" style="object-position:right 60%; object-fit:cover; transform:scale(1.3); transform-origin:right 60%" draggable="false"></div>
-          <div class="marquee-item"><img loading="lazy" src="assets/gal4.jpeg" alt="" style="object-position:60% 30%" draggable="false"></div>
-          <div class="marquee-item"><img loading="lazy" src="assets/gal5.jpeg" alt="" style="object-position:40% center" draggable="false"></div>
+          <div class="marquee-item"><img loading="lazy" src="assets/downpics/downpic1.jpeg" alt="" style="object-position:30% 40%" draggable="false"></div>
+          <div class="marquee-item"><img loading="lazy" src="assets/downpics/downpic2.jpeg" alt="" style="object-position:center 35%" draggable="false"></div>
+          <div class="marquee-item"><img loading="lazy" src="assets/downpics/downpic3.jpeg" alt="" style="object-position:20% center" draggable="false"></div>
+          <div class="marquee-item"><img loading="lazy" src="assets/downpics/downpic4.jpeg" alt="" style="object-position:60% 30%" draggable="false"></div>
+          <div class="marquee-item"><img loading="lazy" src="assets/downpics/downpic5.jpeg" alt="" style="object-position:40% center" draggable="false"></div>
+          <div class="marquee-item"><img loading="lazy" src="assets/downpics/downpic6.jpeg" alt="" style="object-position:center center" draggable="false"></div>
+          <div class="marquee-item"><img loading="lazy" src="assets/downpics/downpic7.jpeg" alt="" style="object-position:center center" draggable="false"></div>
+          <div class="marquee-item"><img loading="lazy" src="assets/downpics/downpic8.jpeg" alt="" style="object-position:center center" draggable="false"></div>
         </div>
       </div>
     </section>
 
     <!-- DIVIDER: swans -->
     <div class="ivory-divider">
-      <img src="assets/swans-framed-ByH4RE7t.webp" alt="" style="width:8rem;" class="fade-up" loading="lazy">
+      <img src="assets/div-11.png" alt="" style="width:min(60%, 18rem);" class="fade-up" loading="lazy">
     </div>
 
     <!-- ===== RSVP (GOLD BG) ===== -->
@@ -1421,6 +1652,30 @@
     }, { threshold: 0.1 });
     fadeEls.forEach(function(el) { scrollObserver.observe(el); });
 
+    // ===== TIMELINE: stagger reveal + click to expand =====
+    (function() {
+      document.querySelectorAll('[data-timeline]').forEach(function(tl) {
+        var rows = tl.querySelectorAll('.tl-row');
+        // stagger reveal on scroll
+        var tlObserver = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              var idx = Array.prototype.indexOf.call(rows, entry.target);
+              setTimeout(function() { entry.target.classList.add('tl-visible'); }, idx * 120);
+              tlObserver.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.15 });
+        rows.forEach(function(r) { tlObserver.observe(r); });
+      });
+      // click to toggle detail
+      document.querySelectorAll('.tl-row.tl-has-detail').forEach(function(row) {
+        row.addEventListener('click', function() {
+          row.classList.toggle('tl-active');
+        });
+      });
+    })();
+
     // Hero immediate visibility
     document.querySelector('.hero').querySelectorAll('.fade-up, .fade-in-only').forEach(function(el) {
       el.classList.add('visible');
@@ -1446,12 +1701,7 @@
         if (splashState !== 'idle') return;
         splashState = 'playing';
 
-        // Start music
-        music.volume = 0.5;
-        music.play().catch(function(){});
-        isPlaying = true;
-        iconOff.style.display = 'none';
-        iconOn.style.display = 'block';
+        // Music stays muted by default — user can enable via toggle
 
         // Play the envelope video
         var p = splashVideo.play();
@@ -1518,8 +1768,8 @@
       var W = 300, H = 380;
       var score = 0;
       var best = 0;
-      var goldColor = '#c5a46d';
-      var goldDark = '#8b6f3a';
+      var goldColor = '#75886D';
+      var goldDark = '#4E5E47';
       var pillarX = W / 2;
       var pillarY = H - 60;
       var pillarW = 8;
@@ -1658,7 +1908,7 @@
           // Rope
           var rx = anchorX + Math.sin(angle) * ropeLen;
           var ry = anchorY + Math.cos(angle) * ropeLen;
-          ctx.strokeStyle = 'hsl(33, 30%, 65%)';
+          ctx.strokeStyle = '#95A78E';
           ctx.lineWidth = 1.5;
           ctx.beginPath();
           ctx.moveTo(anchorX, anchorY);
