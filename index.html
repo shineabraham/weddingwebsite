@@ -2014,6 +2014,10 @@
   </button>
 
   <script>
+    // Always start from the top on load/refresh
+    if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+    window.scrollTo(0, 0);
+
     // Countdown
     function updateCountdown() {
       var target = new Date('2027-01-05T15:00:00+05:30').getTime();
@@ -2090,7 +2094,15 @@
         if (splashState !== 'idle') return;
         splashState = 'playing';
 
-        // Music stays muted by default — user can enable via toggle
+        // Start music on user gesture so browser allows autoplay
+        var mp = music.play();
+        if (mp && typeof mp.then === 'function') {
+          mp.then(function() {
+            isPlaying = true;
+            iconOff.style.display = 'none';
+            iconOn.style.display = 'block';
+          }).catch(function(){});
+        }
 
         // Play the envelope video
         var p = splashVideo.play();
