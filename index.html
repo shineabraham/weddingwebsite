@@ -1270,7 +1270,7 @@
 
     /* ===== Q&A SECTION ===== */
     .qa-section {
-      padding: 3.5rem 1.5rem;
+      padding: 3.5rem 1.25rem;
       background-color: #75886D;
     }
     @media (min-width: 768px) { .qa-section { padding: 5rem 3rem; } }
@@ -1300,7 +1300,8 @@
       margin: 0.5rem 0 2rem;
       font-style: italic;
     }
-    .qa-list { display: flex; flex-direction: column; gap: 0.75rem; }
+    .qa-list { display: flex; flex-direction: column; gap: 0.5rem; }
+    @media (min-width: 768px) { .qa-list { gap: 0.75rem; } }
     .qa-item {
       background: rgba(255,255,255,0.12);
       border: 1px solid rgba(255,255,255,0.2);
@@ -1312,18 +1313,21 @@
     .qa-item:hover { background: rgba(255,255,255,0.18); }
     .qa-question {
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       justify-content: space-between;
-      gap: 1rem;
-      padding: 1.25rem 1.5rem;
+      gap: 0.75rem;
+      padding: 1rem 1.25rem;
       font-family: "arek-armenian", serif;
-      font-size: 1rem;
+      font-size: 0.95rem;
       font-weight: 600;
       color: #fff;
+      line-height: 1.5;
       user-select: none;
     }
+    @media (min-width: 768px) { .qa-question { font-size: 1rem; padding: 1.25rem 1.5rem; } }
     .qa-question svg {
       flex-shrink: 0;
+      margin-top: 0.2rem;
       transition: transform 0.4s cubic-bezier(.22,1,.36,1);
     }
     .qa-item.qa-open .qa-question svg { transform: rotate(180deg); }
@@ -1336,23 +1340,25 @@
     .qa-answer-inner { overflow: hidden; }
     .qa-answer {
       font-family: "arek-armenian", serif;
-      font-size: 1rem;
+      font-size: 0.95rem;
       line-height: 1.75;
       color: rgba(255,255,255,0.88);
-      padding: 0 1.5rem 1.25rem;
+      padding: 0 1.25rem 1rem;
       opacity: 0;
       transform: translateY(-4px);
       transition: opacity 0.3s ease 0.1s, transform 0.3s ease 0.1s;
     }
     .qa-item.qa-open .qa-answer { opacity: 1; transform: translateY(0); }
+    @media (min-width: 768px) { .qa-answer { font-size: 1rem; padding: 0 1.5rem 1.25rem; } }
     .qa-contact {
-      margin-top: 2rem;
+      margin-top: 1.5rem;
       text-align: center;
       background: rgba(255,255,255,0.12);
       border: 1px solid rgba(255,255,255,0.2);
       border-radius: 1rem;
-      padding: 2rem 1.5rem;
+      padding: 1.5rem 1.25rem;
     }
+    @media (min-width: 768px) { .qa-contact { padding: 2rem 1.5rem; margin-top: 2rem; } }
     .qa-contact-label {
       font-family: "arek-armenian", serif;
       font-size: 0.8rem;
