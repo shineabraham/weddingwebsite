@@ -1713,7 +1713,7 @@
       <div class="dress-inner">
         <div class="dress-card fade-up">
           <h2 class="dress-title">Day 1 - Dress Code</h2>
-          <p class="dress-desc" style="margin-bottom:0.75rem;">The colour scheme and dress code for Day 1 will be confirmed closer to the event. Our SANS Events team will reach out via WhatsApp with full details before the day — so nothing to worry about just yet!</p>
+          <p class="dress-desc" style="margin-bottom:0.75rem;">The colour scheme and dress code for Day 1 will be updated on this website closer to the event — check back here for full details!</p>
         </div>
       </div>
     </section>
@@ -2195,35 +2195,6 @@
                 </div>
               </div>
 
-              <!-- Flight details — always shown for attending guests -->
-              <div class="flight-fields" id="flight-fields">
-                <p class="form-label" style="margin-bottom:0.25rem;">Flight Arrival Details <span style="font-weight:400;opacity:0.7;">(helps us plan your complimentary shuttle)</span></p>
-                <p style="font-family:'arek-armenian',serif; font-size:0.82rem; color:#75886D; margin-bottom:0.75rem; font-style:italic;">Haven't booked yet? Fill in what you know — you can share the rest with our SANS Events team on WhatsApp closer to the date.</p>
-                <div class="form-group">
-                  <label class="form-label" for="arrival-airport">Arrival Airport <span style="font-weight:400;opacity:0.7;">(optional)</span></label>
-                  <select id="arrival-airport" class="form-select">
-                    <option value="">Select airport</option>
-                    <option value="COK">Cochin International Airport (COK) — recommended</option>
-                    <option value="TRV">Trivandrum International Airport (TRV)</option>
-                    <option value="other">Other</option>
-                  </select>
-                </div>
-                <div class="flight-row">
-                  <div class="form-group">
-                    <label class="form-label" for="arrival-date">Arrival Date <span style="font-weight:400;opacity:0.7;">(optional)</span></label>
-                    <input type="date" id="arrival-date" class="form-input">
-                  </div>
-                  <div class="form-group">
-                    <label class="form-label" for="arrival-time">Arrival Time <span style="font-weight:400;opacity:0.7;">(optional)</span></label>
-                    <input type="time" id="arrival-time" class="form-input">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label class="form-label" for="flight-number">Flight Number <span style="font-weight:400;opacity:0.7;">(optional)</span></label>
-                  <input type="text" id="flight-number" class="form-input" placeholder="e.g. EK 528">
-                </div>
-              </div>
-
               <div class="form-group">
                 <label class="form-label" for="dietary">Dietary requirements for your party</label>
                 <input type="text" id="dietary" class="form-input" placeholder="e.g. Guest 1: vegetarian, Guest 3: nut allergy">
@@ -2372,7 +2343,6 @@
       var fieldNote     = document.getElementById('field-note');
       var noteLabel     = document.getElementById('note-label');
       var submitBtn     = document.getElementById('rsvp-submit-btn');
-      var flightFields  = document.getElementById('flight-fields');
 
       function show(el) { if (el) el.classList.add('visible'); }
       function hide(el) { if (el) el.classList.remove('visible'); }
@@ -2386,7 +2356,6 @@
         if (isYes) {
           show(yesFields);
           hide(noFields);
-          if (flightFields) flightFields.classList.add('visible');
           if (noteLabel) noteLabel.textContent = 'A note for Larisa & Shine';
         } else if (isNo) {
           hide(yesFields);
@@ -2754,31 +2723,21 @@
         day1: 'Day 1 only — Engagement & Reception (3rd Jan)',
         day2: 'Day 2 only — Wedding & Reception (5th Jan)'
       };
-      var airportMap = {
-        COK: 'Cochin International (COK)',
-        TRV: 'Trivandrum International (TRV)',
-        other: 'Other'
-      };
 
-      var rawAirport = document.getElementById('arrival-airport') ? document.getElementById('arrival-airport').value : '';
-      var rawDays    = daysEl ? daysEl.value : '';
+      var rawDays = daysEl ? daysEl.value : '';
 
       var payload = {
-        attending:       isYes ? 'Yes' : 'No',
-        fullname:        fullname,
-        mobile:          isYes
-                           ? (document.getElementById('mobile') ? document.getElementById('mobile').value.trim() : '')
-                           : (document.getElementById('contact-no') ? document.getElementById('contact-no').value.trim() : ''),
-        email:           document.getElementById('email') ? document.getElementById('email').value.trim() : '',
-        guests:          document.getElementById('guests') ? document.getElementById('guests').value : '',
-        days_attending:  daysMap[rawDays] || rawDays,
-        arrival_airport: airportMap[rawAirport] || rawAirport,
-        arrival_date:    document.getElementById('arrival-date') ? document.getElementById('arrival-date').value : '',
-        arrival_time:    document.getElementById('arrival-time') ? document.getElementById('arrival-time').value : '',
-        flight_number:   document.getElementById('flight-number') ? document.getElementById('flight-number').value.trim() : '',
-        dietary:         document.getElementById('dietary') ? document.getElementById('dietary').value.trim() : '',
-        plans:           plansEl ? (plansEl.value === 'yes' ? 'Count me in!' : 'I\'ll skip this one') : '',
-        message:         document.getElementById('message') ? document.getElementById('message').value.trim() : ''
+        attending:      isYes ? 'Yes' : 'No',
+        fullname:       fullname,
+        mobile:         isYes
+                          ? (document.getElementById('mobile') ? document.getElementById('mobile').value.trim() : '')
+                          : (document.getElementById('contact-no') ? document.getElementById('contact-no').value.trim() : ''),
+        email:          document.getElementById('email') ? document.getElementById('email').value.trim() : '',
+        guests:         document.getElementById('guests') ? document.getElementById('guests').value : '',
+        days_attending: daysMap[rawDays] || rawDays,
+        dietary:        document.getElementById('dietary') ? document.getElementById('dietary').value.trim() : '',
+        plans:          plansEl ? (plansEl.value === 'yes' ? 'Count me in!' : 'I\'ll skip this one') : '',
+        message:        document.getElementById('message') ? document.getElementById('message').value.trim() : ''
       };
 
       btn.textContent = 'Sending...';

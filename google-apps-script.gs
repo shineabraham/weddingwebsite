@@ -14,8 +14,7 @@
  *
  * SHEET COLUMNS (auto-created on first submission if sheet is empty):
  * Timestamp | Attending | Full Name | Mobile / WhatsApp | Email | Party Size |
- * Days Attending | Arrival Airport | Arrival Date | Arrival Time |
- * Flight Number | Dietary Requirements | Pre / Post Wedding Plans | Message
+ * Days Attending | Dietary Requirements | Pre / Post Wedding Plans | Message
  */
 
 var HEADERS = [
@@ -26,10 +25,6 @@ var HEADERS = [
   'Email',
   'Party Size',
   'Days Attending',
-  'Arrival Airport',
-  'Arrival Date',
-  'Arrival Time',
-  'Flight Number',
   'Dietary Requirements',
   'Pre / Post Wedding Plans',
   'Message'
@@ -48,16 +43,12 @@ function doPost(e) {
 
     var row = [
       new Date(),                  // Timestamp
-      data.attending    || '',     // Attending
-      data.fullname     || '',     // Full Name
-      data.mobile       || '',     // Mobile / WhatsApp
-      data.email        || '',     // Email
-      data.guests       || '',     // Party Size
+      data.attending      || '',   // Attending
+      data.fullname       || '',   // Full Name
+      data.mobile         || '',   // Mobile / WhatsApp
+      data.email          || '',   // Email
+      data.guests         || '',   // Party Size
       data.days_attending || '',   // Days Attending
-      data.arrival_airport || '',  // Arrival Airport
-      data.arrival_date   || '',   // Arrival Date
-      data.arrival_time   || '',   // Arrival Time
-      data.flight_number  || '',   // Flight Number
       data.dietary        || '',   // Dietary Requirements
       data.plans          || '',   // Pre / Post Wedding Plans
       data.message        || ''    // Message
@@ -94,13 +85,9 @@ function formatHeaderRow(sheet) {
   // Timestamp column — format as readable date/time
   sheet.getRange('A:A').setNumberFormat('dd/mm/yyyy hh:mm');
 
-  // Highlight the shuttle-planning columns (arrival details) in light green
-  sheet.getRange(1, 8, 1, 4).setBackground('#C6EFCE'); // Airport, Date, Time, Flight No
-  sheet.getRange(1, 8, 1, 4).setFontColor('#276221');
-
   // Highlight the dietary column in light yellow — needs catering attention
-  sheet.getRange(1, 12, 1, 1).setBackground('#FFEB9C');
-  sheet.getRange(1, 12, 1, 1).setFontColor('#9C6500');
+  sheet.getRange(1, 8, 1, 1).setBackground('#FFEB9C');
+  sheet.getRange(1, 8, 1, 1).setFontColor('#9C6500');
 }
 
 /**
