@@ -106,6 +106,8 @@
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+      justify-content: center;
+      align-items: center;
       overflow: hidden;
       background: #fff;
     }
@@ -130,9 +132,9 @@
       flex-direction: column;
       align-items: center;
       text-align: center;
-      padding: 5rem 1.5rem 0;
+      padding: 1.5rem 1.5rem 0;
+      width: 100%;
     }
-    @media (min-width: 768px) { .hero-top { padding-top: 7rem; } }
     .hero-subtitle {
       font-family: "arek-armenian", serif;
       font-size: 1.1rem;
@@ -167,7 +169,7 @@
     }
     @media (min-width: 768px) { .hero-ampersand { font-size: 2.25rem; } }
 
-    .hero-spacer { flex: 1; position: relative; z-index: 2; }
+    .hero-spacer { display: none; }
 
     .hero-bottom {
       position: relative;
@@ -176,7 +178,8 @@
       flex-direction: column;
       align-items: center;
       text-align: center;
-      padding: 0 1.5rem 2rem;
+      padding: 0 1.5rem 0;
+      width: 100%;
     }
     .hero-divider-line {
       display: flex;
@@ -207,7 +210,10 @@
     @media (min-width: 768px) { .hero-date { font-size: 2.25rem; } }
 
     .hero-rsvp-btn {
-      position: relative;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
       z-index: 2;
       display: flex;
       flex-direction: column;
@@ -356,9 +362,8 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 1.25rem 0;
+      padding: 0.5rem 0 0;
     }
-    @media (min-width: 768px) { .ivory-divider { padding: 1.5rem 0; } }
     .ivory-divider img {
       height: auto;
       opacity: 0.8;
@@ -373,11 +378,11 @@
 
     /* ===== KNANAYA HERITAGE ===== */
     .heritage-section {
-      padding: 1.5rem 1.5rem 3rem;
+      padding: 0.5rem 1.5rem 3rem;
       background: hsl(40 37% 96%);
       text-align: center;
     }
-    @media (min-width: 768px) { .heritage-section { padding: 2rem 3rem 4rem; } }
+    @media (min-width: 768px) { .heritage-section { padding: 0.5rem 3rem 4rem; } }
     .heritage-inner {
       max-width: 42rem;
       margin: 0 auto;
@@ -1618,8 +1623,6 @@
         </h1>
       </div>
 
-      <div class="hero-spacer"></div>
-
       <div class="hero-bottom">
         <div class="hero-divider-line fade-in-only" style="transition-delay:0.6s;">
           <span class="line"></span>
@@ -1921,11 +1924,6 @@
       </div>
     </section>
 
-    <!-- DIVIDER -->
-    <div class="ivory-divider">
-      <img src="assets/div44.png" alt="" style="width:min(60%, 18rem);" class="fade-up" loading="lazy">
-    </div>
-
     <!-- ===== ACCOMMODATION ===== -->
     <section class="accommodation-section" id="accommodation">
       <div class="accommodation-inner">
@@ -1964,9 +1962,15 @@
               <a href="https://maps.app.goo.gl/ftnGFiiNHR1EcxXr5" target="_blank" rel="noopener noreferrer">View on Maps</a>
             </div>
           </div>
+        </div>
         <p class="accommodation-subtitle fade-up delay-3" style="margin-top:2rem; font-size:0.95rem;">These are a few other recommendations from our events planner. Feel free to <a href="https://www.tripadvisor.in/HotelsNear-g678552-d607992-Backwater_Ripples_Kumarakom-Kottayam_District_Kerala.html" target="_blank" rel="noopener noreferrer" style="color:#75886D; text-decoration:underline; text-underline-offset:2px;">explore more options here</a> or get in touch with us if you have any further questions.</p>
       </div>
     </section>
+
+    <!-- DIVIDER -->
+    <div class="ivory-divider">
+      <img src="assets/div44.png" alt="" style="width:min(60%, 18rem);" class="fade-up" loading="lazy">
+    </div>
 
     <!-- ===== SECOND GALLERY MARQUEE ===== -->
     <section class="gallery-marquee-section">
@@ -2210,7 +2214,7 @@
         <div class="rsvp-header fade-up">
           <h2 class="rsvp-title">RSVP</h2>
           <p class="rsvp-subtitle">Let us know if you can make it</p>
-          <p style="font-family:'arek-armenian',serif; font-size:0.9rem; color:#6B7D63; margin-top:0.5rem; font-style:italic;">Please RSVP by 1st January 2027</p>
+          <p style="font-family:'arek-armenian',serif; font-size:0.9rem; color:rgba(249,247,242,0.75); margin-top:0.5rem; font-style:italic;">Please RSVP by 1st January 2027</p>
         </div>
         <div class="rsvp-form-card fade-up delay-2">
           <form id="rsvp-form" onsubmit="handleRSVP(event)">
