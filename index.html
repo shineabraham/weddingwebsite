@@ -144,6 +144,7 @@
       text-shadow: 0 2px 8px rgba(0,0,0,0.3);
     }
     @media (min-width: 768px) { .hero-subtitle { font-size: 1.35rem; } }
+    @media (max-width: 480px) { .hero-subtitle { letter-spacing: 0.2em; font-size: 0.95rem; } }
     .hero-name {
       font-family: "New Icon Script", cursive;
       font-weight: normal;
@@ -271,8 +272,9 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 0 1rem;
+      padding: 0 0.65rem;
     }
+    @media (min-width: 480px) { .countdown-item { padding: 0 1rem; } }
     @media (min-width: 768px) { .countdown-item { padding: 0 1.75rem; } }
     .countdown-number {
       font-family: "New Icon Script", cursive;
@@ -318,11 +320,12 @@
     @media (min-width: 768px) { .welcome-title { font-size: 4.5rem; } }
     .welcome-text {
       font-family: "arek-armenian", serif;
-      font-size: 1.3rem;
+      font-size: 1.1rem;
       line-height: 1.7;
       color: #4E5E47;
       font-style: italic;
     }
+    @media (min-width: 768px) { .welcome-text { font-size: 1.25rem; } }
     .marquee-strip {
       width: 100%;
       overflow: hidden;
@@ -338,6 +341,7 @@
       overflow: hidden;
       height: 340px;
       width: 240px;
+      border-radius: 0.5rem;
     }
     .marquee-item img {
       width: 100%;
@@ -387,6 +391,7 @@
       margin-bottom: 1rem;
     }
     @media (min-width: 768px) { .heritage-suptitle { font-size: 1.5rem; } }
+    @media (max-width: 480px) { .heritage-suptitle { letter-spacing: 0.1em; font-size: 1rem; } }
     .heritage-title {
       font-family: "New Icon Script", cursive;
       font-size: 2.5rem;
@@ -549,7 +554,7 @@
       background-position: center;
     }
     @media (min-width: 768px) { .programme-section { padding: 5rem 3rem; } }
-    .programme-inner { max-width: 40rem; margin: 0 auto; }
+    .programme-inner { max-width: 52rem; margin: 0 auto; }
     .programme-title {
       font-family: "New Icon Script", cursive;
       font-size: 2.5rem;
@@ -576,6 +581,7 @@
       text-align: center;
       margin-bottom: 0.5rem;
     }
+    @media (max-width: 480px) { .programme-events { letter-spacing: 0.1em; font-size: 0.85rem; } }
     .programme-desc {
       font-family: "arek-armenian", serif;
       font-size: 1.2rem;
@@ -613,6 +619,7 @@
       align-items: flex-start;
       padding: 0 0 2rem;
       cursor: pointer;
+      min-height: 44px;
     }
     .tl-row:last-child { padding-bottom: 0; }
 
@@ -689,6 +696,7 @@
       margin-top: 0.2rem;
     }
     @media (min-width: 768px) { .tl-label { font-size: 1rem; } }
+    @media (max-width: 480px) { .tl-label { letter-spacing: 0.08em; font-size: 0.82rem; } }
 
     /* subtitle */
     .tl-sublabel {
@@ -783,6 +791,7 @@
       width: 100%;
     }
     @media (min-width: 768px) { .dress-card { padding: 3rem 4rem 3.5rem; } }
+    @media (min-width: 1024px) { .dress-card { max-width: 52rem; } }
     .dress-title {
       font-family: "New Icon Script", cursive;
       font-size: 2rem;
@@ -899,21 +908,22 @@
       backdrop-filter: blur(8px);
       border: 1px solid rgba(117,136,109, 0.2);
       border-radius: 1rem;
-      padding: 2rem 2.5rem;
+      padding: 1.5rem 1.5rem;
       box-shadow: 0 8px 32px rgba(0,0,0,0.06);
     }
+    @media (min-width: 768px) { .accommodation-card { padding: 2rem 2.5rem; } }
     .hotel-item { text-align: center; padding: 1.5rem 0; }
     .hotel-item:first-child { padding-top: 0; }
     .hotel-item:last-child { padding-bottom: 0; }
     .hotel-divider { width: 3rem; height: 1px; background: rgba(117,136,109, 0.25); margin: 0 auto; }
-    .hotel-name { font-family: "arek-armenian", serif; font-size: 1rem; letter-spacing: 0.2em; text-transform: uppercase; color: #3D4A38; font-weight: 500; }
+    .hotel-name { font-family: "arek-armenian", serif; font-size: 1rem; letter-spacing: 0.12em; text-transform: uppercase; color: #3D4A38; font-weight: 500; }
     .hotel-location { font-family: "arek-armenian", serif; font-size: 0.95rem; font-style: italic; color: #6B7D63; margin-top: 0.25rem; }
     .hotel-details { font-family: "arek-armenian", serif; font-size: 0.9rem; color: #8A9B83; margin-top: 0.375rem; }
     .hotel-phone { font-family: "arek-armenian", serif; font-size: 0.9rem; color: #8A9B83; margin-top: 0.125rem; }
     .hotel-phone a { color: inherit; text-decoration: underline; transition: color 0.3s; }
     .hotel-phone a:hover { color: #75886D; }
     .hotel-website { margin-top: 0.75rem; display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap; }
-    .hotel-website a { font-family: "arek-armenian", serif; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; color: #75886D; text-decoration: none; border: 1px solid rgba(117,136,109,0.4); border-radius: 2rem; padding: 0.35rem 0.85rem; transition: background 0.2s, border-color 0.2s, color 0.2s; }
+    .hotel-website a { font-family: "arek-armenian", serif; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; color: #75886D; text-decoration: none; border: 1px solid rgba(117,136,109,0.4); border-radius: 2rem; padding: 0.5rem 1rem; min-height: 44px; display: inline-flex; align-items: center; transition: background 0.2s, border-color 0.2s, color 0.2s; }
     .hotel-website a:hover { background: #75886D; color: #fff; border-color: #75886D; }
     .hotel-website a:focus-visible { outline: 2px solid #75886D; outline-offset: 2px; }
 
@@ -954,6 +964,7 @@
       text-underline-offset: 2px;
     }
 
+    @media (min-width: 768px) { .jan4-bridge { padding: 4rem 3rem; } }
     /* ===== TRANSPORT ===== */
     .transport-section {
       padding: 3.5rem 1.5rem;
@@ -966,6 +977,12 @@
       font-size: 2.5rem;
       color: #3D4A38;
       margin-bottom: 1rem;
+      display: flex;
+      align-items: baseline;
+      justify-content: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      text-align: center;
     }
     @media (min-width: 768px) { .transport-title { font-size: 4.5rem; } }
     .transport-card {
@@ -1113,8 +1130,9 @@
       box-shadow: 0 8px 32px rgba(0,0,0,0.08);
     }
     @media (min-width: 768px) { .rsvp-form-card { padding: 2.5rem; } }
+    @media (max-width: 480px) { .rsvp-form-card { padding: 1.5rem 1.5rem 2.5rem; } }
     .form-group { margin-bottom: 1.25rem; }
-    .form-label { display: block; font-family: "arek-armenian", serif; font-size: 0.9rem; letter-spacing: 0.1em; text-transform: uppercase; color: #3D4A38; font-weight: 500; margin-bottom: 0.5rem; }
+    .form-label { display: block; font-family: "arek-armenian", serif; font-size: 0.95rem; letter-spacing: 0.1em; text-transform: uppercase; color: #3D4A38; font-weight: 500; margin-bottom: 0.5rem; }
     .form-input, .form-select, .form-textarea {
       width: 100%;
       padding: 0.75rem 1rem;
@@ -1168,7 +1186,7 @@
       margin: 1.5rem 0 1rem;
     }
     .form-section-heading {
-      font-family: "arek-armenian", serif; font-size: 0.7rem;
+      font-family: "arek-armenian", serif; font-size: 0.8rem;
       letter-spacing: 0.25em; text-transform: uppercase;
       color: #75886D; margin-bottom: 1rem;
     }
@@ -1189,12 +1207,12 @@
 
     /* ===== MUSIC TOGGLE ===== */
     .music-toggle {
-      position: fixed; bottom: 1.5rem; right: 1.5rem;
+      position: fixed; bottom: 1.25rem; right: 1.25rem;
       width: 48px; height: 48px; border-radius: 50%;
       background: rgba(255,255,255,0.9); backdrop-filter: blur(8px);
       border: 1px solid rgba(117,136,109, 0.3);
       color: #3D4A38;
-      cursor: pointer; z-index: 40;
+      cursor: pointer; z-index: 50;
       display: flex; align-items: center; justify-content: center;
       box-shadow: 0 4px 16px rgba(0,0,0,0.1);
       transition: transform 0.3s, background 0.3s;
@@ -1281,11 +1299,13 @@
       display: grid;
       grid-template-columns: 1fr;
       gap: 0.75rem;
+      align-items: stretch;
     }
     @media (min-width: 540px) { .travel-grid { grid-template-columns: 1fr 1fr; gap: 1rem; } }
     @media (min-width: 1024px) { .travel-grid { grid-template-columns: 1fr 1fr 1fr; } }
 
     /* Mobile: horizontal icon+title layout */
+    .travel-card { height: 100%; }
     .travel-card {
       background: rgba(255,255,255,0.85);
       backdrop-filter: blur(8px);
@@ -1372,9 +1392,10 @@
 
     /* ===== Q&A SECTION ===== */
     .qa-section {
-      padding: 3.5rem 1.25rem;
+      padding: 3.5rem 1rem;
       background-color: #75886D;
     }
+    @media (min-width: 480px) { .qa-section { padding: 3.5rem 1.5rem; } }
     @media (min-width: 768px) { .qa-section { padding: 5rem 3rem; } }
     .qa-inner { max-width: 44rem; margin: 0 auto; }
     .qa-suptitle {
@@ -1452,6 +1473,7 @@
     }
     .qa-item.qa-open .qa-answer { opacity: 1; transform: translateY(0); }
     @media (min-width: 768px) { .qa-answer { font-size: 1rem; padding: 0 1.5rem 1.25rem; } }
+    .qa-answer .visa-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 0.5rem 0; }
     .qa-answer .visa-table {
       width: 100%; border-collapse: collapse; margin: 0.75rem 0 0.5rem;
       font-size: 0.82rem;
@@ -1503,6 +1525,69 @@
       font-size: 1rem;
       color: rgba(255,255,255,0.85);
     }
+
+    /* ===== FLOATING RSVP PILL ===== */
+    .floating-rsvp {
+      position: fixed;
+      top: 1.25rem;
+      right: 1.25rem;
+      z-index: 45;
+      background: rgba(61,74,56,0.92);
+      backdrop-filter: blur(8px);
+      color: #f9f7f2;
+      font-family: "arek-armenian", serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 0.5rem 1.1rem;
+      border-radius: 2rem;
+      border: none;
+      cursor: pointer;
+      opacity: 0;
+      transform: translateY(-8px);
+      transition: opacity 0.4s ease, transform 0.4s ease, background 0.3s;
+      pointer-events: none;
+    }
+    .floating-rsvp.visible {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+    .floating-rsvp:hover { background: #3D4A38; }
+    .floating-rsvp:focus-visible { outline: 2px solid #75886D; outline-offset: 2px; }
+    @media (min-width: 768px) { .floating-rsvp { font-size: 0.75rem; padding: 0.6rem 1.4rem; } }
+
+    /* ===== SCROLL TO TOP ===== */
+    .scroll-top {
+      position: fixed;
+      bottom: 1.25rem;
+      left: 1.25rem;
+      z-index: 45;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.9);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(117,136,109,0.3);
+      color: #3D4A38;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity 0.4s ease, transform 0.4s ease, background 0.3s;
+      pointer-events: none;
+    }
+    .scroll-top.visible {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+    .scroll-top:hover { background: #fff; transform: translateY(-2px); }
+    .scroll-top:focus-visible { outline: 2px solid #75886D; outline-offset: 2px; }
+    .scroll-top svg { width: 18px; height: 18px; }
   </style>
 </head>
 <body>
@@ -1519,7 +1604,7 @@
 
     <!-- ===== HERO ===== -->
     <section class="hero" id="hero">
-      <video autoplay muted loop playsinline preload="metadata">
+      <video autoplay muted loop playsinline preload="metadata" poster="assets/intro-img.png">
         <source src="assets/herovid.mp4" type="video/mp4">
       </video>
       <div class="hero-overlay"></div>
@@ -1568,6 +1653,11 @@
         <div class="countdown-item">
           <span class="countdown-number" id="cd-minutes">--</span>
           <span class="countdown-label">Minutes</span>
+        </div>
+        <div class="countdown-sep"></div>
+        <div class="countdown-item">
+          <span class="countdown-number" id="cd-seconds">--</span>
+          <span class="countdown-label">Seconds</span>
         </div>
       </div>
     </section>
@@ -1723,7 +1813,7 @@
     <!-- ===== DAY 1 TRANSPORT ===== -->
     <section class="transport-section" id="day1-transport">
       <div class="transport-inner">
-        <h2 class="transport-title fade-up">Day 1 &nbsp;<span style="font-family:'arek-armenian',serif; font-size:0.45em; letter-spacing:0.2em; text-transform:uppercase; color:#75886D; font-weight:600; vertical-align:middle;">Location &amp; Transportation</span></h2>
+        <h2 class="transport-title fade-up">Day 1 &nbsp;<span style="font-family:'arek-armenian',serif; font-size:0.45em; letter-spacing:0.2em; text-transform:uppercase; color:#75886D; font-weight:600;">Location &amp; Transportation</span></h2>
         <div class="transport-card fade-up delay-1">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#75886D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin:0 auto 0.75rem;display:block;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
           <p class="transport-address">Following the ceremony at Aramana Palli, join us at Windsor Castle, Kodimatha, Kottayam for an evening of vibrant pre-wedding festivities!</p>
@@ -1819,7 +1909,7 @@
     <!-- ===== DAY 2 TRANSPORT ===== -->
     <section class="transport-section" id="day2-transport">
       <div class="transport-inner">
-        <h2 class="transport-title fade-up">Day 2 &nbsp;<span style="font-family:'arek-armenian',serif; font-size:0.45em; letter-spacing:0.2em; text-transform:uppercase; color:#75886D; font-weight:600; vertical-align:middle;">Location &amp; Transportation</span></h2>
+        <h2 class="transport-title fade-up">Day 2 &nbsp;<span style="font-family:'arek-armenian',serif; font-size:0.45em; letter-spacing:0.2em; text-transform:uppercase; color:#75886D; font-weight:600;">Location &amp; Transportation</span></h2>
         <div class="transport-card fade-up delay-1">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#75886D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin:0 auto 0.75rem;display:block;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
           <p class="transport-address">Following our marriage ceremony at Aramana Palli, the reception will be held at Backwater Ripples, Kumarakom—where the magic unfolds and we celebrate as a newly wedded couple with our loved ones, filled with music, laughter, and unforgettable memories.</p>
@@ -1978,7 +2068,7 @@
           <div class="qa-item">
             <div class="qa-question">
               Where are the ceremonies taking place?
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
             </div>
             <div class="qa-answer-wrap"><div class="qa-answer-inner"><p class="qa-answer">Day 1 (3rd Jan) — Engagement ceremony at Aramana Palli, Kottayam, followed by the engagement reception at Windsor Castle, Kodimatha. Day 2 (5th Jan) — Marriage ceremony at Aramana Palli, followed by the wedding reception at Backwater Ripples, Kumarakom.</p></div></div>
           </div>
@@ -1986,7 +2076,7 @@
           <div class="qa-item">
             <div class="qa-question">
               What should we expect during the church ceremony?
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
             </div>
             <div class="qa-answer-wrap"><div class="qa-answer-inner"><p class="qa-answer">The Knanaya Catholic ceremony runs for approximately one hour and is a beautiful, dignified occasion — nothing to be nervous about!<br><br><strong>Sitting and standing:</strong> The congregation will rise and be seated at key moments throughout the service. Simply follow those around you and you'll be perfectly in step.<br><br><strong>Language:</strong> The ceremony is conducted in Malayalam, with some English elements. The atmosphere is warm and the meaning of each moment will be felt regardless of language.<br><br><strong>Holy Communion:</strong> When the congregation goes forward to receive Communion, non-Catholics are warmly welcome to remain seated — this is completely normal and respected. You may also go forward with arms crossed over your chest to receive a blessing instead, if you'd like to participate in that moment.<br><br><strong>Photography:</strong> Please follow any guidance from the priest or ushers on the day regarding photos during the ceremony.<br><br>Come as you are, bring your warmth, and leave the rest to us.</p></div></div>
           </div>
@@ -1994,7 +2084,7 @@
           <div class="qa-item">
             <div class="qa-question">
               Will there be transportation between venues?
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
             </div>
             <div class="qa-answer-wrap"><div class="qa-answer-inner"><p class="qa-answer">Yes! A shuttle bus will be available from the church to the reception venue on both days. Details will be shared closer to the event.</p></div></div>
           </div>
@@ -2002,7 +2092,7 @@
           <div class="qa-item">
             <div class="qa-question">
               What is the dress code? How strictly do I need to follow it? Can I buy Indian wedding outfits nearby?
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
             </div>
             <div class="qa-answer-wrap"><div class="qa-answer-inner"><p class="qa-answer">We have included a colour scheme for every wedding function — you'll find the details noted in the wedding schedule. This is of course no fashion week runway, but a humble celebration of love. If you feel good, you look great! That said, we politely request you to follow the colour scheme for aesthetic harmony and fabulous group photos!<br><br>And yes — if you're arriving early and need to pick up something special, here are some wonderful options:<br><br><strong>In Kochi city:</strong><br>• <strong>Jayalakshmi Silks (MG Road)</strong> — A huge collection of sarees, lehengas, and kurtas for men and women. Perfect for every budget and taste.<br>• <strong>Seemati</strong> — Famous for bridal and festive wear. Slightly over-the-top in the best way possible.<br>• <strong>Pothys / Kalyan Silks</strong> — Affordable, vast, and reliable for traditional Kerala and Indian festive wear.<br><br><strong>In Kottayam:</strong><br>• <strong>Seemati (Kottayam branch)</strong> — Same fabulous selection, closer to the wedding venues.<br>• <strong>Raymonds / The Raymond Shop</strong> — Great for men's formal Indian wear, sherwanis, and suits.<br>• <strong>Kairali Silks</strong> — A trusted local name for sarees and traditional Kerala textiles at lovely prices.</p></div></div>
           </div>
@@ -2010,7 +2100,7 @@
           <div class="qa-item">
             <div class="qa-question">
               How do I get from Kochi airport to my hotel?
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
             </div>
             <div class="qa-answer-wrap"><div class="qa-answer-inner"><p class="qa-answer">Two options await you at the airport exit:<br><br><strong>Option 1 — Complimentary shuttle (arranged by us):</strong> Share your flight arrival details when you RSVP and our wedding planners at SANS Events will coordinate a transfer to your hotel, grouped by arrival time. You won't need to think about a thing.<br><br><strong>Option 2 — Prepaid taxi (flexible, guest-paid):</strong> Walk to the prepaid counter just before the airport exit. Fares are fixed — no haggling:<br>• Compact sedan: ~₹2,400 (~£23 / ~$27 / ~AED 100)<br>• SUV: ~₹3,600 (~£34 / ~$40 / ~AED 148)<br><br>Wait time is typically under 15 minutes, and the journey to Kottayam takes ~1.5 hours. These taxis are safe and reliable, including for late-night arrivals. Ola and Uber are also active across Kochi and Kottayam.</p></div></div>
           </div>
@@ -2018,7 +2108,7 @@
           <div class="qa-item">
             <div class="qa-question">
               Who do I contact on arrival or if I need help?
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
             </div>
             <div class="qa-answer-wrap"><div class="qa-answer-inner"><p class="qa-answer">Our wedding planning team at <strong>SANS Events</strong> is your on-the-ground point of contact for all logistics — transport coordination, hotel queries, or any last-minute help.<br><br>Reach them on WhatsApp: <strong>+91 XX 8842 XX 22</strong> <em>(number will be confirmed closer to the event)</em><br><br>They are fluent in English and available to assist international guests throughout the trip.</p></div></div>
           </div>
@@ -2026,15 +2116,15 @@
           <div class="qa-item">
             <div class="qa-question">
               Do I need a visa to visit India?
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
             </div>
-            <div class="qa-answer-wrap"><div class="qa-answer-inner"><p class="qa-answer">Here is what we understand based on publicly available information — please verify with your country's embassy or the official Indian e-Visa portal for the latest requirements, as policies can change.<br><br><table class="visa-table"><thead><tr><th>Nationality</th><th>Visa Required?</th><th>Type</th><th>Notes</th></tr></thead><tbody><tr><td>UK Citizens</td><td>Yes</td><td>e-Tourist Visa</td><td>Apply online. Approval usually within 72 hours.</td></tr><tr><td>US Citizens</td><td>Yes</td><td>e-Tourist Visa</td><td>1-year and 5-year options available.</td></tr><tr><td>UAE Nationals</td><td>No</td><td>Visa on Arrival</td><td>Available at major Indian airports including Kochi (COK).</td></tr><tr><td>UAE Expats</td><td>Depends</td><td>e-Visa</td><td>Based on your original passport nationality.</td></tr><tr><td>Saudi Nationals</td><td>Yes</td><td>e-Visa</td><td>Apply online.</td></tr><tr><td>Saudi Expats</td><td>Depends</td><td>e-Visa</td><td>Based on your original passport nationality.</td></tr><tr><td>Pakistani Nationals</td><td>Yes</td><td>Paper Visa</td><td>Cannot use e-Visa. Apply for a Visit Visa with significant lead time — allow 60–90 days minimum.</td></tr></tbody></table><br>We recommend applying <strong>at least 2 weeks before travel</strong>. For the most accurate and up-to-date information, always check with your governing embassy or the official portal.</p></div></div>
+            <div class="qa-answer-wrap"><div class="qa-answer-inner"><p class="qa-answer">Here is what we understand based on publicly available information — please verify with your country's embassy or the official Indian e-Visa portal for the latest requirements, as policies can change.<br><br><div class="visa-table-wrap"><table class="visa-table"><thead><tr><th>Nationality</th><th>Visa Required?</th><th>Type</th><th>Notes</th></tr></thead><tbody><tr><td>UK Citizens</td><td>Yes</td><td>e-Tourist Visa</td><td>Apply online. Approval usually within 72 hours.</td></tr><tr><td>US Citizens</td><td>Yes</td><td>e-Tourist Visa</td><td>1-year and 5-year options available.</td></tr><tr><td>UAE Nationals</td><td>No</td><td>Visa on Arrival</td><td>Available at major Indian airports including Kochi (COK).</td></tr><tr><td>UAE Expats</td><td>Depends</td><td>e-Visa</td><td>Based on your original passport nationality.</td></tr><tr><td>Saudi Nationals</td><td>Yes</td><td>e-Visa</td><td>Apply online.</td></tr><tr><td>Saudi Expats</td><td>Depends</td><td>e-Visa</td><td>Based on your original passport nationality.</td></tr><tr><td>Pakistani Nationals</td><td>Yes</td><td>Paper Visa</td><td>Cannot use e-Visa. Apply for a Visit Visa with significant lead time — allow 60–90 days minimum.</td></tr></tbody></table></div><br>We recommend applying <strong>at least 2 weeks before travel</strong>. For the most accurate and up-to-date information, always check with your governing embassy or the official portal.</p></div></div>
           </div>
 
           <div class="qa-item">
             <div class="qa-question">
               What is the weather like in January?
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
             </div>
             <div class="qa-answer-wrap"><div class="qa-answer-inner"><p class="qa-answer">January is one of the best months to visit Kerala — warm, sunny days of <strong>24–32°C (75–90°F)</strong> with low humidity. Light, breathable fabrics are your best friend. Evenings by the backwaters can be pleasantly cool, so a light layer is worth packing.</p></div></div>
           </div>
@@ -2042,7 +2132,7 @@
           <div class="qa-item">
             <div class="qa-question">
               Currency, SIM cards and practical tips for India
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
             </div>
             <div class="qa-answer-wrap"><div class="qa-answer-inner"><p class="qa-answer">Currency: <strong>Indian Rupees (INR)</strong>. ATMs are widely available in Kottayam town and most hotels accept cards.<br><br><strong>SIM cards:</strong> Airtel and Jio tourist SIMs are available at the Kochi airport arrivals hall — staff will set it up on the spot, and data in India is wonderfully affordable.<br><br><strong>Drinking water:</strong> Tap water isn't recommended for drinking; sealed bottled water is available at every hotel, restaurant, and corner shop.</p></div></div>
           </div>
@@ -2050,7 +2140,7 @@
           <div class="qa-item">
             <div class="qa-question">
               What is there to do in Kochi if we arrive early (Jan 1–2)?
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
             </div>
             <div class="qa-answer-wrap"><div class="qa-answer-inner"><p class="qa-answer">You're in luck — Kochi is one of India's most characterful cities and January is the best time to explore it.<br><br><strong>Fort Kochi &amp; Mattancherry</strong> — The Chinese fishing nets at sunrise are iconic. Walk through Mattancherry's lanes to the Dutch Palace, then lose an hour in the antique shops and spice stalls of Jew Town. It's a 2–3 hour walk that costs almost nothing and stays with you forever.<br><br><strong>The Harbour Ferry</strong> — Take the public KSINC ferry from Fort Kochi jetty to Ernakulam for under ₹10. Harbour views are beautiful; the return trip at golden hour is especially so.<br><br><strong>Where to eat</strong> — <em>Dhe Puttu</em> for a proper Kerala breakfast (puttu, kadala curry, chai). <em>Malabar Junction</em> in Fort Kochi for excellent coastal Kerala cuisine. <em>Kayees Rahmathulla Hotel</em> in Mattancherry for Malabar biryani that regulars swear by.<br><br><strong>New Year's Day note</strong> — The city is festive and lively on Jan 1st. Some government-run monuments like the Dutch Palace may be closed, but the waterfront, streets, and restaurants are fully open. Marine Drive along the harbour is a lovely evening stroll.</p></div></div>
           </div>
@@ -2058,7 +2148,7 @@
           <div class="qa-item">
             <div class="qa-question">
               What should we do on January 4th (the day between celebrations)?
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
             </div>
             <div class="qa-answer-wrap"><div class="qa-answer-inner"><p class="qa-answer">Jan 4th is entirely yours — tucked between the Engagement (Jan 3) and the Wedding (Jan 5), it's a lovely day to exhale and explore.<br><br>• <strong>Alleppey houseboat or shikara ride</strong> (~45 mins from Kottayam) — A slow float through the backwaters. Book a half-day shikara if a full overnight isn't your style.<br>• <strong>Kumarakom Bird Sanctuary</strong> (~30 mins) — Migratory birds fill the sanctuary in winter. A peaceful morning walk before the heat sets in.<br>• <strong>Kottayam's ancient churches</strong> — Valiya Palli and Cheria Palli date to the 1600s and sit side by side in town. Among the oldest Syrian Christian churches in India — beautiful whether or not you're religious.<br><br>Or simply rest. Two big celebrations flank this day, and there is no shame in enjoying the hotel, the pool, and a very long Kerala lunch.</p></div></div>
           </div>
@@ -2066,7 +2156,7 @@
           <div class="qa-item">
             <div class="qa-question">
               Are children welcome?
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
             </div>
             <div class="qa-answer-wrap"><div class="qa-answer-inner"><p class="qa-answer">Absolutely! Little ones are very welcome to join the celebrations. We'd love to have all the family there.</p></div></div>
           </div>
@@ -2074,7 +2164,7 @@
           <div class="qa-item">
             <div class="qa-question">
               Is there parking at the venues?
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
             </div>
             <div class="qa-answer-wrap"><div class="qa-answer-inner"><p class="qa-answer">Yes, parking is available at both Windsor Castle and Backwater Ripples. We recommend using the wedding shuttle service on Day 2 to avoid any hassle.</p></div></div>
           </div>
@@ -2082,7 +2172,7 @@
           <div class="qa-item">
             <div class="qa-question">
               Will there be vegetarian food options?
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
             </div>
             <div class="qa-answer-wrap"><div class="qa-answer-inner"><p class="qa-answer">Yes! Both receptions will offer a full spread including vegetarian and non-vegetarian options. Kerala cuisine is a treat in itself — you're in for a feast!</p></div></div>
           </div>
@@ -2090,7 +2180,7 @@
           <div class="qa-item">
             <div class="qa-question">
               What language is spoken locally?
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
             </div>
             <div class="qa-answer-wrap"><div class="qa-answer-inner"><p class="qa-answer">Malayalam is the local language of Kerala, but English is widely spoken in hotels, restaurants, and at both our venues. You'll be well looked after!</p></div></div>
           </div>
@@ -2098,7 +2188,7 @@
           <div class="qa-item">
             <div class="qa-question">
               What should I see while in Kerala?
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
             </div>
             <div class="qa-answer-wrap"><div class="qa-answer-inner"><p class="qa-answer">Kerala is truly God's Own Country! Consider a houseboat journey through the Alleppey backwaters, the misty tea plantations of Munnar, or the golden beaches of Varkala. A morning cruise from Kumarakom is an experience you won't forget.</p></div></div>
           </div>
@@ -2234,6 +2324,14 @@
 
   </main>
 
+    <!-- Floating RSVP pill -->
+    <button class="floating-rsvp" id="floating-rsvp" onclick="document.getElementById('rsvp').scrollIntoView({behavior:'smooth'})">RSVP</button>
+
+    <!-- Scroll to top -->
+    <button class="scroll-top" id="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Scroll to top">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
+    </button>
+
   <!-- Background Music -->
   <audio id="bg-music" loop preload="auto">
     <source src="assets/wedding-background-music-yxy0nS2O.mp3" type="audio/mpeg">
@@ -2261,9 +2359,11 @@
       var days = Math.floor(diff / (1000*60*60*24));
       var hours = Math.floor((diff / (1000*60*60)) % 24);
       var minutes = Math.floor((diff / (1000*60)) % 60);
+      var seconds = Math.floor(diff/1000)%60;
       document.getElementById('cd-days').textContent = String(days).padStart(2,'0');
       document.getElementById('cd-hours').textContent = String(hours).padStart(2,'0');
       document.getElementById('cd-minutes').textContent = String(minutes).padStart(2,'0');
+      document.getElementById('cd-seconds').textContent = String(seconds).padStart(2,'0');
     }
     updateCountdown();
     setInterval(updateCountdown, 1000);
@@ -2677,6 +2777,36 @@
           if (!isOpen) item.classList.add('qa-open');
         });
       });
+    })();
+
+    // Floating RSVP pill — show after scrolling past hero
+    (function() {
+      var pill = document.getElementById('floating-rsvp');
+      var hero = document.getElementById('hero');
+      if (!pill || !hero) return;
+      function checkScroll() {
+        var heroBottom = hero.getBoundingClientRect().bottom;
+        if (heroBottom < 0) {
+          pill.classList.add('visible');
+        } else {
+          pill.classList.remove('visible');
+        }
+      }
+      window.addEventListener('scroll', checkScroll, { passive: true });
+    })();
+
+    // Scroll-to-top button
+    (function() {
+      var btn = document.getElementById('scroll-top');
+      if (!btn) return;
+      function checkScrollTop() {
+        if (window.scrollY > 400) {
+          btn.classList.add('visible');
+        } else {
+          btn.classList.remove('visible');
+        }
+      }
+      window.addEventListener('scroll', checkScrollTop, { passive: true });
     })();
 
     function handleRSVP(e) {
