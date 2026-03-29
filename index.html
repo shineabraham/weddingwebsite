@@ -242,7 +242,7 @@
       text-align: center;
       position: relative;
       overflow: hidden;
-      background-image: url('assets/white-textured-paper-KasY8RAJ.webp');
+      /* textured paper bg removed — file missing */
       background-size: cover;
       background-position: center;
     }
@@ -543,7 +543,7 @@
       padding: 3.5rem 1.5rem;
       position: relative;
       overflow: hidden;
-      background-image: url('assets/white-textured-paper-KasY8RAJ.webp');
+      /* textured paper bg removed — file missing */
       background-size: cover;
       background-position: center;
     }
@@ -872,7 +872,7 @@
       padding: 3.5rem 1.5rem 5rem;
       position: relative;
       overflow: hidden;
-      background-image: url('assets/white-textured-paper-KasY8RAJ.webp');
+      /* textured paper bg removed — file missing */
       background-size: cover;
       background-position: center;
     }
@@ -911,10 +911,47 @@
     .hotel-phone { font-family: "arek-armenian", serif; font-size: 0.9rem; color: #8A9B83; margin-top: 0.125rem; }
     .hotel-phone a { color: inherit; text-decoration: underline; transition: color 0.3s; }
     .hotel-phone a:hover { color: #75886D; }
-    .hotel-website { margin-top: 0.5rem; }
-    .hotel-website a { font-family: "arek-armenian", serif; font-size: 0.9rem; letter-spacing: 0.1em; text-transform: uppercase; color: #75886D; text-decoration: none; border-bottom: 1px solid rgba(117,136,109, 0.3); padding-bottom: 1px; transition: border-color 0.3s; }
-    .hotel-website a:hover { border-color: #75886D; }
+    .hotel-website { margin-top: 0.75rem; display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap; }
+    .hotel-website a { font-family: "arek-armenian", serif; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; color: #75886D; text-decoration: none; border: 1px solid rgba(117,136,109,0.4); border-radius: 2rem; padding: 0.35rem 0.85rem; transition: background 0.2s, border-color 0.2s, color 0.2s; }
+    .hotel-website a:hover { background: #75886D; color: #fff; border-color: #75886D; }
     .hotel-website a:focus-visible { outline: 2px solid #75886D; outline-offset: 2px; }
+
+    /* ===== JAN 4 BRIDGE ===== */
+    .jan4-bridge {
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+      background: hsl(50 52% 92%);
+      border-top: 1px solid rgba(117,136,109,0.15);
+      border-bottom: 1px solid rgba(117,136,109,0.15);
+    }
+    .jan4-label {
+      font-family: "arek-armenian", serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: #75886D;
+      margin-bottom: 0.4rem;
+    }
+    .jan4-title {
+      font-family: "New Icon Script", cursive;
+      font-size: 2rem;
+      color: #3D4A38;
+      margin-bottom: 0.5rem;
+    }
+    .jan4-text {
+      font-family: "arek-armenian", serif;
+      font-size: 0.95rem;
+      color: #6B7D63;
+      font-style: italic;
+      max-width: 28rem;
+      margin: 0 auto;
+      line-height: 1.65;
+    }
+    .jan4-text a {
+      color: #75886D;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
 
     /* ===== TRANSPORT ===== */
     .transport-section {
@@ -1112,7 +1149,7 @@
       text-align: center;
       position: relative;
       overflow: hidden;
-      background-image: url('assets/white-textured-paper-KasY8RAJ.webp');
+      /* textured paper bg removed — file missing */
       background-size: cover;
       background-position: center;
     }
@@ -1121,6 +1158,33 @@
     .footer-amp { font-family: "New Icon Script", cursive; font-size: 1.875rem; color: #3D4A38; font-style: italic; display: block; margin: 0.25rem 0; }
     @media (min-width: 768px) { .footer-amp { font-size: 2.25rem; } }
     .footer-date { font-size: 1.125rem; color: #75886D; font-family: "arek-armenian", serif; font-weight: 600; margin-top: 0.5rem; }
+
+    /* ===== RSVP CONDITIONAL BLOCKS ===== */
+    .rsvp-conditional { display: none; }
+    .rsvp-conditional.visible { display: block; }
+    .form-section-divider {
+      border: none; border-top: 1px solid rgba(117,136,109,0.2);
+      margin: 1.5rem 0 1rem;
+    }
+    .form-section-heading {
+      font-family: "arek-armenian", serif; font-size: 0.7rem;
+      letter-spacing: 0.25em; text-transform: uppercase;
+      color: #75886D; margin-bottom: 1rem;
+    }
+    /* ===== FLIGHT FIELDS (conditional) ===== */
+    .flight-fields {
+      display: none;
+      background: rgba(117,136,109,0.06);
+      border: 1px solid rgba(117,136,109,0.2);
+      border-radius: 0.75rem;
+      padding: 1rem 1rem 0.25rem;
+      margin-top: 0.25rem;
+      margin-bottom: 1.25rem;
+    }
+    .flight-fields.visible { display: block; }
+    .flight-fields .form-label { font-size: 0.78rem; }
+    .flight-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+    @media (max-width: 480px) { .flight-row { grid-template-columns: 1fr; } }
 
     /* ===== MUSIC TOGGLE ===== */
     .music-toggle {
@@ -1181,7 +1245,7 @@
       padding: 3.5rem 1.5rem;
       position: relative;
       overflow: hidden;
-      background-image: url('assets/white-textured-paper-KasY8RAJ.webp');
+      /* textured paper bg removed — file missing */
       background-size: cover;
       background-position: center;
     }
@@ -1387,6 +1451,27 @@
     }
     .qa-item.qa-open .qa-answer { opacity: 1; transform: translateY(0); }
     @media (min-width: 768px) { .qa-answer { font-size: 1rem; padding: 0 1.5rem 1.25rem; } }
+    .qa-answer .visa-table {
+      width: 100%; border-collapse: collapse; margin: 0.75rem 0 0.5rem;
+      font-size: 0.82rem;
+    }
+    .qa-answer .visa-table th {
+      font-family: "arek-armenian", serif; font-size: 0.7rem; letter-spacing: 0.1em;
+      text-transform: uppercase; color: rgba(255,255,255,0.55);
+      border-bottom: 1px solid rgba(255,255,255,0.15); padding: 0.4rem 0.6rem;
+      text-align: left; font-weight: 600;
+    }
+    .qa-answer .visa-table td {
+      font-family: "arek-armenian", serif; color: rgba(255,255,255,0.85);
+      padding: 0.5rem 0.6rem; border-bottom: 1px solid rgba(255,255,255,0.08);
+      vertical-align: top; line-height: 1.5;
+    }
+    .qa-answer .visa-table tr:last-child td { border-bottom: none; }
+    .qa-answer .visa-table td:nth-child(2) { color: rgba(200,220,195,0.9); font-weight: 600; }
+    @media (max-width: 540px) {
+      .qa-answer .visa-table th:nth-child(4),
+      .qa-answer .visa-table td:nth-child(4) { display: none; }
+    }
     .qa-contact {
       margin-top: 1.5rem;
       text-align: center;
@@ -1405,8 +1490,10 @@
       margin-bottom: 0.5rem;
     }
     .qa-contact-name {
-      font-family: "New Icon Script", cursive;
-      font-size: 2rem;
+      font-family: "arek-armenian", serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
       color: #fff;
       margin-bottom: 0.25rem;
     }
@@ -1421,8 +1508,8 @@
 
   <!-- Splash / Envelope Intro Overlay -->
   <div class="splash-overlay" id="splash-overlay">
-    <img src="assets/intro-img.webp" alt="" class="splash-poster" id="splash-poster" draggable="false">
-    <video id="splash-video" class="splash-video" muted playsinline preload="auto" poster="assets/intro-img.webp">
+    <img src="assets/intro-img.png" alt="" class="splash-poster" id="splash-poster" draggable="false">
+    <video id="splash-video" class="splash-video" muted playsinline preload="auto" poster="assets/intro-img.png">
       <source src="assets/intro-video.mp4" type="video/mp4">
     </video>
   </div>
@@ -1457,7 +1544,7 @@
       </div>
 
       <button class="hero-rsvp-btn fade-in-only" style="transition-delay:1.2s;" onclick="document.getElementById('countdown').scrollIntoView({behavior:'smooth'})">
-        <span>RSVP</span>
+        <span>Explore</span>
         <svg class="bounce-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
       </button>
     </section>
@@ -1465,7 +1552,7 @@
     <!-- ===== COUNTDOWN ===== -->
     <section class="countdown-section" id="countdown">
       <h2 class="countdown-title fade-up">Countdown</h2>
-      <p class="countdown-until fade-up delay-1">Until 5 January 2027</p>
+      <p class="countdown-until fade-up delay-1">Until the Wedding Day</p>
       <div class="countdown-grid fade-up delay-2">
         <div class="countdown-item">
           <span class="countdown-number" id="cd-days">---</span>
@@ -1521,6 +1608,7 @@
         <p class="heritage-text fade-up delay-2">We are so proud to celebrate our wedding in the spirit of our Knanaya roots—a community that has cherished a unique blend of faith and culture for generations. Our traditions are a beautiful reflection of our history, valuing the deep bonds of family and the sacredness of marriage.</p>
         <p class="heritage-text fade-up delay-3">Throughout our celebration, you'll see special rituals that have been passed down through the centuries. On Day 1, we begin with the engagement ceremony in the church, followed by a reception where we also have <em>Mylanchi Ideel</em> (henna ceremony for the bride) and <em>Chantham Charthal</em> (Pre-wedding rituals). These customs aren't just rituals; they are joyful moments of prayer, song, and community that mark the beginning of our new life together.</p>
         <p class="heritage-text fade-up delay-3">Whether these traditions are familiar to you or you are experiencing them for the first time, we are so honoured to share them with you. Get ready for a celebration full of heart, music, and the legendary Knanaya spirit of hospitality!</p>
+        <p class="heritage-text fade-up delay-3">These celebrations are relaxed and inclusive — there is no right or wrong way to join in. You'll be gently guided through everything on the day, and all that's asked of you is your presence and your joy.</p>
       </div>
     </section>
 
@@ -1571,7 +1659,7 @@
     <section class="programme-section" id="programme">
       <div class="programme-inner">
         <h2 class="programme-title fade-up">Day 1</h2>
-        <p class="programme-events fade-up delay-1">Engagement &nbsp;·&nbsp; Mylanchi &nbsp;·&nbsp; Chantham Charthu</p>
+        <p class="programme-events fade-up delay-1">Engagement &nbsp;·&nbsp; Mylanchi &nbsp;·&nbsp; Chantham Charthal</p>
         <p class="programme-date fade-up delay-1">03 January 2027</p>
         <div class="timeline" data-timeline>
           <div class="tl-row tl-has-detail">
@@ -1598,9 +1686,9 @@
           <div class="tl-row tl-has-detail">
             <div class="tl-content">
               <span class="tl-time">7:00 PM</span>
-              <p class="tl-label">Chantham Charthu</p>
+              <p class="tl-label">Chantham Charthal</p>
               <p class="tl-sublabel">Pre-wedding rituals</p>
-              <div class="tl-detail"><div class="tl-detail-inner"><p class="tl-detail-text">Chantham Charthu is a cherished pre-wedding ritual for the groom, involving a ceremonial shave and oiling. Accompanied by music, dance, and family blessings, this ritual prepares the groom for the wedding day and is a joyful expression of Knanaya tradition.</p></div></div>
+              <div class="tl-detail"><div class="tl-detail-inner"><p class="tl-detail-text">Chantham Charthal is a cherished pre-wedding ritual for the groom, involving a ceremonial shave and oiling. Accompanied by music, dance, and family blessings, this ritual prepares the groom for the wedding day and is a joyful expression of Knanaya tradition.</p></div></div>
             </div>
           </div>
           <div class="tl-row">
@@ -1625,11 +1713,7 @@
       <div class="dress-inner">
         <div class="dress-card fade-up">
           <h2 class="dress-title">Day 1 - Dress Code</h2>
-          <h3 class="dress-gender">Ladies</h3>
-          <p class="dress-desc">To be confirmed. Please check close to the event date.</p>
-          <div class="dress-divider"></div>
-          <h3 class="dress-gender">Gentlemen</h3>
-          <p class="dress-desc">To be confirmed. Please check close to the event date.</p>
+          <p class="dress-desc" style="margin-bottom:0.75rem;">The colour scheme and dress code for Day 1 will be confirmed closer to the event. Our SANS Events team will reach out via WhatsApp with full details before the day — so nothing to worry about just yet!</p>
         </div>
       </div>
     </section>
@@ -1653,6 +1737,13 @@
     <!-- DIVIDER: champagne tower -->
     <div class="ivory-divider">
       <img src="assets/div-22.png" alt="" style="width:min(60%, 18rem);" class="fade-up" loading="lazy">
+    </div>
+
+    <!-- ===== JAN 4 BRIDGE ===== -->
+    <div class="jan4-bridge fade-up">
+      <p class="jan4-label">4th January 2027</p>
+      <p class="jan4-title">A Day to Rest &amp; Explore</p>
+      <p class="jan4-text">Take a breath, soak in Kerala, and come back refreshed. See our suggestions in the <a href="#travel" onclick="event.preventDefault();document.getElementById('travel').scrollIntoView({behavior:'smooth'})">Getting Here</a> section.</p>
     </div>
 
     <!-- ===== DAY 2 PROGRAMME ===== -->
@@ -1740,7 +1831,7 @@
           <a href="https://maps.app.goo.gl/N6ZYkhJHT9gvLB2A9" target="_blank" rel="noopener noreferrer" class="transport-map-link">Google Maps</a>
           <div class="transport-sep"></div>
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#75886D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin:0 auto 0.75rem;display:block;"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></svg>
-          <p class="transport-overview">A bus will be available to take guests from the church to the reception at Backwater ripples.</p>
+          <p class="transport-overview">A bus will be available to take guests from the church to the reception at Backwater Ripples.</p>
         </div>
       </div>
     </section>
@@ -1754,30 +1845,39 @@
     <section class="accommodation-section" id="accommodation">
       <div class="accommodation-inner">
         <h2 class="accommodation-title fade-up">Accommodation</h2>
-        <p class="accommodation-subtitle fade-up delay-1">All our wedding celebrations will take place in the heart of Kottayam. As the three venues are in close proximity to one another, we recommend choosing one hotel for the duration of your stay. To make your planning easier, we have selected the following hotels located near our ceremony and reception sites:</p>
+        <p class="accommodation-subtitle fade-up delay-1">Our church and engagement venues are in the heart of Kottayam, within minutes of one another. Backwater Ripples — the wedding reception venue — is a scenic 30-minute drive away in Kumarakom. We recommend choosing one hotel for your stay, and have selected options to suit both locations.</p>
         <div class="accommodation-card fade-up delay-2">
           <div class="hotel-item">
             <p class="hotel-name">Hotel Arcadia</p>
             <p class="hotel-location">Kottayam</p>
-            <p class="hotel-details">Centrally located in Kottayam, these accommodations offer easy access to all three wedding venues: the Church, the Engagement Reception, and the Wedding Reception.</p>
+            <p class="hotel-details">Centrally located in Kottayam, with easy access to the church and all wedding venues.</p>
             <p class="hotel-phone"><a href="tel:+914812569999">+91 481 256 9999</a></p>
-            <div class="hotel-website"><a href="https://maps.app.goo.gl/NbKprLNvAMk7J2Tx6" target="_blank" rel="noopener noreferrer">View Website</a></div>
+            <div class="hotel-website">
+              <a href="https://www.arcadiahotels.net/" target="_blank" rel="noopener noreferrer">View Hotel Website</a>
+              <a href="https://maps.app.goo.gl/NbKprLNvAMk7J2Tx6" target="_blank" rel="noopener noreferrer">View on Maps</a>
+            </div>
           </div>
           <div class="hotel-divider"></div>
           <div class="hotel-item">
             <p class="hotel-name">The Windsor Castle</p>
             <p class="hotel-location">Kodimatha, Kottayam</p>
-            <p class="hotel-details">This hotel serves as the venue for our Day 1 celebrations, including the Engagement Reception.</p>
+            <p class="hotel-details">This hotel is also our Day 1 engagement reception venue — guests staying here can walk straight from their room to the celebrations. No transport needed for the evening.</p>
             <p class="hotel-phone"><a href="tel:+919544054111">+91 95440 54111</a></p>
-            <div class="hotel-website"><a href="https://maps.app.goo.gl/WiGJ1Zv1qzFMtBju7" target="_blank" rel="noopener noreferrer">View Website</a></div>
+            <div class="hotel-website">
+              <a href="https://thewindsorcastle.co.in/" target="_blank" rel="noopener noreferrer">View Hotel Website</a>
+              <a href="https://maps.app.goo.gl/WiGJ1Zv1qzFMtBju7" target="_blank" rel="noopener noreferrer">View on Maps</a>
+            </div>
           </div>
           <div class="hotel-divider"></div>
           <div class="hotel-item">
-            <p class="hotel-name">Backwater ripples</p>
+            <p class="hotel-name">Backwater Ripples</p>
             <p class="hotel-location">Kumarakom, Kottayam</p>
-            <p class="hotel-details">This hotel serves as the venue for our Day 2 - Wedding Reception, following the ceremony at Aramana Palli.</p>
+            <p class="hotel-details">This 5-star lakeside resort is our Day 2 wedding reception venue. Guests staying here wake up to Vembanad Lake on the morning after the celebrations — a rather beautiful way to end the trip.</p>
             <p class="hotel-phone"><a href="tel:+919447756100">+91 94477 56100</a></p>
-            <div class="hotel-website"><a href="https://maps.app.goo.gl/ftnGFiiNHR1EcxXr5" target="_blank" rel="noopener noreferrer">View Website</a></div>
+            <div class="hotel-website">
+              <a href="https://backwaterripples.com/" target="_blank" rel="noopener noreferrer">View Hotel Website</a>
+              <a href="https://maps.app.goo.gl/ftnGFiiNHR1EcxXr5" target="_blank" rel="noopener noreferrer">View on Maps</a>
+            </div>
           </div>
         </div>
       </div>
@@ -1823,7 +1923,7 @@
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#75886D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21 4 19 4L4 9l4 2.5L12 20l3.8-.8z"/></svg>
             </div>
             <p class="travel-card-title">By Air</p>
-            <p class="travel-card-text"><strong>Cochin International Airport (COK)</strong> is the recommended arrival point — approximately 70 km from Kottayam (~1.5 hrs by road).<br><br>Trivandrum International Airport (TRV) is an alternative (~150 km, ~3 hrs).</p>
+            <p class="travel-card-text"><strong>Cochin International Airport (COK)</strong> is the recommended arrival point — approximately 70 km from Kottayam (~1.5 hrs by road).<br><br>Trivandrum International Airport (TRV) is an alternative (~150 km, ~3 hrs).<br><br>On arrival, pick up a <strong>Jio or Airtel tourist SIM</strong> at the arrivals hall — staff set it up on the spot, and data in India is wonderfully affordable.</p>
           </div>
 
           <!-- By Train -->
@@ -1835,13 +1935,22 @@
             <p class="travel-card-text"><strong>Kottayam Railway Station</strong> is a major stop on the Ernakulam–Thiruvananthapuram rail corridor with excellent connections from across India.</p>
           </div>
 
-          <!-- Getting Around -->
+          <!-- Getting to the Hotel -->
           <div class="travel-card fade-up delay-3">
+            <div class="travel-card-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#75886D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            </div>
+            <p class="travel-card-title">Getting to Your Hotel</p>
+            <p class="travel-card-text"><strong>Option 1 — Complimentary shuttle (arranged by us):</strong> Share your flight details when you RSVP and our team at SANS Events will coordinate transfers to your hotel, grouped by arrival time. You won't need to worry about a thing.<br><br><strong>Option 2 — Prepaid taxi (flexible, guest-paid):</strong> Walk to the prepaid counter just before the airport exit — no booking needed, fares are fixed:<br>• Compact sedan: ~₹2,400 (~£23 / ~$27)<br>• SUV: ~₹3,600 (~£34 / ~$40)<br><br>Wait time is typically under 15 minutes. These are safe and reliable, including for late-night arrivals. Ola &amp; Uber also operate across Kochi and Kottayam, but the prepaid counter at the airport exit is the easiest option.</p>
+          </div>
+
+          <!-- Getting Around -->
+          <div class="travel-card fade-up delay-1">
             <div class="travel-card-icon">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#75886D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></svg>
             </div>
             <p class="travel-card-title">Getting Around</p>
-            <p class="travel-card-text">Taxis, autos, Ola &amp; Uber are readily available in Kottayam and Kumarakom. We recommend pre-booking airport transfers.<br><br><strong>Wedding shuttles</strong> will run between the church and reception venues on both days.</p>
+            <p class="travel-card-text">Taxis, Ola &amp; Uber are readily available throughout Kottayam and Kumarakom for your stay.<br><br><strong>Wedding shuttles</strong> will run between the church and reception venues on both days — no logistics to worry about once you're here.</p>
           </div>
 
           <!-- Weather -->
@@ -1859,23 +1968,41 @@
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#75886D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.5 8h5a2 2 0 0 1 0 4h-5v4"/><line x1="9.5" y1="12" x2="14.5" y2="12"/><line x1="12" y1="6" x2="12" y2="8"/><line x1="12" y1="16" x2="12" y2="18"/></svg>
             </div>
             <p class="travel-card-title">Currency &amp; Tips</p>
-            <p class="travel-card-text">Currency: <strong>Indian Rupees (INR)</strong>. ATMs are widely available in Kottayam town and most hotels accept cards.<br><br>For international guests, Airtel and Jio offer tourist SIMs at the airport. Stick to <strong>bottled water</strong> throughout your stay.</p>
+            <p class="travel-card-text">Currency: <strong>Indian Rupees (INR)</strong>. ATMs are widely available in Kottayam town and most hotels accept cards.<br><br><em>For international guests:</em> Airtel and Jio tourist SIMs are available at the airport arrivals hall — staff will set it up for you. Also, tap water isn't recommended for drinking; sealed bottled water is available at every hotel, restaurant, and corner shop.</p>
           </div>
 
-          <!-- Things to Do -->
-          <div class="travel-card fade-up delay-3">
+          <!-- Explore Kochi Jan 1-2 -->
+          <div class="travel-card fade-up delay-2">
             <div class="travel-card-icon">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#75886D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
             </div>
-            <p class="travel-card-title">While You're Here</p>
-            <p class="travel-card-text">Kerala is stunning — don't miss the <strong>Alleppey backwaters</strong> by houseboat, the spice plantations of <strong>Munnar</strong>, or the beaches of <strong>Varkala</strong>. Even a short morning cruise from Kumarakom is magical!</p>
+            <p class="travel-card-title">Explore Kochi (Jan 1–2)</p>
+            <p class="travel-card-text">Arriving early? You're in one of India's most atmospheric cities — make the most of it.<br><br><strong>Fort Kochi &amp; Mattancherry</strong> — Start your morning at the iconic Chinese fishing nets at sunrise. Walk the lanes of Mattancherry to the Dutch Palace and lose an hour in the antique shops and spice stalls of Jew Town. The whole walk takes 2–3 hours and costs almost nothing.<br><br><strong>The Harbour Ferry</strong> — Take the public ferry from Fort Kochi jetty to Ernakulam for under ₹10. Stunning harbour views; the return ride at golden hour is especially beautiful.<br><br><strong>Where to eat</strong> — <em>Dhe Puttu</em> for a proper Kerala breakfast of puttu and kadala curry. <em>Malabar Junction</em> (Fort Kochi) for lunch or dinner. <em>Kayees Rahmathulla Hotel</em> in Mattancherry for legendary Malabar biryani.<br><br><strong>New Year's Day note</strong> — Jan 1st is festive and lively. Some government-run monuments (like the Dutch Palace) may be closed, but Fort Kochi streets and the waterfront are open and unmissable. Marine Drive in the evening is lovely for a stroll.</p>
+          </div>
+
+          <!-- Jan 4 Gap Day -->
+          <div class="travel-card fade-up delay-3">
+            <div class="travel-card-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#75886D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            </div>
+            <p class="travel-card-title">Jan 4 — A Day to Breathe</p>
+            <p class="travel-card-text">The 4th is yours! Tucked between the Engagement (Jan 3) and Wedding (Jan 5), it's the perfect day to explore.<br><br><strong>Alleppey houseboat or shikara ride</strong> (~45 mins from Kottayam) — A gentle float through the backwaters. Book a half-day shikara if a full overnight isn't your style.<br><br><strong>Kumarakom Bird Sanctuary</strong> (~30 mins) — Migratory birds fill the sanctuary through winter. A peaceful morning walk.<br><br><strong>Kottayam's ancient churches</strong> — Valiya Palli and Cheria Palli date to the 1600s and sit next to each other in town. Among the oldest Syrian Christian churches in India.<br><br><em>Or simply rest.</em> Two big celebrations flank this day — there is no shame in enjoying the hotel, the pool, and a long Kerala meal.</p>
+          </div>
+
+          <!-- Visa & Entry -->
+          <div class="travel-card fade-up delay-1">
+            <div class="travel-card-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#75886D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+            </div>
+            <p class="travel-card-title">Visa &amp; Entry</p>
+            <p class="travel-card-text">Most international guests will need an e-Tourist Visa to enter India — apply online and approval typically takes 72 hours. We recommend applying <strong>at least 2 weeks before travel</strong> to be safe.<br><br>See the Questions &amp; Answers section below for a nationality-by-nationality breakdown. Always verify the latest requirements with your embassy or the official Indian e-Visa portal.</p>
           </div>
 
         </div>
 
         <div class="travel-divider"></div>
         <div class="travel-arrival-note fade-up">
-          We recommend arriving by <strong>2nd January 2027</strong> to settle in before the celebrations begin. Departing on <strong>6th January or later</strong> gives you time to soak in the beauty of Kerala.
+          We recommend arriving by <strong>2nd January 2027 or earlier</strong> to celebrate New Year's in Kochi and to settle in before the celebrations begin. Departing on <strong>6th January or later</strong> gives you time to soak in the beauty of Kerala.
         </div>
       </div>
     </section>
@@ -1899,6 +2026,14 @@
 
           <div class="qa-item">
             <div class="qa-question">
+              What should we expect during the church ceremony?
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </div>
+            <div class="qa-answer-wrap"><div class="qa-answer-inner"><p class="qa-answer">The Knanaya Catholic ceremony runs for approximately one hour and is a beautiful, dignified occasion — nothing to be nervous about!<br><br><strong>Sitting and standing:</strong> The congregation will rise and be seated at key moments throughout the service. Simply follow those around you and you'll be perfectly in step.<br><br><strong>Language:</strong> The ceremony is conducted in Malayalam, with some English elements. The atmosphere is warm and the meaning of each moment will be felt regardless of language.<br><br><strong>Holy Communion:</strong> When the congregation goes forward to receive Communion, non-Catholics are warmly welcome to remain seated — this is completely normal and respected. You may also go forward with arms crossed over your chest to receive a blessing instead, if you'd like to participate in that moment.<br><br><strong>Photography:</strong> Please follow any guidance from the priest or ushers on the day regarding photos during the ceremony.<br><br>Come as you are, bring your warmth, and leave the rest to us.</p></div></div>
+          </div>
+
+          <div class="qa-item">
+            <div class="qa-question">
               Will there be transportation between venues?
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
             </div>
@@ -1907,10 +2042,50 @@
 
           <div class="qa-item">
             <div class="qa-question">
-              What should I wear?
+              What is the dress code? How strictly do I need to follow it? Can I buy Indian wedding outfits nearby?
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
             </div>
-            <div class="qa-answer-wrap"><div class="qa-answer-inner"><p class="qa-answer">Day 1 dress code is to be confirmed — please check back closer to the event. For Day 2, ladies are encouraged to wear a saree, lehenga or gown. Gentlemen, strictly formal attire. Dress to impress!</p></div></div>
+            <div class="qa-answer-wrap"><div class="qa-answer-inner"><p class="qa-answer">We have included a colour scheme for every wedding function — you'll find the details noted in the wedding schedule. This is of course no fashion week runway, but a humble celebration of love. If you feel good, you look great! That said, we politely request you to follow the colour scheme for aesthetic harmony and fabulous group photos!<br><br>And yes — if you're arriving early and need to pick up something special, here are some wonderful options:<br><br><strong>In Kochi city:</strong><br>• <strong>Jayalakshmi Silks (MG Road)</strong> — A huge collection of sarees, lehengas, and kurtas for men and women. Perfect for every budget and taste.<br>• <strong>Seemati</strong> — Famous for bridal and festive wear. Slightly over-the-top in the best way possible.<br>• <strong>Pothys / Kalyan Silks</strong> — Affordable, vast, and reliable for traditional Kerala and Indian festive wear.<br><br><strong>In Kottayam:</strong><br>• <strong>Seemati (Kottayam branch)</strong> — Same fabulous selection, closer to the wedding venues.<br>• <strong>Raymonds / The Raymond Shop</strong> — Great for men's formal Indian wear, sherwanis, and suits.<br>• <strong>Kairali Silks</strong> — A trusted local name for sarees and traditional Kerala textiles at lovely prices.</p></div></div>
+          </div>
+
+          <div class="qa-item">
+            <div class="qa-question">
+              How do I get from Kochi airport to my hotel?
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </div>
+            <div class="qa-answer-wrap"><div class="qa-answer-inner"><p class="qa-answer">Two options await you at the airport exit:<br><br><strong>Option 1 — Complimentary shuttle (arranged by us):</strong> Share your flight arrival details when you RSVP and our wedding planners at SANS Events will coordinate a transfer to your hotel, grouped by arrival time. You won't need to think about a thing.<br><br><strong>Option 2 — Prepaid taxi (flexible, guest-paid):</strong> Walk to the prepaid counter just before the airport exit. Fares are fixed — no haggling:<br>• Compact sedan: ~₹2,400 (~£23 / ~$27 / ~AED 100)<br>• SUV: ~₹3,600 (~£34 / ~$40 / ~AED 148)<br><br>Wait time is typically under 15 minutes, and the journey to Kottayam takes ~1.5 hours. These taxis are safe and reliable, including for late-night arrivals. Ola and Uber are also active across Kochi and Kottayam.</p></div></div>
+          </div>
+
+          <div class="qa-item">
+            <div class="qa-question">
+              Who do I contact on arrival or if I need help?
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </div>
+            <div class="qa-answer-wrap"><div class="qa-answer-inner"><p class="qa-answer">Our wedding planning team at <strong>SANS Events</strong> is your on-the-ground point of contact for all logistics — transport coordination, hotel queries, or any last-minute help.<br><br>Reach them on WhatsApp: <strong>+91 XX 8842 XX 22</strong> <em>(number will be confirmed closer to the event)</em><br><br>They are fluent in English and available to assist international guests throughout the trip.</p></div></div>
+          </div>
+
+          <div class="qa-item">
+            <div class="qa-question">
+              Do I need a visa to visit India?
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </div>
+            <div class="qa-answer-wrap"><div class="qa-answer-inner"><p class="qa-answer">Here is what we understand based on publicly available information — please verify with your country's embassy or the official Indian e-Visa portal for the latest requirements, as policies can change.<br><br><table class="visa-table"><thead><tr><th>Nationality</th><th>Visa Required?</th><th>Type</th><th>Notes</th></tr></thead><tbody><tr><td>UK Citizens</td><td>Yes</td><td>e-Tourist Visa</td><td>Apply online. Approval usually within 72 hours.</td></tr><tr><td>US Citizens</td><td>Yes</td><td>e-Tourist Visa</td><td>1-year and 5-year options available.</td></tr><tr><td>UAE Nationals</td><td>No</td><td>Visa on Arrival</td><td>Available at major Indian airports including Kochi (COK).</td></tr><tr><td>UAE Expats</td><td>Depends</td><td>e-Visa</td><td>Based on your original passport nationality.</td></tr><tr><td>Saudi Nationals</td><td>Yes</td><td>e-Visa</td><td>Apply online.</td></tr><tr><td>Saudi Expats</td><td>Depends</td><td>e-Visa</td><td>Based on your original passport nationality.</td></tr><tr><td>Pakistani Nationals</td><td>Yes</td><td>Paper Visa</td><td>Cannot use e-Visa. Apply for a Visit Visa with significant lead time — allow 60–90 days minimum.</td></tr></tbody></table><br>We recommend applying <strong>at least 2 weeks before travel</strong>. For the most accurate and up-to-date information, always check with your governing embassy or the official portal.</p></div></div>
+          </div>
+
+          <div class="qa-item">
+            <div class="qa-question">
+              What is there to do in Kochi if we arrive early (Jan 1–2)?
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </div>
+            <div class="qa-answer-wrap"><div class="qa-answer-inner"><p class="qa-answer">You're in luck — Kochi is one of India's most characterful cities and January is the best time to explore it.<br><br><strong>Fort Kochi &amp; Mattancherry</strong> — The Chinese fishing nets at sunrise are iconic. Walk through Mattancherry's lanes to the Dutch Palace, then lose an hour in the antique shops and spice stalls of Jew Town. It's a 2–3 hour walk that costs almost nothing and stays with you forever.<br><br><strong>The Harbour Ferry</strong> — Take the public KSINC ferry from Fort Kochi jetty to Ernakulam for under ₹10. Harbour views are beautiful; the return trip at golden hour is especially so.<br><br><strong>Where to eat</strong> — <em>Dhe Puttu</em> for a proper Kerala breakfast (puttu, kadala curry, chai). <em>Malabar Junction</em> in Fort Kochi for excellent coastal Kerala cuisine. <em>Kayees Rahmathulla Hotel</em> in Mattancherry for Malabar biryani that regulars swear by.<br><br><strong>New Year's Day note</strong> — The city is festive and lively on Jan 1st. Some government-run monuments like the Dutch Palace may be closed, but the waterfront, streets, and restaurants are fully open. Marine Drive along the harbour is a lovely evening stroll.</p></div></div>
+          </div>
+
+          <div class="qa-item">
+            <div class="qa-question">
+              What should we do on January 4th (the day between celebrations)?
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </div>
+            <div class="qa-answer-wrap"><div class="qa-answer-inner"><p class="qa-answer">Jan 4th is entirely yours — tucked between the Engagement (Jan 3) and the Wedding (Jan 5), it's a lovely day to exhale and explore.<br><br>• <strong>Alleppey houseboat or shikara ride</strong> (~45 mins from Kottayam) — A slow float through the backwaters. Book a half-day shikara if a full overnight isn't your style.<br>• <strong>Kumarakom Bird Sanctuary</strong> (~30 mins) — Migratory birds fill the sanctuary in winter. A peaceful morning walk before the heat sets in.<br>• <strong>Kottayam's ancient churches</strong> — Valiya Palli and Cheria Palli date to the 1600s and sit side by side in town. Among the oldest Syrian Christian churches in India — beautiful whether or not you're religious.<br><br>Or simply rest. Two big celebrations flank this day, and there is no shame in enjoying the hotel, the pool, and a very long Kerala lunch.</p></div></div>
           </div>
 
           <div class="qa-item">
@@ -1959,6 +2134,7 @@
           <p class="qa-contact-label">Still have questions?</p>
           <p class="qa-contact-name">SANS Events</p>
           <p class="qa-contact-detail">Our RSVP team is happy to help with anything you need</p>
+          <p class="qa-contact-detail" style="margin-top:0.5rem;">WhatsApp: <strong style="color:#fff;">+91 XX 8842 XX 22</strong> <span style="opacity:0.6;font-size:0.85rem;">(number confirmed closer to the event)</span></p>
         </div>
       </div>
     </section>
@@ -1969,51 +2145,120 @@
         <div class="rsvp-header fade-up">
           <h2 class="rsvp-title">RSVP</h2>
           <p class="rsvp-subtitle">Let us know if you can make it</p>
+          <p style="font-family:'arek-armenian',serif; font-size:0.9rem; color:#6B7D63; margin-top:0.5rem; font-style:italic;">Please RSVP by 1st January 2027</p>
         </div>
         <div class="rsvp-form-card fade-up delay-2">
           <form id="rsvp-form" onsubmit="handleRSVP(event)">
+
+            <!-- Q1: Attending — always visible -->
             <div class="form-group">
               <label class="form-label">Can you make it? *</label>
               <div class="radio-group">
-                <label class="radio-option"><input type="radio" name="attending" value="yes" required><span>Yes, I'll be there!</span></label>
-                <label class="radio-option"><input type="radio" name="attending" value="no"><span>Unfortunately, I can't make it</span></label>
+                <label class="radio-option"><input type="radio" name="attending" value="yes" required id="attending-yes"><span>I'll be there!</span></label>
+                <label class="radio-option"><input type="radio" name="attending" value="no" id="attending-no"><span>I can't make it this time</span></label>
               </div>
             </div>
-            <div class="form-group">
-              <label class="form-label" for="fullname">Your name *</label>
-              <input type="text" id="fullname" class="form-input" placeholder="Enter your name" required>
+
+            <!-- Name — shown once attending is selected -->
+            <div class="form-group rsvp-conditional" id="field-name">
+              <label class="form-label" for="fullname">Your full name *</label>
+              <input type="text" id="fullname" class="form-input" placeholder="First and last name">
             </div>
-            <div class="form-group">
-              <label class="form-label" for="email">Email</label>
-              <input type="email" id="email" class="form-input" placeholder="your@email.com">
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="guests">How many Guests?</label>
-              <select id="guests" class="form-select">
-                <option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="dietary">Any dietary needs?</label>
-              <input type="text" id="dietary" class="form-input" placeholder="e.g. vegetarian, allergies…">
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="mobile">Mobile number (WhatsApp)</label>
-              <input type="tel" id="mobile" class="form-input" placeholder="+44 7700 000000">
-            </div>
-            <div class="form-group">
-              <label class="form-label">Pre wedding / Post wedding plans 🎉</label>
-              <p style="font-family:'arek-armenian',serif; font-size:0.9rem; color:#6B7D63; margin-bottom:0.6rem; line-height:1.5;">Join us for a small New Year's celebration and breakfast on the morning after the wedding!</p>
-              <div class="radio-group">
-                <label class="radio-option"><input type="radio" name="newyear" value="yes"><span>Count me in!</span></label>
-                <label class="radio-option"><input type="radio" name="newyear" value="no"><span>I'll skip this one</span></label>
+
+            <!-- YES ONLY FIELDS -->
+            <div class="rsvp-conditional" id="rsvp-yes-fields">
+              <div class="form-group">
+                <label class="form-label" for="mobile">Mobile (WhatsApp) *</label>
+                <input type="tel" id="mobile" class="form-input" placeholder="Your WhatsApp number">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="email">Email <span style="font-weight:400;opacity:0.65;">(for your confirmation)</span></label>
+                <input type="email" id="email" class="form-input" placeholder="your@email.com">
+              </div>
+
+              <hr class="form-section-divider">
+              <p class="form-section-heading">Your Visit</p>
+
+              <div class="form-group">
+                <label class="form-label" for="guests">How many in your party? <span style="font-weight:400;opacity:0.65;">(including yourself)</span></label>
+                <select id="guests" class="form-select">
+                  <option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10+</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Which day(s) are you attending? *</label>
+                <div class="radio-group">
+                  <label class="radio-option"><input type="radio" name="days_attending" value="both" id="days-both"><span>Both days — Engagement &amp; Wedding (3rd &amp; 5th Jan)</span></label>
+                  <label class="radio-option"><input type="radio" name="days_attending" value="day1" id="days-day1"><span>Day 1 only — Engagement &amp; Reception (3rd Jan)</span></label>
+                  <label class="radio-option"><input type="radio" name="days_attending" value="day2" id="days-day2"><span>Day 2 only — Wedding &amp; Reception (5th Jan)</span></label>
+                </div>
+              </div>
+
+              <!-- Flight details — always shown for attending guests -->
+              <div class="flight-fields" id="flight-fields">
+                <p class="form-label" style="margin-bottom:0.25rem;">Flight Arrival Details <span style="font-weight:400;opacity:0.7;">(helps us plan your complimentary shuttle)</span></p>
+                <p style="font-family:'arek-armenian',serif; font-size:0.82rem; color:#75886D; margin-bottom:0.75rem; font-style:italic;">Haven't booked yet? Fill in what you know — you can share the rest with our SANS Events team on WhatsApp closer to the date.</p>
+                <div class="form-group">
+                  <label class="form-label" for="arrival-airport">Arrival Airport <span style="font-weight:400;opacity:0.7;">(optional)</span></label>
+                  <select id="arrival-airport" class="form-select">
+                    <option value="">Select airport</option>
+                    <option value="COK">Cochin International Airport (COK) — recommended</option>
+                    <option value="TRV">Trivandrum International Airport (TRV)</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+                <div class="flight-row">
+                  <div class="form-group">
+                    <label class="form-label" for="arrival-date">Arrival Date <span style="font-weight:400;opacity:0.7;">(optional)</span></label>
+                    <input type="date" id="arrival-date" class="form-input">
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="arrival-time">Arrival Time <span style="font-weight:400;opacity:0.7;">(optional)</span></label>
+                    <input type="time" id="arrival-time" class="form-input">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="flight-number">Flight Number <span style="font-weight:400;opacity:0.7;">(optional)</span></label>
+                  <input type="text" id="flight-number" class="form-input" placeholder="e.g. EK 528">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="dietary">Dietary requirements for your party</label>
+                <input type="text" id="dietary" class="form-input" placeholder="e.g. Guest 1: vegetarian, Guest 3: nut allergy">
+              </div>
+
+              <hr class="form-section-divider">
+              <p class="form-section-heading">Celebrations</p>
+
+              <div class="form-group">
+                <label class="form-label">Pre wedding / Post wedding plans 🎉</label>
+                <p style="font-family:'arek-armenian',serif; font-size:0.9rem; color:#6B7D63; margin-bottom:0.6rem; line-height:1.5;">Would you be interested in New Year's celebration or breakfast on the morning after the wedding!</p>
+                <div class="radio-group">
+                  <label class="radio-option"><input type="radio" name="plans" value="yes"><span>Count me in!</span></label>
+                  <label class="radio-option"><input type="radio" name="plans" value="no"><span>I'll skip this one</span></label>
+                </div>
               </div>
             </div>
-            <div class="form-group">
-              <label class="form-label" for="message">Leave us a note</label>
-              <textarea id="message" class="form-textarea" placeholder="Anything you'd like us to know?"></textarea>
+
+            <!-- NO ONLY FIELDS -->
+            <div class="rsvp-conditional" id="rsvp-no-fields">
+              <div class="form-group">
+                <label class="form-label" for="contact-no">How can we reach you?</label>
+                <input type="text" id="contact-no" class="form-input" placeholder="Email or WhatsApp number">
+              </div>
             </div>
-            <button type="submit" class="rsvp-submit">Send RSVP</button>
+
+            <!-- Note — always shown once attending selected, label changes -->
+            <div class="rsvp-conditional" id="field-note">
+              <div class="form-group">
+                <label class="form-label" id="note-label">A note for Larisa &amp; Shine</label>
+                <textarea id="message" class="form-textarea" placeholder="Send them your love, share a memory, or just say hello 💚"></textarea>
+              </div>
+            </div>
+
+            <button type="submit" class="rsvp-submit" id="rsvp-submit-btn" style="display:none;">Send with love</button>
           </form>
         </div>
       </div>
@@ -2117,6 +2362,43 @@
       el.classList.add('visible');
     });
 
+    // ===== RSVP CONDITIONAL LOGIC =====
+    (function() {
+      var attendingYes  = document.getElementById('attending-yes');
+      var attendingNo   = document.getElementById('attending-no');
+      var fieldName     = document.getElementById('field-name');
+      var yesFields     = document.getElementById('rsvp-yes-fields');
+      var noFields      = document.getElementById('rsvp-no-fields');
+      var fieldNote     = document.getElementById('field-note');
+      var noteLabel     = document.getElementById('note-label');
+      var submitBtn     = document.getElementById('rsvp-submit-btn');
+      var flightFields  = document.getElementById('flight-fields');
+
+      function show(el) { if (el) el.classList.add('visible'); }
+      function hide(el) { if (el) el.classList.remove('visible'); }
+
+      function updateAttending() {
+        var isYes = attendingYes && attendingYes.checked;
+        var isNo  = attendingNo  && attendingNo.checked;
+        show(fieldName);
+        show(fieldNote);
+        if (submitBtn) submitBtn.style.display = 'block';
+        if (isYes) {
+          show(yesFields);
+          hide(noFields);
+          if (flightFields) flightFields.classList.add('visible');
+          if (noteLabel) noteLabel.textContent = 'A note for Larisa & Shine';
+        } else if (isNo) {
+          hide(yesFields);
+          show(noFields);
+          if (noteLabel) noteLabel.textContent = "We'll miss you — leave them a message";
+        }
+      }
+
+      if (attendingYes) attendingYes.addEventListener('change', updateAttending);
+      if (attendingNo)  attendingNo.addEventListener('change', updateAttending);
+    })();
+
     // Music elements (declared early so splash can use them)
     var music = document.getElementById('bg-music');
     var musicToggle = document.getElementById('music-toggle');
@@ -2137,15 +2419,7 @@
         if (splashState !== 'idle') return;
         splashState = 'playing';
 
-        // Start music on user gesture so browser allows autoplay
-        var mp = music.play();
-        if (mp && typeof mp.then === 'function') {
-          mp.then(function() {
-            isPlaying = true;
-            iconOff.style.display = 'none';
-            iconOn.style.display = 'block';
-          }).catch(function(){});
-        }
+        // Music is muted by default — user must manually start it via the toggle
 
         // Play the envelope video
         var p = splashVideo.play();
@@ -2464,20 +2738,48 @@
     function handleRSVP(e) {
       e.preventDefault();
       var form = e.target;
-      var btn = form.querySelector('.rsvp-submit');
+      var btn = document.getElementById('rsvp-submit-btn');
       var attendingEl = form.querySelector('input[name="attending"]:checked');
       if (!attendingEl) { alert('Please select if you will be attending.'); return; }
 
-      var payload = {
-        attending: attendingEl.value,
-        fullname: document.getElementById('fullname').value.trim(),
-        email: document.getElementById('email').value.trim(),
-        guests: document.getElementById('guests').value,
-        dietary: document.getElementById('dietary').value.trim(),
-        message: document.getElementById('message').value.trim()
+      var fullname = document.getElementById('fullname').value.trim();
+      if (!fullname) { alert('Please enter your full name.'); return; }
+
+      var isYes = attendingEl.value === 'yes';
+      var daysEl   = form.querySelector('input[name="days_attending"]:checked');
+      var plansEl  = form.querySelector('input[name="plans"]:checked');
+
+      var daysMap = {
+        both: 'Both days (3rd & 5th Jan)',
+        day1: 'Day 1 only — Engagement & Reception (3rd Jan)',
+        day2: 'Day 2 only — Wedding & Reception (5th Jan)'
+      };
+      var airportMap = {
+        COK: 'Cochin International (COK)',
+        TRV: 'Trivandrum International (TRV)',
+        other: 'Other'
       };
 
-      if (!payload.fullname) { alert('Please enter your full name.'); return; }
+      var rawAirport = document.getElementById('arrival-airport') ? document.getElementById('arrival-airport').value : '';
+      var rawDays    = daysEl ? daysEl.value : '';
+
+      var payload = {
+        attending:       isYes ? 'Yes' : 'No',
+        fullname:        fullname,
+        mobile:          isYes
+                           ? (document.getElementById('mobile') ? document.getElementById('mobile').value.trim() : '')
+                           : (document.getElementById('contact-no') ? document.getElementById('contact-no').value.trim() : ''),
+        email:           document.getElementById('email') ? document.getElementById('email').value.trim() : '',
+        guests:          document.getElementById('guests') ? document.getElementById('guests').value : '',
+        days_attending:  daysMap[rawDays] || rawDays,
+        arrival_airport: airportMap[rawAirport] || rawAirport,
+        arrival_date:    document.getElementById('arrival-date') ? document.getElementById('arrival-date').value : '',
+        arrival_time:    document.getElementById('arrival-time') ? document.getElementById('arrival-time').value : '',
+        flight_number:   document.getElementById('flight-number') ? document.getElementById('flight-number').value.trim() : '',
+        dietary:         document.getElementById('dietary') ? document.getElementById('dietary').value.trim() : '',
+        plans:           plansEl ? (plansEl.value === 'yes' ? 'Count me in!' : 'I\'ll skip this one') : '',
+        message:         document.getElementById('message') ? document.getElementById('message').value.trim() : ''
+      };
 
       btn.textContent = 'Sending...';
       btn.disabled = true;
@@ -2488,11 +2790,11 @@
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
       }).then(function() {
-        btn.textContent = 'Thank you! RSVP Received';
+        btn.textContent = isYes ? 'We can\'t wait to see you! 💚' : 'Thank you — we\'ll miss you!';
         btn.style.background = '#2d6a30';
         form.reset();
         setTimeout(function() {
-          btn.textContent = 'Send RSVP';
+          btn.textContent = 'Send with love';
           btn.style.background = '';
           btn.disabled = false;
         }, 5000);
@@ -2500,7 +2802,7 @@
         btn.textContent = 'Error — please try again';
         btn.style.background = '#a04040';
         setTimeout(function() {
-          btn.textContent = 'Send RSVP';
+          btn.textContent = 'Send with love';
           btn.style.background = '';
           btn.disabled = false;
         }, 3000);
