@@ -1306,79 +1306,82 @@
       margin: 0.5rem 0 2rem;
       font-style: italic;
     }
-    .travel-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 0.75rem;
-      align-items: stretch;
+    /* Travel accordion */
+    .travel-accordion {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
     }
-    @media (min-width: 540px) { .travel-grid { grid-template-columns: 1fr 1fr; gap: 1rem; } }
-    @media (min-width: 1024px) { .travel-grid { grid-template-columns: 1fr 1fr 1fr; } }
-
-    /* Mobile: horizontal icon+title layout */
-    .travel-card { height: 100%; }
-    .travel-card {
+    .travel-acc-item {
       background: rgba(255,255,255,0.85);
       backdrop-filter: blur(8px);
-      border: 1px solid rgba(117,136,109, 0.2);
-      border-radius: 1rem;
-      padding: 1.1rem 1.25rem;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-      display: grid;
-      grid-template-columns: 2.5rem 1fr;
-      grid-template-rows: auto auto;
-      column-gap: 0.875rem;
+      border: 1px solid rgba(117,136,109,0.2);
+      border-radius: 0.875rem;
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+      transition: box-shadow 0.2s ease;
     }
-    @media (min-width: 540px) {
-      .travel-card {
-        display: block;
-        padding: 1.75rem 1.5rem;
-      }
+    .travel-acc-item.open {
+      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
     }
-    .travel-card-icon {
-      width: 2.5rem;
-      height: 2.5rem;
+    .travel-acc-header {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 0.875rem;
+      padding: 1rem 1.25rem;
+      cursor: pointer;
+      background: none;
+      border: none;
+      text-align: left;
+    }
+    .travel-acc-icon {
+      width: 2.25rem;
+      height: 2.25rem;
       background: rgba(117,136,109,0.1);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      grid-column: 1;
-      grid-row: 1 / 3;
-      align-self: start;
-      margin-top: 0.1rem;
       flex-shrink: 0;
     }
-    @media (min-width: 540px) {
-      .travel-card-icon { margin-bottom: 1rem; grid-row: auto; }
-    }
-    .travel-card-title {
+    .travel-acc-label {
       font-family: "arek-armenian", serif;
-      font-size: 0.75rem;
+      font-size: 0.78rem;
       font-weight: 600;
       letter-spacing: 0.15em;
       text-transform: uppercase;
       color: #3D4A38;
-      margin-bottom: 0.3rem;
-      grid-column: 2;
-      grid-row: 1;
-      align-self: center;
+      flex: 1;
     }
-    @media (min-width: 540px) {
-      .travel-card-title { font-size: 0.8rem; letter-spacing: 0.2em; margin-bottom: 0.75rem; grid-column: auto; grid-row: auto; }
+    .travel-acc-chevron {
+      color: #75886D;
+      flex-shrink: 0;
+      transition: transform 0.3s ease;
     }
-    .travel-card-text {
+    .travel-acc-item.open .travel-acc-chevron {
+      transform: rotate(180deg);
+    }
+    .travel-acc-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+    }
+    .travel-acc-item.open .travel-acc-body {
+      max-height: 1000px;
+    }
+    .travel-acc-text {
+      padding: 0 1.25rem 1.25rem 4.25rem;
       font-family: "arek-armenian", serif;
       font-size: 0.9rem;
-      line-height: 1.65;
+      line-height: 1.7;
       color: #5C6E54;
-      grid-column: 2;
-      grid-row: 2;
     }
-    @media (min-width: 540px) {
-      .travel-card-text { font-size: 1rem; line-height: 1.75; grid-column: auto; grid-row: auto; }
+    @media (min-width: 768px) {
+      .travel-acc-header { padding: 1.1rem 1.5rem; }
+      .travel-acc-text { font-size: 1rem; line-height: 1.75; padding: 0 1.5rem 1.5rem 4.5rem; }
     }
-    .travel-card-text strong {
+    .travel-acc-text strong {
       color: #3D4A38;
       font-weight: 600;
     }
@@ -1691,7 +1694,7 @@
 
     <!-- DIVIDER -->
     <div class="ivory-divider">
-      <img src="assets/div-11.png" alt="" style="width:min(60%, 18rem);" class="fade-up" loading="lazy">
+      <img src="assets/div123.png" alt="" style="width:min(60%, 18rem); mix-blend-mode:multiply; opacity:0.85;" class="fade-up" loading="lazy">
     </div>
 
     <!-- ===== KNANAYA HERITAGE ===== -->
@@ -1829,16 +1832,16 @@
       </div>
     </section>
 
-    <!-- DIVIDER: champagne tower -->
-    <div class="ivory-divider">
-      <img src="assets/div-22.png" alt="" style="width:min(60%, 18rem);" class="fade-up" loading="lazy">
-    </div>
-
     <!-- ===== JAN 4 BRIDGE ===== -->
     <div class="jan4-bridge fade-up">
       <p class="jan4-label">4th January 2027</p>
       <p class="jan4-title">A Day to Rest &amp; Explore</p>
       <p class="jan4-text">Take a breath, soak in Kerala, and come back refreshed. See our suggestions in the <a href="#qa" onclick="event.preventDefault();document.getElementById('qa').scrollIntoView({behavior:'smooth'})">Questions &amp; Answers</a> section.</p>
+    </div>
+
+    <!-- DIVIDER: above day 2 -->
+    <div class="ivory-divider">
+      <img src="assets/div-22.png" alt="" style="width:min(60%, 18rem);" class="fade-up" loading="lazy">
     </div>
 
     <!-- ===== DAY 2 PROGRAMME ===== -->
@@ -2003,51 +2006,76 @@
         <h2 class="travel-title fade-up delay-1">Getting Here</h2>
         <p class="travel-subtitle fade-up delay-2">Everything you need to know to make your way to Kottayam, Kerala</p>
 
-        <div class="travel-grid">
+        <div class="travel-accordion fade-up delay-1">
 
           <!-- By Air -->
-          <div class="travel-card fade-up delay-1">
-            <div class="travel-card-icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#75886D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21 4 19 4L4 9l4 2.5L12 20l3.8-.8z"/></svg>
+          <div class="travel-acc-item open">
+            <button class="travel-acc-header">
+              <div class="travel-acc-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#75886D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21 4 19 4L4 9l4 2.5L12 20l3.8-.8z"/></svg>
+              </div>
+              <span class="travel-acc-label">By Air</span>
+              <svg class="travel-acc-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div class="travel-acc-body">
+              <p class="travel-acc-text"><strong>Cochin International Airport (COK)</strong> is the recommended arrival point — approximately 70 km from Kottayam (~1.5 hrs by road).<br><br>Trivandrum International Airport (TRV) is an alternative (~150 km, ~3 hrs).<br><br>On arrival, pick up a <strong>Jio or Airtel tourist SIM</strong> at the arrivals hall — staff set it up on the spot, and data in India is wonderfully affordable.</p>
             </div>
-            <p class="travel-card-title">By Air</p>
-            <p class="travel-card-text"><strong>Cochin International Airport (COK)</strong> is the recommended arrival point — approximately 70 km from Kottayam (~1.5 hrs by road).<br><br>Trivandrum International Airport (TRV) is an alternative (~150 km, ~3 hrs).<br><br>On arrival, pick up a <strong>Jio or Airtel tourist SIM</strong> at the arrivals hall — staff set it up on the spot, and data in India is wonderfully affordable.</p>
           </div>
 
           <!-- By Train -->
-          <div class="travel-card fade-up delay-2">
-            <div class="travel-card-icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#75886D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="14" rx="2"/><path d="M4 11h16M12 3v8M8 17l-2 4M16 17l2 4M7 17h10"/></svg>
+          <div class="travel-acc-item">
+            <button class="travel-acc-header">
+              <div class="travel-acc-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#75886D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="14" rx="2"/><path d="M4 11h16M12 3v8M8 17l-2 4M16 17l2 4M7 17h10"/></svg>
+              </div>
+              <span class="travel-acc-label">By Train</span>
+              <svg class="travel-acc-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div class="travel-acc-body">
+              <p class="travel-acc-text"><strong>Kottayam Railway Station</strong> is a major stop on the Ernakulam–Thiruvananthapuram rail corridor with excellent connections from across India.</p>
             </div>
-            <p class="travel-card-title">By Train</p>
-            <p class="travel-card-text"><strong>Kottayam Railway Station</strong> is a major stop on the Ernakulam–Thiruvananthapuram rail corridor with excellent connections from across India.</p>
           </div>
 
           <!-- Getting to the Hotel -->
-          <div class="travel-card fade-up delay-3">
-            <div class="travel-card-icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#75886D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          <div class="travel-acc-item">
+            <button class="travel-acc-header">
+              <div class="travel-acc-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#75886D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              </div>
+              <span class="travel-acc-label">Getting to Your Hotel</span>
+              <svg class="travel-acc-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div class="travel-acc-body">
+              <p class="travel-acc-text"><strong>Option 1 — Complimentary shuttle (arranged by us):</strong> Share your flight details when you RSVP and our team at SANS Events will coordinate transfers to your hotel, grouped by arrival time. You won't need to worry about a thing.<br><br><strong>Option 2 — Prepaid taxi (flexible, guest-paid):</strong> Walk to the prepaid counter just before the airport exit — no booking needed, fares are fixed:<br>• Compact sedan: ~₹2,400 (~£23 / ~$27)<br>• SUV: ~₹3,600 (~£34 / ~$40)<br><br>Wait time is typically under 15 minutes. These are safe and reliable, including for late-night arrivals. Ola &amp; Uber also operate across Kochi and Kottayam, but the prepaid counter at the airport exit is the easiest option.</p>
             </div>
-            <p class="travel-card-title">Getting to Your Hotel</p>
-            <p class="travel-card-text"><strong>Option 1 — Complimentary shuttle (arranged by us):</strong> Share your flight details when you RSVP and our team at SANS Events will coordinate transfers to your hotel, grouped by arrival time. You won't need to worry about a thing.<br><br><strong>Option 2 — Prepaid taxi (flexible, guest-paid):</strong> Walk to the prepaid counter just before the airport exit — no booking needed, fares are fixed:<br>• Compact sedan: ~₹2,400 (~£23 / ~$27)<br>• SUV: ~₹3,600 (~£34 / ~$40)<br><br>Wait time is typically under 15 minutes. These are safe and reliable, including for late-night arrivals. Ola &amp; Uber also operate across Kochi and Kottayam, but the prepaid counter at the airport exit is the easiest option.</p>
           </div>
 
           <!-- Getting Around -->
-          <div class="travel-card fade-up delay-1">
-            <div class="travel-card-icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#75886D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></svg>
+          <div class="travel-acc-item">
+            <button class="travel-acc-header">
+              <div class="travel-acc-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#75886D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></svg>
+              </div>
+              <span class="travel-acc-label">Getting Around</span>
+              <svg class="travel-acc-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div class="travel-acc-body">
+              <p class="travel-acc-text">Taxis, Ola &amp; Uber are readily available throughout Kottayam and Kumarakom for your stay.<br><br><strong>Wedding shuttles</strong> will run between the church and reception venues on both days — no logistics to worry about once you're here.</p>
             </div>
-            <p class="travel-card-title">Getting Around</p>
-            <p class="travel-card-text">Taxis, Ola &amp; Uber are readily available throughout Kottayam and Kumarakom for your stay.<br><br><strong>Wedding shuttles</strong> will run between the church and reception venues on both days — no logistics to worry about once you're here.</p>
           </div>
 
           <!-- Visa & Entry -->
-          <div class="travel-card fade-up delay-1">
-            <div class="travel-card-icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#75886D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+          <div class="travel-acc-item">
+            <button class="travel-acc-header">
+              <div class="travel-acc-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#75886D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+              </div>
+              <span class="travel-acc-label">Visa &amp; Entry</span>
+              <svg class="travel-acc-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div class="travel-acc-body">
+              <p class="travel-acc-text">Most international guests will need an e-Tourist Visa to enter India — apply online and approval typically takes 72 hours. We recommend applying <strong>at least 2 weeks before travel</strong> to be safe.<br><br>See the Questions &amp; Answers section below for a nationality-by-nationality breakdown. Always verify the latest requirements with your embassy or the official Indian e-Visa portal.</p>
             </div>
-            <p class="travel-card-title">Visa &amp; Entry</p>
-            <p class="travel-card-text">Most international guests will need an e-Tourist Visa to enter India — apply online and approval typically takes 72 hours. We recommend applying <strong>at least 2 weeks before travel</strong> to be safe.<br><br>See the Questions &amp; Answers section below for a nationality-by-nationality breakdown. Always verify the latest requirements with your embassy or the official Indian e-Visa portal.</p>
           </div>
 
         </div>
@@ -2369,6 +2397,14 @@
     }
     updateCountdown();
     setInterval(updateCountdown, 1000);
+
+    // Travel accordion
+    document.querySelectorAll('.travel-acc-header').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var item = btn.closest('.travel-acc-item');
+        item.classList.toggle('open');
+      });
+    });
 
     // Scroll-triggered animations (IntersectionObserver)
     var fadeEls = document.querySelectorAll('.fade-up, .fade-in-only');
