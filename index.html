@@ -1663,11 +1663,6 @@
           <span class="countdown-number" id="cd-minutes">--</span>
           <span class="countdown-label">Minutes</span>
         </div>
-        <div class="countdown-sep"></div>
-        <div class="countdown-item">
-          <span class="countdown-number" id="cd-seconds">--</span>
-          <span class="countdown-label">Seconds</span>
-        </div>
       </div>
     </section>
 
@@ -1969,14 +1964,12 @@
             </div>
           </div>
         </div>
-        <p class="accommodation-subtitle fade-up delay-3" style="margin-top:2rem; font-size:0.95rem;">These are a few other recommendations from our events planner. Feel free to <a href="https://www.tripadvisor.in/HotelsNear-g678552-d607992-Backwater_Ripples_Kumarakom-Kottayam_District_Kerala.html" target="_blank" rel="noopener noreferrer" style="color:#75886D; text-decoration:underline; text-underline-offset:2px;">explore more options here</a> or get in touch with us if you have any further questions.</p>
+        <div style="text-align:center; margin-top:2rem; margin-bottom:1rem;">
+          <img src="assets/div44.png" alt="" style="width:min(60%, 18rem);" class="fade-up" loading="lazy">
+        </div>
+        <p class="accommodation-subtitle fade-up delay-3" style="font-size:0.95rem;">These are a few other recommendations from our events planner. Feel free to <a href="https://www.tripadvisor.in/HotelsNear-g678552-d607992-Backwater_Ripples_Kumarakom-Kottayam_District_Kerala.html" target="_blank" rel="noopener noreferrer" style="color:#75886D; text-decoration:underline; text-underline-offset:2px;">explore more options here</a> or get in touch with us if you have any further questions.</p>
       </div>
     </section>
-
-    <!-- DIVIDER -->
-    <div class="ivory-divider">
-      <img src="assets/div44.png" alt="" style="width:min(60%, 18rem);" class="fade-up" loading="lazy">
-    </div>
 
     <!-- ===== SECOND GALLERY MARQUEE ===== -->
     <section class="gallery-marquee-section">
@@ -2373,7 +2366,6 @@
       document.getElementById('cd-days').textContent = String(days).padStart(2,'0');
       document.getElementById('cd-hours').textContent = String(hours).padStart(2,'0');
       document.getElementById('cd-minutes').textContent = String(minutes).padStart(2,'0');
-      document.getElementById('cd-seconds').textContent = String(seconds).padStart(2,'0');
     }
     updateCountdown();
     setInterval(updateCountdown, 1000);
