@@ -2493,6 +2493,14 @@
         if (splashState !== 'idle') return;
         splashState = 'playing';
 
+        // Start music immediately on first click
+        music.volume = 0.5;
+        var mp = music.play();
+        if (mp && typeof mp.catch === 'function') mp.catch(function(){});
+        isPlaying = true;
+        iconOff.style.display = 'none';
+        iconOn.style.display = 'block';
+
         // Play the envelope video
         var p = splashVideo.play();
         if (p && typeof p.catch === 'function') p.catch(function(){});
@@ -2513,13 +2521,6 @@
           setTimeout(function() {
             splashState = 'done';
             splash.classList.add('hidden');
-            // Auto-start music when splash closes
-            music.volume = 0.5;
-            var mp = music.play();
-            if (mp && typeof mp.catch === 'function') mp.catch(function(){});
-            isPlaying = true;
-            iconOff.style.display = 'none';
-            iconOn.style.display = 'block';
           }, 800);
         }
       });
@@ -2532,13 +2533,6 @@
           setTimeout(function() {
             splashState = 'done';
             splash.classList.add('hidden');
-            // Auto-start music when splash closes
-            music.volume = 0.5;
-            var mp = music.play();
-            if (mp && typeof mp.catch === 'function') mp.catch(function(){});
-            isPlaying = true;
-            iconOff.style.display = 'none';
-            iconOn.style.display = 'block';
           }, 800);
         }
       });
