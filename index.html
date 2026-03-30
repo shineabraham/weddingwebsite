@@ -890,14 +890,14 @@
 
     /* ===== ACCOMMODATION ===== */
     .accommodation-section {
-      padding: 3.5rem 1.5rem 5rem;
+      padding: 1.5rem 1.5rem 5rem;
       position: relative;
       overflow: hidden;
       /* textured paper bg removed — file missing */
       background-size: cover;
       background-position: center;
     }
-    @media (min-width: 768px) { .accommodation-section { padding: 4rem 3rem 6rem; } }
+    @media (min-width: 768px) { .accommodation-section { padding: 2rem 3rem 6rem; } }
     .accommodation-inner { max-width: 48rem; margin: 0 auto; position: relative; z-index: 1; }
     .accommodation-title {
       font-family: "New Icon Script", cursive;
@@ -1840,12 +1840,12 @@
     </div>
 
     <!-- DIVIDER: above day 2 -->
-    <div class="ivory-divider">
+    <div class="ivory-divider" style="padding-top:0; padding-bottom:0;">
       <img src="assets/div-22.png" alt="" style="width:min(60%, 18rem);" class="fade-up" loading="lazy">
     </div>
 
     <!-- ===== DAY 2 PROGRAMME ===== -->
-    <section class="programme-section" id="programme-day2">
+    <section class="programme-section" id="programme-day2" style="padding-top:1.5rem;">
       <div class="programme-inner">
         <h2 class="programme-title fade-up">Day 2</h2>
         <p class="programme-events fade-up delay-1">Wedding Day</p>
@@ -2501,8 +2501,6 @@
         if (splashState !== 'idle') return;
         splashState = 'playing';
 
-        // Music is muted by default — user must manually start it via the toggle
-
         // Play the envelope video
         var p = splashVideo.play();
         if (p && typeof p.catch === 'function') p.catch(function(){});
@@ -2523,6 +2521,13 @@
           setTimeout(function() {
             splashState = 'done';
             splash.classList.add('hidden');
+            // Auto-start music when splash closes
+            music.volume = 0.5;
+            var mp = music.play();
+            if (mp && typeof mp.catch === 'function') mp.catch(function(){});
+            isPlaying = true;
+            iconOff.style.display = 'none';
+            iconOn.style.display = 'block';
           }, 800);
         }
       });
@@ -2535,6 +2540,13 @@
           setTimeout(function() {
             splashState = 'done';
             splash.classList.add('hidden');
+            // Auto-start music when splash closes
+            music.volume = 0.5;
+            var mp = music.play();
+            if (mp && typeof mp.catch === 'function') mp.catch(function(){});
+            isPlaying = true;
+            iconOff.style.display = 'none';
+            iconOn.style.display = 'block';
           }, 800);
         }
       });
