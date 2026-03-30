@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Email Preview — Larisa & Shine</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Georgia, serif; background: #e8e2d8; padding: 24px 16px; }
+    h1 { text-align: center; font-size: 13px; letter-spacing: 0.3em; text-transform: uppercase; color: #6B7D63; margin-bottom: 24px; font-weight: 400; }
+    .tabs { display: flex; justify-content: center; gap: 8px; margin-bottom: 28px; }
+    .tab { padding: 10px 28px; border: 1.5px solid #3D4A38; border-radius: 100px; font-family: Georgia, serif; font-size: 13px; cursor: pointer; background: transparent; color: #3D4A38; transition: all 0.2s; }
+    .tab.active { background: #3D4A38; color: #fff; }
+    .email-wrap { display: none; }
+    .email-wrap.active { display: block; }
+    .email-label { text-align: center; font-size: 11px; letter-spacing: 0.25em; text-transform: uppercase; color: #9aaa94; margin-bottom: 12px; }
+  </style>
+</head>
+<body>
+
+<h1>Confirmation Email Preview</h1>
+
+<div class="tabs">
+  <button class="tab active" onclick="show('yes', this)">✓ Attending (Yes)</button>
+  <button class="tab" onclick="show('no', this)">✗ Not Attending (No)</button>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     YES EMAIL
+═══════════════════════════════════════════════ -->
+<div class="email-wrap active" id="email-yes">
+  <p class="email-label">Sent when guest RSVPs — attending</p>
+
+  <table width="100%" cellpadding="0" cellspacing="0" style="background:#f5f0e8;padding:32px 16px;">
+    <tr><td align="center">
+    <table width="100%" style="max-width:560px;background:#fffdf8;border-radius:16px;overflow:hidden;box-shadow:0 4px 32px rgba(61,74,56,0.10);">
+
+      <!-- Header band -->
+      <tr><td style="background:#3D4A38;padding:40px 32px 32px;text-align:center;">
+        <p style="margin:0 0 6px;font-family:Georgia,serif;font-size:11px;letter-spacing:0.35em;text-transform:uppercase;color:rgba(255,255,255,0.6);">You're confirmed</p>
+        <h1 style="margin:0;font-family:Georgia,serif;font-size:42px;font-weight:400;color:#fff;line-height:1.1;">Larisa <span style="font-style:italic;color:rgba(255,255,255,0.55);">&amp;</span> Shine</h1>
+        <p style="margin:12px 0 0;font-family:Georgia,serif;font-size:13px;color:rgba(255,255,255,0.65);letter-spacing:0.15em;text-transform:uppercase;">5th January 2027 · Kottayam, Kerala</p>
+      </td></tr>
+
+      <!-- Decorative divider -->
+      <tr><td style="background:#3D4A38;padding:0 32px 28px;text-align:center;">
+        <div style="display:inline-flex;align-items:center;gap:10px;">
+          <div style="height:1px;width:60px;background:rgba(255,255,255,0.2);"></div>
+          <span style="color:rgba(255,255,255,0.4);font-size:14px;">✦</span>
+          <div style="height:1px;width:60px;background:rgba(255,255,255,0.2);"></div>
+        </div>
+      </td></tr>
+
+      <!-- Greeting -->
+      <tr><td style="padding:36px 32px 24px;text-align:center;">
+        <p style="margin:0 0 12px;font-family:Georgia,serif;font-size:22px;color:#3D4A38;font-style:italic;">Dear Sarah,</p>
+        <p style="margin:0;font-family:Georgia,serif;font-size:15px;color:#5C6E54;line-height:1.7;">We are absolutely thrilled that you'll be joining us to celebrate our special day. Your presence means the world to us, and we cannot wait to share these cherished moments with you.</p>
+      </td></tr>
+
+      <!-- RSVP summary card -->
+      <tr><td style="padding:0 32px 28px;">
+        <table width="100%" cellpadding="0" cellspacing="0" style="background:#f7f3eb;border-radius:10px;overflow:hidden;border:1px solid #e8e0d0;">
+          <tr><td style="padding:14px 16px;background:#75886D;">
+            <p style="margin:0;font-family:Georgia,serif;font-size:11px;letter-spacing:0.3em;text-transform:uppercase;color:#fff;">Your RSVP Details</p>
+          </td></tr>
+          <tr>
+            <td style="padding:10px 16px;font-family:Georgia,serif;font-size:13px;color:#6B7D63;font-weight:600;white-space:nowrap;border-bottom:1px solid #f0ece4;width:36%;">Attending</td>
+            <td style="padding:10px 16px;font-family:Georgia,serif;font-size:13px;color:#3D4A38;border-bottom:1px solid #f0ece4;">Yes — so excited to have you!</td>
+          </tr>
+          <tr>
+            <td style="padding:10px 16px;font-family:Georgia,serif;font-size:13px;color:#6B7D63;font-weight:600;white-space:nowrap;border-bottom:1px solid #f0ece4;width:36%;">Party Size</td>
+            <td style="padding:10px 16px;font-family:Georgia,serif;font-size:13px;color:#3D4A38;border-bottom:1px solid #f0ece4;">2 guests</td>
+          </tr>
+          <tr>
+            <td style="padding:10px 16px;font-family:Georgia,serif;font-size:13px;color:#6B7D63;font-weight:600;white-space:nowrap;border-bottom:1px solid #f0ece4;">Days Attending</td>
+            <td style="padding:10px 16px;font-family:Georgia,serif;font-size:13px;color:#3D4A38;border-bottom:1px solid #f0ece4;">Both days (3rd &amp; 5th Jan)</td>
+          </tr>
+          <tr>
+            <td style="padding:10px 16px;font-family:Georgia,serif;font-size:13px;color:#6B7D63;font-weight:600;white-space:nowrap;border-bottom:1px solid #f0ece4;">Dietary Notes</td>
+            <td style="padding:10px 16px;font-family:Georgia,serif;font-size:13px;color:#3D4A38;border-bottom:1px solid #f0ece4;">Guest 2: vegetarian</td>
+          </tr>
+          <tr>
+            <td style="padding:10px 16px;font-family:Georgia,serif;font-size:13px;color:#6B7D63;font-weight:600;white-space:nowrap;">Pre/Post Plans</td>
+            <td style="padding:10px 16px;font-family:Georgia,serif;font-size:13px;color:#3D4A38;">Count me in!</td>
+          </tr>
+        </table>
+      </td></tr>
+
+      <!-- Add to calendar -->
+      <tr><td style="padding:0 32px 32px;text-align:center;">
+        <p style="margin:0 0 16px;font-family:Georgia,serif;font-size:12px;letter-spacing:0.2em;text-transform:uppercase;color:#6B7D63;">Add to your calendar</p>
+        <a href="#" style="display:inline-block;padding:11px 22px;background:#75886D;color:#fff;text-decoration:none;border-radius:8px;font-family:Georgia,serif;font-size:13px;letter-spacing:0.05em;margin:4px;">+ Day 1 — Engagement &amp; Reception</a><br>
+        <a href="#" style="display:inline-block;padding:11px 22px;background:#75886D;color:#fff;text-decoration:none;border-radius:8px;font-family:Georgia,serif;font-size:13px;letter-spacing:0.05em;margin:4px;">+ Day 2 — Wedding &amp; Reception</a>
+        <p style="margin:16px 0 0;font-family:Georgia,serif;font-size:12px;color:#9aaa94;font-style:italic;">A .ics calendar file is also attached — open it to add directly to any calendar app.</p>
+      </td></tr>
+
+      <!-- Helpful note -->
+      <tr><td style="padding:0 32px 28px;">
+        <table width="100%" cellpadding="0" cellspacing="0" style="background:#eef2eb;border-radius:10px;border-left:3px solid #75886D;">
+          <tr><td style="padding:16px 20px;">
+            <p style="margin:0 0 6px;font-family:Georgia,serif;font-size:12px;font-weight:600;color:#3D4A38;text-transform:uppercase;letter-spacing:0.1em;">Good to know</p>
+            <p style="margin:0;font-family:Georgia,serif;font-size:13px;color:#5C6E54;line-height:1.65;">Wedding shuttles will run between venues on both days. All logistical details will be shared closer to the celebrations. In the meantime, visit our <a href="#" style="color:#75886D;">wedding website</a> for travel, accommodation, and dress code info.</p>
+          </td></tr>
+        </table>
+      </td></tr>
+
+      <!-- Closing -->
+      <tr><td style="padding:0 32px 36px;text-align:center;">
+        <p style="margin:0 0 4px;font-family:Georgia,serif;font-size:15px;color:#5C6E54;line-height:1.7;">With so much love,</p>
+        <p style="margin:0;font-family:Georgia,serif;font-size:26px;font-style:italic;color:#3D4A38;">Larisa &amp; Shine</p>
+      </td></tr>
+
+      <!-- Footer -->
+      <tr><td style="background:#3D4A38;padding:20px 32px;text-align:center;">
+        <p style="margin:0;font-family:Georgia,serif;font-size:11px;color:rgba(255,255,255,0.45);letter-spacing:0.1em;">This is an automated confirmation. Please do not reply to this email.</p>
+      </td></tr>
+
+    </table>
+    </td></tr>
+  </table>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     NO EMAIL
+═══════════════════════════════════════════════ -->
+<div class="email-wrap" id="email-no">
+  <p class="email-label">Sent when guest RSVPs — not attending</p>
+
+  <table width="100%" cellpadding="0" cellspacing="0" style="background:#f5f0e8;padding:32px 16px;">
+    <tr><td align="center">
+    <table width="100%" style="max-width:560px;background:#fffdf8;border-radius:16px;overflow:hidden;box-shadow:0 4px 32px rgba(61,74,56,0.10);">
+
+      <tr><td style="background:#3D4A38;padding:40px 32px 32px;text-align:center;">
+        <h1 style="margin:0;font-family:Georgia,serif;font-size:42px;font-weight:400;color:#fff;line-height:1.1;">Larisa <span style="font-style:italic;color:rgba(255,255,255,0.55);">&amp;</span> Shine</h1>
+        <p style="margin:12px 0 0;font-family:Georgia,serif;font-size:13px;color:rgba(255,255,255,0.65);letter-spacing:0.15em;text-transform:uppercase;">5th January 2027 · Kottayam, Kerala</p>
+      </td></tr>
+
+      <tr><td style="padding:36px 32px 32px;text-align:center;">
+        <p style="margin:0 0 14px;font-family:Georgia,serif;font-size:22px;color:#3D4A38;font-style:italic;">Dear James,</p>
+        <p style="margin:0 0 14px;font-family:Georgia,serif;font-size:15px;color:#5C6E54;line-height:1.7;">Thank you so much for letting us know. We completely understand, and we'll truly miss having you with us on our special day.</p>
+        <p style="margin:0;font-family:Georgia,serif;font-size:15px;color:#5C6E54;line-height:1.7;">We hope we'll have the chance to celebrate with you another time. You'll always have a special place in our hearts.</p>
+      </td></tr>
+
+      <tr><td style="padding:0 32px 36px;text-align:center;">
+        <p style="margin:0 0 4px;font-family:Georgia,serif;font-size:15px;color:#5C6E54;">With love,</p>
+        <p style="margin:0;font-family:Georgia,serif;font-size:26px;font-style:italic;color:#3D4A38;">Larisa &amp; Shine</p>
+      </td></tr>
+
+      <tr><td style="background:#3D4A38;padding:20px 32px;text-align:center;">
+        <p style="margin:0;font-family:Georgia,serif;font-size:11px;color:rgba(255,255,255,0.45);letter-spacing:0.1em;">This is an automated confirmation. Please do not reply to this email.</p>
+      </td></tr>
+
+    </table>
+    </td></tr>
+  </table>
+</div>
+
+<script>
+  function show(id, btn) {
+    document.querySelectorAll('.email-wrap').forEach(function(el) { el.classList.remove('active'); });
+    document.querySelectorAll('.tab').forEach(function(el) { el.classList.remove('active'); });
+    document.getElementById('email-' + id).classList.add('active');
+    btn.classList.add('active');
+  }
+</script>
+</body>
+</html>
