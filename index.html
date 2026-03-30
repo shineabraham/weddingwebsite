@@ -2890,29 +2890,23 @@
       btn.textContent = 'Sending...';
       btn.disabled = true;
 
+      // Fire and forget — no-cors means we can't read the response anyway,
+      // so show success immediately rather than waiting on Google's cold start
       fetch('https://script.google.com/macros/s/AKfycbynXGEIWCZZgsyB4CUugh233Ia1IklUbTsHdNzEhk7q7PHH0i_QPEop9oopu1_SfGvA/exec', {
         method: 'POST',
         mode: 'no-cors',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
-      }).then(function() {
-        btn.textContent = isYes ? 'We can\'t wait to see you! 💚' : 'Thank you — we\'ll miss you!';
-        btn.style.background = '#2d6a30';
-        form.reset();
-        setTimeout(function() {
-          btn.textContent = 'Send with love';
-          btn.style.background = '';
-          btn.disabled = false;
-        }, 5000);
-      }).catch(function() {
-        btn.textContent = 'Error — please try again';
-        btn.style.background = '#a04040';
-        setTimeout(function() {
-          btn.textContent = 'Send with love';
-          btn.style.background = '';
-          btn.disabled = false;
-        }, 3000);
-      });
+      }).catch(function() {});
+
+      btn.textContent = isYes ? 'We can\'t wait to see you!' : 'Thank you — we\'ll miss you!';
+      btn.style.background = '#2d6a30';
+      form.reset();
+      setTimeout(function() {
+        btn.textContent = 'Send with love';
+        btn.style.background = '';
+        btn.disabled = false;
+      }, 5000);
     }
   </script>
 </body>

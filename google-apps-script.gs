@@ -35,9 +35,11 @@ function doPost(e) {
     var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
     var data = JSON.parse(e.postData.contents);
 
-    // Write headers if sheet is empty
-    if (sheet.getLastRow() === 0) {
-      sheet.appendRow(HEADERS);
+    // Write headers if missing — check cell A1 content, not just row count
+    var firstCell = sheet.getLastRow() > 0 ? sheet.getRange(1, 1).getValue() : '';
+    if (firstCell !== 'Timestamp') {
+      sheet.insertRowBefore(1);
+      sheet.getRange(1, 1, 1, HEADERS.length).setValues([HEADERS]);
       formatHeaderRow(sheet);
     }
 
