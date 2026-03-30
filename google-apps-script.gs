@@ -30,6 +30,32 @@ var HEADERS = [
   'Message'
 ];
 
+// Wedding event details
+var WEDDING_SITE_URL = 'https://shineabraham.github.io/weddingwebsite/';
+
+var EVENTS = {
+  day1: {
+    title: 'Larisa & Shine — Engagement & Reception',
+    date:  '3rd January 2027',
+    start: '20270103T100000Z', // 3:30pm IST = 10:00 UTC
+    end:   '20270103T180000Z', // 11:30pm IST = 18:00 UTC
+    location: 'Aramana Palli & Windsor Castle, Kodimatha, Kottayam, Kerala, India',
+    description: 'Engagement ceremony at Aramana Palli followed by reception at Windsor Castle, Kodimatha. Dress code: Day 1 colours.'
+  },
+  day2: {
+    title: 'Larisa & Shine — Wedding & Reception',
+    date:  '5th January 2027',
+    start: '20270105T093000Z', // 3:00pm IST = 09:30 UTC
+    end:   '20270105T180000Z', // 11:30pm IST = 18:00 UTC
+    location: 'Aramana Palli & Backwater Ripples, Kumarakom, Kerala, India',
+    description: 'Marriage ceremony at Aramana Palli followed by wedding reception at Backwater Ripples, Kumarakom. Dress code: Day 2 colours.'
+  }
+};
+
+// ─────────────────────────────────────────────
+//  MAIN HANDLER
+// ─────────────────────────────────────────────
+
 function doPost(e) {
   try {
     var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
@@ -44,22 +70,25 @@ function doPost(e) {
     }
 
     var row = [
-      new Date(),                  // Timestamp
-      data.attending      || '',   // Attending
-      data.fullname       || '',   // Full Name
-      data.mobile         || '',   // Mobile / WhatsApp
-      data.email          || '',   // Email
-      data.guests         || '',   // Party Size
-      data.days_attending || '',   // Days Attending
-      data.dietary        || '',   // Dietary Requirements
-      data.plans          || '',   // Pre / Post Wedding Plans
-      data.message        || ''    // Message
+      new Date(),
+      data.attending      || '',
+      data.fullname       || '',
+      data.mobile         || '',
+      data.email          || '',
+      data.guests         || '',
+      data.days_attending || '',
+      data.dietary        || '',
+      data.plans          || '',
+      data.message        || ''
     ];
 
     sheet.appendRow(row);
-
-    // Auto-resize all columns after each entry
     sheet.autoResizeColumns(1, HEADERS.length);
+
+    // Send confirmation email if an address was provided
+    if (data.email && data.email.trim() !== '') {
+      sendConfirmationEmail(data);
+    }
 
     return ContentService
       .createTextOutput(JSON.stringify({ status: 'success' }))
@@ -72,29 +101,278 @@ function doPost(e) {
   }
 }
 
+// ─────────────────────────────────────────────
+//  EMAIL
+// ─────────────────────────────────────────────
+
+function sendConfirmationEmail(data) {
+  var isYes     = (data.attending || '').toLowerCase() === 'yes';
+  var firstName = (data.fullname || 'there').split(' ')[0];
+  var subject   = isYes
+    ? 'We\'re so excited to celebrate with you — RSVP Confirmed ✓'
+    : 'We\'ll miss you — RSVP Received';
+
+  var htmlBody  = isYes ? buildYesEmail(data, firstName) : buildNoEmail(data, firstName);
+  var options   = { htmlBody: htmlBody, name: 'Larisa & Shine' };
+
+  // Attach ICS calendar file(s) for attending guests
+  if (isYes) {
+    var icsContent = buildICS(data);
+    if (icsContent) {
+      options.attachments = [
+        Utilities.newBlob(icsContent, 'text/calendar', 'larisa-and-shine-wedding.ics')
+      ];
+    }
+  }
+
+  MailApp.sendEmail(data.email.trim(), subject, '', options);
+}
+
+// ─────────────────────────────────────────────
+//  YES EMAIL TEMPLATE
+// ─────────────────────────────────────────────
+
+function buildYesEmail(data, firstName) {
+  var days      = data.days_attending || '';
+  var guests    = data.guests         || '1';
+  var dietary   = data.dietary        || '—';
+  var plans     = data.plans          || '—';
+  var message   = data.message        || '';
+
+  var calButtons = buildCalendarButtons(data);
+
+  var detailRows = [
+    ['Attending',          'Yes — so excited to have you!'],
+    ['Party Size',         guests + (guests === '1' ? ' guest' : ' guests')],
+    ['Days Attending',     days || '—'],
+    ['Dietary Notes',      dietary],
+    ['Pre/Post Plans',     plans]
+  ];
+
+  if (message) {
+    detailRows.push(['Your Message', message]);
+  }
+
+  var detailRowsHTML = detailRows.map(function(r) {
+    return '<tr>' +
+      '<td style="padding:10px 16px;font-family:Georgia,serif;font-size:13px;color:#6B7D63;font-weight:600;white-space:nowrap;border-bottom:1px solid #f0ece4;width:36%;">' + r[0] + '</td>' +
+      '<td style="padding:10px 16px;font-family:Georgia,serif;font-size:13px;color:#3D4A38;border-bottom:1px solid #f0ece4;">' + r[1] + '</td>' +
+      '</tr>';
+  }).join('');
+
+  return '<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head><body style="margin:0;padding:0;background:#f5f0e8;">' +
+    '<table width="100%" cellpadding="0" cellspacing="0" style="background:#f5f0e8;padding:32px 16px;">' +
+    '<tr><td align="center">' +
+    '<table width="100%" style="max-width:560px;background:#fffdf8;border-radius:16px;overflow:hidden;box-shadow:0 4px 32px rgba(61,74,56,0.10);">' +
+
+    // Header band
+    '<tr><td style="background:#3D4A38;padding:40px 32px 32px;text-align:center;">' +
+    '<p style="margin:0 0 6px;font-family:Georgia,serif;font-size:11px;letter-spacing:0.35em;text-transform:uppercase;color:rgba(255,255,255,0.6);">You\'re confirmed</p>' +
+    '<h1 style="margin:0;font-family:Georgia,serif;font-size:42px;font-weight:400;color:#fff;line-height:1.1;">Larisa <span style="font-style:italic;color:rgba(255,255,255,0.55);">&amp;</span> Shine</h1>' +
+    '<p style="margin:12px 0 0;font-family:Georgia,serif;font-size:13px;color:rgba(255,255,255,0.65);letter-spacing:0.15em;text-transform:uppercase;">5th January 2027 · Kottayam, Kerala</p>' +
+    '</td></tr>' +
+
+    // Decorative divider
+    '<tr><td style="background:#3D4A38;padding:0 32px 28px;text-align:center;">' +
+    '<div style="display:inline-flex;align-items:center;gap:10px;">' +
+    '<div style="height:1px;width:60px;background:rgba(255,255,255,0.2);"></div>' +
+    '<span style="color:rgba(255,255,255,0.4);font-size:14px;">✦</span>' +
+    '<div style="height:1px;width:60px;background:rgba(255,255,255,0.2);"></div>' +
+    '</div></td></tr>' +
+
+    // Warm greeting
+    '<tr><td style="padding:36px 32px 24px;text-align:center;">' +
+    '<p style="margin:0 0 12px;font-family:Georgia,serif;font-size:22px;color:#3D4A38;font-style:italic;">Dear ' + firstName + ',</p>' +
+    '<p style="margin:0;font-family:Georgia,serif;font-size:15px;color:#5C6E54;line-height:1.7;">We are absolutely thrilled that you\'ll be joining us to celebrate our special day. Your presence means the world to us, and we cannot wait to share these cherished moments with you.</p>' +
+    '</td></tr>' +
+
+    // RSVP summary card
+    '<tr><td style="padding:0 32px 28px;">' +
+    '<table width="100%" cellpadding="0" cellspacing="0" style="background:#f7f3eb;border-radius:10px;overflow:hidden;border:1px solid #e8e0d0;">' +
+    '<tr><td style="padding:14px 16px;background:#75886D;">' +
+    '<p style="margin:0;font-family:Georgia,serif;font-size:11px;letter-spacing:0.3em;text-transform:uppercase;color:#fff;">Your RSVP Details</p>' +
+    '</td></tr>' +
+    detailRowsHTML +
+    '</table>' +
+    '</td></tr>' +
+
+    // Add to calendar section
+    (calButtons ? (
+      '<tr><td style="padding:0 32px 32px;text-align:center;">' +
+      '<p style="margin:0 0 16px;font-family:Georgia,serif;font-size:12px;letter-spacing:0.2em;text-transform:uppercase;color:#6B7D63;">Add to your calendar</p>' +
+      calButtons +
+      '<p style="margin:16px 0 0;font-family:Georgia,serif;font-size:12px;color:#9aaa94;font-style:italic;">A .ics calendar file is also attached — open it to add directly to any calendar app.</p>' +
+      '</td></tr>'
+    ) : '') +
+
+    // Helpful note
+    '<tr><td style="padding:0 32px 28px;">' +
+    '<table width="100%" cellpadding="0" cellspacing="0" style="background:#eef2eb;border-radius:10px;border-left:3px solid #75886D;">' +
+    '<tr><td style="padding:16px 20px;">' +
+    '<p style="margin:0 0 6px;font-family:Georgia,serif;font-size:12px;font-weight:600;color:#3D4A38;text-transform:uppercase;letter-spacing:0.1em;">Good to know</p>' +
+    '<p style="margin:0;font-family:Georgia,serif;font-size:13px;color:#5C6E54;line-height:1.65;">Wedding shuttles will run between venues on both days. All logistical details will be shared closer to the celebrations. In the meantime, visit our <a href="' + WEDDING_SITE_URL + '" style="color:#75886D;">wedding website</a> for travel, accommodation, and dress code info.</p>' +
+    '</td></tr>' +
+    '</table>' +
+    '</td></tr>' +
+
+    // Closing
+    '<tr><td style="padding:0 32px 36px;text-align:center;">' +
+    '<p style="margin:0 0 4px;font-family:Georgia,serif;font-size:15px;color:#5C6E54;line-height:1.7;">With so much love,</p>' +
+    '<p style="margin:0;font-family:Georgia,serif;font-size:26px;font-style:italic;color:#3D4A38;">Larisa &amp; Shine</p>' +
+    '</td></tr>' +
+
+    // Footer
+    '<tr><td style="background:#3D4A38;padding:20px 32px;text-align:center;">' +
+    '<p style="margin:0;font-family:Georgia,serif;font-size:11px;color:rgba(255,255,255,0.45);letter-spacing:0.1em;">This is an automated confirmation. Please do not reply to this email.</p>' +
+    '</td></tr>' +
+
+    '</table>' +
+    '</td></tr></table>' +
+    '</body></html>';
+}
+
+// ─────────────────────────────────────────────
+//  NO EMAIL TEMPLATE
+// ─────────────────────────────────────────────
+
+function buildNoEmail(data, firstName) {
+  return '<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head><body style="margin:0;padding:0;background:#f5f0e8;">' +
+    '<table width="100%" cellpadding="0" cellspacing="0" style="background:#f5f0e8;padding:32px 16px;">' +
+    '<tr><td align="center">' +
+    '<table width="100%" style="max-width:560px;background:#fffdf8;border-radius:16px;overflow:hidden;box-shadow:0 4px 32px rgba(61,74,56,0.10);">' +
+
+    '<tr><td style="background:#3D4A38;padding:40px 32px 32px;text-align:center;">' +
+    '<h1 style="margin:0;font-family:Georgia,serif;font-size:42px;font-weight:400;color:#fff;line-height:1.1;">Larisa <span style="font-style:italic;color:rgba(255,255,255,0.55);">&amp;</span> Shine</h1>' +
+    '<p style="margin:12px 0 0;font-family:Georgia,serif;font-size:13px;color:rgba(255,255,255,0.65);letter-spacing:0.15em;text-transform:uppercase;">5th January 2027 · Kottayam, Kerala</p>' +
+    '</td></tr>' +
+
+    '<tr><td style="padding:36px 32px 32px;text-align:center;">' +
+    '<p style="margin:0 0 14px;font-family:Georgia,serif;font-size:22px;color:#3D4A38;font-style:italic;">Dear ' + firstName + ',</p>' +
+    '<p style="margin:0 0 14px;font-family:Georgia,serif;font-size:15px;color:#5C6E54;line-height:1.7;">Thank you so much for letting us know. We completely understand, and we\'ll truly miss having you with us on our special day.</p>' +
+    '<p style="margin:0;font-family:Georgia,serif;font-size:15px;color:#5C6E54;line-height:1.7;">We hope we\'ll have the chance to celebrate with you another time. You\'ll always have a special place in our hearts.</p>' +
+    '</td></tr>' +
+
+    '<tr><td style="padding:0 32px 36px;text-align:center;">' +
+    '<p style="margin:0 0 4px;font-family:Georgia,serif;font-size:15px;color:#5C6E54;">With love,</p>' +
+    '<p style="margin:0;font-family:Georgia,serif;font-size:26px;font-style:italic;color:#3D4A38;">Larisa &amp; Shine</p>' +
+    '</td></tr>' +
+
+    '<tr><td style="background:#3D4A38;padding:20px 32px;text-align:center;">' +
+    '<p style="margin:0;font-family:Georgia,serif;font-size:11px;color:rgba(255,255,255,0.45);letter-spacing:0.1em;">This is an automated confirmation. Please do not reply to this email.</p>' +
+    '</td></tr>' +
+
+    '</table>' +
+    '</td></tr></table>' +
+    '</body></html>';
+}
+
+// ─────────────────────────────────────────────
+//  CALENDAR BUTTONS (Google Calendar links)
+// ─────────────────────────────────────────────
+
+function buildCalendarButtons(data) {
+  var days = (data.days_attending || '').toLowerCase();
+  var buttons = [];
+
+  var btnStyle = 'display:inline-block;padding:11px 22px;background:#75886D;color:#fff;text-decoration:none;border-radius:8px;font-family:Georgia,serif;font-size:13px;letter-spacing:0.05em;margin:4px;';
+
+  if (days.indexOf('both') !== -1 || days.indexOf('day 1') !== -1 || days.indexOf('3rd') !== -1 || days.indexOf('engagement') !== -1) {
+    buttons.push('<a href="' + googleCalLink(EVENTS.day1) + '" style="' + btnStyle + '">+ Day 1 — Engagement &amp; Reception</a>');
+  }
+  if (days.indexOf('both') !== -1 || days.indexOf('day 2') !== -1 || days.indexOf('5th') !== -1 || days.indexOf('wedding') !== -1) {
+    buttons.push('<a href="' + googleCalLink(EVENTS.day2) + '" style="' + btnStyle + '">+ Day 2 — Wedding &amp; Reception</a>');
+  }
+
+  // Fallback: show both buttons if we couldn't parse the days
+  if (buttons.length === 0) {
+    buttons.push('<a href="' + googleCalLink(EVENTS.day1) + '" style="' + btnStyle + '">+ Day 1 — Engagement &amp; Reception</a>');
+    buttons.push('<a href="' + googleCalLink(EVENTS.day2) + '" style="' + btnStyle + '">+ Day 2 — Wedding &amp; Reception</a>');
+  }
+
+  return buttons.join('<br>');
+}
+
+function googleCalLink(ev) {
+  return 'https://calendar.google.com/calendar/render?action=TEMPLATE' +
+    '&text=' + encodeURIComponent(ev.title) +
+    '&dates=' + ev.start + '/' + ev.end +
+    '&details=' + encodeURIComponent(ev.description) +
+    '&location=' + encodeURIComponent(ev.location);
+}
+
+// ─────────────────────────────────────────────
+//  ICS CALENDAR FILE
+// ─────────────────────────────────────────────
+
+function buildICS(data) {
+  var days = (data.days_attending || '').toLowerCase();
+  var vevents = [];
+
+  var includeDay1 = days.indexOf('both') !== -1 || days.indexOf('day 1') !== -1 || days.indexOf('3rd') !== -1 || days.indexOf('engagement') !== -1;
+  var includeDay2 = days.indexOf('both') !== -1 || days.indexOf('day 2') !== -1 || days.indexOf('5th') !== -1 || days.indexOf('wedding') !== -1;
+
+  // Fallback: include both if we couldn't parse
+  if (!includeDay1 && !includeDay2) { includeDay1 = true; includeDay2 = true; }
+
+  if (includeDay1) { vevents.push(buildVEvent(EVENTS.day1, data)); }
+  if (includeDay2) { vevents.push(buildVEvent(EVENTS.day2, data)); }
+
+  if (vevents.length === 0) return null;
+
+  return [
+    'BEGIN:VCALENDAR',
+    'VERSION:2.0',
+    'PRODID:-//Larisa & Shine Wedding//EN',
+    'CALSCALE:GREGORIAN',
+    'METHOD:PUBLISH',
+    'X-WR-CALNAME:Larisa & Shine Wedding',
+    'X-WR-TIMEZONE:Asia/Kolkata'
+  ].concat(vevents).concat(['END:VCALENDAR']).join('\r\n');
+}
+
+function buildVEvent(ev, data) {
+  var uid = ev.start + '-larisa-shine-wedding@gmail.com';
+  var now = Utilities.formatDate(new Date(), 'UTC', "yyyyMMdd'T'HHmmss'Z'");
+  var attendeeName = data.fullname || '';
+
+  return [
+    'BEGIN:VEVENT',
+    'UID:' + uid,
+    'DTSTAMP:' + now,
+    'DTSTART:' + ev.start,
+    'DTEND:' + ev.end,
+    'SUMMARY:' + ev.title,
+    'DESCRIPTION:' + ev.description.replace(/,/g, '\\,'),
+    'LOCATION:' + ev.location.replace(/,/g, '\\,'),
+    'STATUS:CONFIRMED',
+    'SEQUENCE:0',
+    'BEGIN:VALARM',
+    'TRIGGER:-P1D',
+    'ACTION:DISPLAY',
+    'DESCRIPTION:Tomorrow — ' + ev.title,
+    'END:VALARM',
+    'END:VEVENT'
+  ].join('\r\n');
+}
+
+// ─────────────────────────────────────────────
+//  SHEET HELPERS
+// ─────────────────────────────────────────────
+
 function formatHeaderRow(sheet) {
   var headerRange = sheet.getRange(1, 1, 1, HEADERS.length);
-
-  // Background and text colour
   headerRange.setBackground('#3D4A38');
   headerRange.setFontColor('#FFFFFF');
   headerRange.setFontWeight('bold');
   headerRange.setFontSize(10);
-
-  // Freeze the header row so it stays visible when scrolling
   sheet.setFrozenRows(1);
-
-  // Timestamp column — format as readable date/time
   sheet.getRange('A:A').setNumberFormat('dd/mm/yyyy hh:mm');
-
-  // Highlight the dietary column in light yellow — needs catering attention
   sheet.getRange(1, 8, 1, 1).setBackground('#FFEB9C');
   sheet.getRange(1, 8, 1, 1).setFontColor('#9C6500');
 }
 
 /**
- * Run this function once manually to set up the sheet headers
- * if you want to prepare the sheet before the first RSVP comes in.
+ * Run once manually to set up sheet headers.
  * Extensions → Apps Script → Select setupSheet → Run
  */
 function setupSheet() {
@@ -107,7 +385,7 @@ function setupSheet() {
 }
 
 /**
- * GET handler — returns a simple status page so you can verify the script is live.
+ * GET handler — returns a status page to confirm the script is live.
  */
 function doGet() {
   return ContentService
