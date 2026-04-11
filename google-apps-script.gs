@@ -155,41 +155,46 @@ function buildYesEmail(data, firstName) {
 
   var detailRowsHTML = detailRows.map(function(r) {
     return '<tr>' +
-      '<td style="padding:10px 16px;font-family:Georgia,serif;font-size:13px;color:#6B7D63;font-weight:600;white-space:nowrap;border-bottom:1px solid #f0ece4;width:36%;">' + r[0] + '</td>' +
-      '<td style="padding:10px 16px;font-family:Georgia,serif;font-size:13px;color:#3D4A38;border-bottom:1px solid #f0ece4;">' + r[1] + '</td>' +
+      '<td style="padding:9px 16px;font-family:Georgia,serif;font-size:13px;color:#6B7D63;font-weight:600;border-bottom:1px solid #f0ece4;width:38%;vertical-align:top;">' + r[0] + '</td>' +
+      '<td style="padding:9px 16px;font-family:Georgia,serif;font-size:13px;color:#3D4A38;border-bottom:1px solid #f0ece4;">' + r[1] + '</td>' +
       '</tr>';
   }).join('');
 
-  return '<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head><body style="margin:0;padding:0;background:#f5f0e8;">' +
-    '<table width="100%" cellpadding="0" cellspacing="0" style="background:#f5f0e8;padding:32px 16px;">' +
+  var mobileStyles = '<style>' +
+    '@media only screen and (max-width:480px){' +
+    '.eh{padding:28px 20px 20px !important;}' +
+    '.en{font-size:30px !important;}' +
+    '.ep{font-size:11px !important;letter-spacing:0.1em !important;}' +
+    '.eb{padding:24px 20px 18px !important;}' +
+    '.es{padding:0 20px 20px !important;}' +
+    '.ef{padding:14px 20px !important;}' +
+    '.cb{display:block !important;width:100% !important;margin:5px 0 !important;text-align:center !important;}' +
+    '}' +
+    '</style>';
+
+  return '<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">' + mobileStyles + '</head><body style="margin:0;padding:0;background:#f5f0e8;">' +
+    '<table width="100%" cellpadding="0" cellspacing="0" style="background:#f5f0e8;padding:24px 12px;">' +
     '<tr><td align="center">' +
     '<table width="100%" style="max-width:560px;background:#fffdf8;border-radius:16px;overflow:hidden;box-shadow:0 4px 32px rgba(61,74,56,0.10);">' +
 
-    // Header band
-    '<tr><td style="background:#3D4A38;padding:40px 32px 32px;text-align:center;">' +
-    '<p style="margin:0 0 6px;font-family:Georgia,serif;font-size:11px;letter-spacing:0.35em;text-transform:uppercase;color:rgba(255,255,255,0.6);">You\'re confirmed</p>' +
-    '<h1 style="margin:0;font-family:Georgia,serif;font-size:42px;font-weight:400;color:#fff;line-height:1.1;">Larisa <span style="font-style:italic;color:rgba(255,255,255,0.55);">&amp;</span> Shine</h1>' +
-    '<p style="margin:12px 0 0;font-family:Georgia,serif;font-size:13px;color:rgba(255,255,255,0.65);letter-spacing:0.15em;text-transform:uppercase;">5th January 2027 · Kottayam, Kerala</p>' +
+    // Header
+    '<tr><td class="eh" style="background:#3D4A38;padding:36px 32px 24px;text-align:center;">' +
+    '<p class="en" style="margin:0;font-family:Georgia,serif;font-size:38px;font-weight:400;color:#fff;line-height:1.15;">Larisa <span style="font-style:italic;color:rgba(255,255,255,0.5);">&amp;</span> Shine</p>' +
+    '<div style="padding:10px 0;"><div style="display:inline-flex;align-items:center;gap:10px;margin-bottom:10px;"><div style="height:1px;width:40px;background:rgba(255,255,255,0.2);"></div><span style="color:rgba(255,255,255,0.35);font-size:12px;">✦</span><div style="height:1px;width:40px;background:rgba(255,255,255,0.2);"></div></div></div>' +
+    '<p style="margin:0 0 10px;font-family:Georgia,serif;font-size:16px;font-style:italic;color:rgba(255,255,255,0.9);">So glad you can make it!</p>' +
+    '<p class="ep" style="margin:0;font-family:Georgia,serif;font-size:12px;color:rgba(255,255,255,0.5);letter-spacing:0.18em;text-transform:uppercase;">5th January 2027 · Kottayam, Kerala</p>' +
     '</td></tr>' +
 
-    // Decorative divider
-    '<tr><td style="background:#3D4A38;padding:0 32px 28px;text-align:center;">' +
-    '<div style="display:inline-flex;align-items:center;gap:10px;">' +
-    '<div style="height:1px;width:60px;background:rgba(255,255,255,0.2);"></div>' +
-    '<span style="color:rgba(255,255,255,0.4);font-size:14px;">✦</span>' +
-    '<div style="height:1px;width:60px;background:rgba(255,255,255,0.2);"></div>' +
-    '</div></td></tr>' +
-
-    // Warm greeting
-    '<tr><td style="padding:36px 32px 24px;text-align:center;">' +
-    '<p style="margin:0 0 12px;font-family:Georgia,serif;font-size:22px;color:#3D4A38;font-style:italic;">Dear ' + firstName + ',</p>' +
-    '<p style="margin:0;font-family:Georgia,serif;font-size:15px;color:#5C6E54;line-height:1.7;">We are absolutely thrilled that you\'ll be joining us to celebrate our special day. Your presence means the world to us, and we cannot wait to share these cherished moments with you.</p>' +
+    // Greeting
+    '<tr><td class="eb" style="padding:32px 32px 20px;text-align:center;">' +
+    '<p style="margin:0 0 12px;font-family:Georgia,serif;font-size:21px;color:#3D4A38;font-style:italic;">Dear ' + firstName + ',</p>' +
+    '<p style="margin:0;font-family:Georgia,serif;font-size:15px;color:#5C6E54;line-height:1.75;">We are absolutely thrilled that you\'ll be joining us to celebrate our special day. Your presence means the world to us, and we cannot wait to share these cherished moments with you.</p>' +
     '</td></tr>' +
 
     // RSVP summary card
-    '<tr><td style="padding:0 32px 28px;">' +
+    '<tr><td class="es" style="padding:0 32px 24px;">' +
     '<table width="100%" cellpadding="0" cellspacing="0" style="background:#f7f3eb;border-radius:10px;overflow:hidden;border:1px solid #e8e0d0;">' +
-    '<tr><td style="padding:14px 16px;background:#75886D;">' +
+    '<tr><td style="padding:12px 16px;background:#75886D;">' +
     '<p style="margin:0;font-family:Georgia,serif;font-size:11px;letter-spacing:0.3em;text-transform:uppercase;color:#fff;">Your RSVP Details</p>' +
     '</td></tr>' +
     detailRowsHTML +
@@ -198,32 +203,32 @@ function buildYesEmail(data, firstName) {
 
     // Add to calendar section
     (calButtons ? (
-      '<tr><td style="padding:0 32px 32px;text-align:center;">' +
-      '<p style="margin:0 0 16px;font-family:Georgia,serif;font-size:12px;letter-spacing:0.2em;text-transform:uppercase;color:#6B7D63;">Add to your calendar</p>' +
+      '<tr><td class="es" style="padding:0 32px 28px;text-align:center;">' +
+      '<p style="margin:0 0 14px;font-family:Georgia,serif;font-size:11px;letter-spacing:0.25em;text-transform:uppercase;color:#6B7D63;">Add to your calendar</p>' +
       calButtons +
-      '<p style="margin:16px 0 0;font-family:Georgia,serif;font-size:12px;color:#9aaa94;font-style:italic;">A .ics calendar file is also attached — open it to add directly to any calendar app.</p>' +
+      '<p style="margin:14px 0 0;font-family:Georgia,serif;font-size:12px;color:#9aaa94;font-style:italic;">A .ics file is also attached — open it to save to any calendar app.</p>' +
       '</td></tr>'
     ) : '') +
 
     // Helpful note
-    '<tr><td style="padding:0 32px 28px;">' +
+    '<tr><td class="es" style="padding:0 32px 24px;">' +
     '<table width="100%" cellpadding="0" cellspacing="0" style="background:#eef2eb;border-radius:10px;border-left:3px solid #75886D;">' +
-    '<tr><td style="padding:16px 20px;">' +
-    '<p style="margin:0 0 6px;font-family:Georgia,serif;font-size:12px;font-weight:600;color:#3D4A38;text-transform:uppercase;letter-spacing:0.1em;">Good to know</p>' +
+    '<tr><td style="padding:14px 18px;">' +
+    '<p style="margin:0 0 5px;font-family:Georgia,serif;font-size:11px;font-weight:600;color:#3D4A38;text-transform:uppercase;letter-spacing:0.1em;">Good to know</p>' +
     '<p style="margin:0;font-family:Georgia,serif;font-size:13px;color:#5C6E54;line-height:1.65;">Wedding shuttles will run between venues on both days. All logistical details will be shared closer to the celebrations. In the meantime, visit our <a href="' + WEDDING_SITE_URL + '" style="color:#75886D;">wedding website</a> for travel, accommodation, and dress code info.</p>' +
     '</td></tr>' +
     '</table>' +
     '</td></tr>' +
 
     // Closing
-    '<tr><td style="padding:0 32px 36px;text-align:center;">' +
-    '<p style="margin:0 0 4px;font-family:Georgia,serif;font-size:15px;color:#5C6E54;line-height:1.7;">With so much love,</p>' +
+    '<tr><td class="es" style="padding:0 32px 32px;text-align:center;">' +
+    '<p style="margin:0 0 4px;font-family:Georgia,serif;font-size:15px;color:#5C6E54;">With so much love,</p>' +
     '<p style="margin:0;font-family:Georgia,serif;font-size:26px;font-style:italic;color:#3D4A38;">Larisa &amp; Shine</p>' +
     '</td></tr>' +
 
     // Footer
-    '<tr><td style="background:#3D4A38;padding:20px 32px;text-align:center;">' +
-    '<p style="margin:0;font-family:Georgia,serif;font-size:11px;color:rgba(255,255,255,0.45);letter-spacing:0.1em;">This is an automated confirmation. Please do not reply to this email.</p>' +
+    '<tr><td class="ef" style="background:#3D4A38;padding:18px 32px;text-align:center;">' +
+    '<p style="margin:0;font-family:Georgia,serif;font-size:11px;color:rgba(255,255,255,0.4);letter-spacing:0.08em;">This is an automated confirmation. Please do not reply.</p>' +
     '</td></tr>' +
 
     '</table>' +
@@ -236,29 +241,42 @@ function buildYesEmail(data, firstName) {
 // ─────────────────────────────────────────────
 
 function buildNoEmail(data, firstName) {
-  return '<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head><body style="margin:0;padding:0;background:#f5f0e8;">' +
-    '<table width="100%" cellpadding="0" cellspacing="0" style="background:#f5f0e8;padding:32px 16px;">' +
+  var mobileStyles = '<style>' +
+    '@media only screen and (max-width:480px){' +
+    '.eh{padding:28px 20px 20px !important;}' +
+    '.en{font-size:30px !important;}' +
+    '.ep{font-size:11px !important;letter-spacing:0.1em !important;}' +
+    '.eb{padding:24px 20px 24px !important;}' +
+    '.es{padding:0 20px 24px !important;}' +
+    '.ef{padding:14px 20px !important;}' +
+    '}' +
+    '</style>';
+
+  return '<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">' + mobileStyles + '</head><body style="margin:0;padding:0;background:#f5f0e8;">' +
+    '<table width="100%" cellpadding="0" cellspacing="0" style="background:#f5f0e8;padding:24px 12px;">' +
     '<tr><td align="center">' +
     '<table width="100%" style="max-width:560px;background:#fffdf8;border-radius:16px;overflow:hidden;box-shadow:0 4px 32px rgba(61,74,56,0.10);">' +
 
-    '<tr><td style="background:#3D4A38;padding:40px 32px 32px;text-align:center;">' +
-    '<h1 style="margin:0;font-family:Georgia,serif;font-size:42px;font-weight:400;color:#fff;line-height:1.1;">Larisa <span style="font-style:italic;color:rgba(255,255,255,0.55);">&amp;</span> Shine</h1>' +
-    '<p style="margin:12px 0 0;font-family:Georgia,serif;font-size:13px;color:rgba(255,255,255,0.65);letter-spacing:0.15em;text-transform:uppercase;">5th January 2027 · Kottayam, Kerala</p>' +
+    '<tr><td class="eh" style="background:#3D4A38;padding:36px 32px 24px;text-align:center;">' +
+    '<p class="en" style="margin:0;font-family:Georgia,serif;font-size:38px;font-weight:400;color:#fff;line-height:1.15;">Larisa <span style="font-style:italic;color:rgba(255,255,255,0.5);">&amp;</span> Shine</p>' +
+    '<div style="padding:10px 0;"><div style="display:inline-flex;align-items:center;gap:10px;margin-bottom:10px;"><div style="height:1px;width:40px;background:rgba(255,255,255,0.2);"></div><span style="color:rgba(255,255,255,0.35);font-size:12px;">✦</span><div style="height:1px;width:40px;background:rgba(255,255,255,0.2);"></div></div></div>' +
+    '<p style="margin:0 0 10px;font-family:Georgia,serif;font-size:16px;font-style:italic;color:rgba(255,255,255,0.9);">We\'ll miss you dearly</p>' +
+    '<p class="ep" style="margin:0;font-family:Georgia,serif;font-size:12px;color:rgba(255,255,255,0.5);letter-spacing:0.18em;text-transform:uppercase;">5th January 2027 · Kottayam, Kerala</p>' +
     '</td></tr>' +
 
-    '<tr><td style="padding:36px 32px 32px;text-align:center;">' +
-    '<p style="margin:0 0 14px;font-family:Georgia,serif;font-size:22px;color:#3D4A38;font-style:italic;">Dear ' + firstName + ',</p>' +
-    '<p style="margin:0 0 14px;font-family:Georgia,serif;font-size:15px;color:#5C6E54;line-height:1.7;">Thank you so much for letting us know. We completely understand, and we\'ll truly miss having you with us on our special day.</p>' +
-    '<p style="margin:0;font-family:Georgia,serif;font-size:15px;color:#5C6E54;line-height:1.7;">We hope we\'ll have the chance to celebrate with you another time. You\'ll always have a special place in our hearts.</p>' +
+    '<tr><td class="eb" style="padding:32px 32px 28px;text-align:center;">' +
+    '<p style="margin:0 0 14px;font-family:Georgia,serif;font-size:21px;color:#3D4A38;font-style:italic;">Dear ' + firstName + ',</p>' +
+    '<p style="margin:0 0 14px;font-family:Georgia,serif;font-size:15px;color:#5C6E54;line-height:1.75;">Thank you so much for letting us know. We completely understand, and we\'ll truly miss having you with us on our special day.</p>' +
+    '<p style="margin:0;font-family:Georgia,serif;font-size:15px;color:#5C6E54;line-height:1.75;">We hope we\'ll have the chance to celebrate with you another time. You\'ll always have a special place in our hearts.</p>' +
     '</td></tr>' +
 
-    '<tr><td style="padding:0 32px 36px;text-align:center;">' +
+    '<tr><td class="es" style="padding:0 32px 32px;text-align:center;">' +
     '<p style="margin:0 0 4px;font-family:Georgia,serif;font-size:15px;color:#5C6E54;">With love,</p>' +
     '<p style="margin:0;font-family:Georgia,serif;font-size:26px;font-style:italic;color:#3D4A38;">Larisa &amp; Shine</p>' +
     '</td></tr>' +
 
-    '<tr><td style="background:#3D4A38;padding:20px 32px;text-align:center;">' +
-    '<p style="margin:0;font-family:Georgia,serif;font-size:11px;color:rgba(255,255,255,0.45);letter-spacing:0.1em;">This is an automated confirmation. Please do not reply to this email.</p>' +
+    '<tr><td class="ef" style="background:#3D4A38;padding:18px 32px;text-align:center;">' +
+    '<p style="margin:0;font-family:Georgia,serif;font-size:11px;color:rgba(255,255,255,0.4);letter-spacing:0.08em;">This is an automated confirmation. Please do not reply.</p>' +
     '</td></tr>' +
 
     '</table>' +
@@ -274,19 +292,19 @@ function buildCalendarButtons(data) {
   var days = (data.days_attending || '').toLowerCase();
   var buttons = [];
 
-  var btnStyle = 'display:inline-block;padding:11px 22px;background:#75886D;color:#fff;text-decoration:none;border-radius:8px;font-family:Georgia,serif;font-size:13px;letter-spacing:0.05em;margin:4px;';
+  var btnStyle = 'display:inline-block;padding:12px 20px;background:#75886D;color:#fff;text-decoration:none;border-radius:8px;font-family:Georgia,serif;font-size:13px;margin:4px;';
 
   if (days.indexOf('both') !== -1 || days.indexOf('day 1') !== -1 || days.indexOf('3rd') !== -1 || days.indexOf('engagement') !== -1) {
-    buttons.push('<a href="' + googleCalLink(EVENTS.day1) + '" style="' + btnStyle + '">+ Day 1 — Engagement &amp; Reception</a>');
+    buttons.push('<a class="cb" href="' + googleCalLink(EVENTS.day1) + '" style="' + btnStyle + '">+ Day 1 — Engagement &amp; Reception</a>');
   }
   if (days.indexOf('both') !== -1 || days.indexOf('day 2') !== -1 || days.indexOf('5th') !== -1 || days.indexOf('wedding') !== -1) {
-    buttons.push('<a href="' + googleCalLink(EVENTS.day2) + '" style="' + btnStyle + '">+ Day 2 — Wedding &amp; Reception</a>');
+    buttons.push('<a class="cb" href="' + googleCalLink(EVENTS.day2) + '" style="' + btnStyle + '">+ Day 2 — Wedding &amp; Reception</a>');
   }
 
   // Fallback: show both buttons if we couldn't parse the days
   if (buttons.length === 0) {
-    buttons.push('<a href="' + googleCalLink(EVENTS.day1) + '" style="' + btnStyle + '">+ Day 1 — Engagement &amp; Reception</a>');
-    buttons.push('<a href="' + googleCalLink(EVENTS.day2) + '" style="' + btnStyle + '">+ Day 2 — Wedding &amp; Reception</a>');
+    buttons.push('<a class="cb" href="' + googleCalLink(EVENTS.day1) + '" style="' + btnStyle + '">+ Day 1 — Engagement &amp; Reception</a>');
+    buttons.push('<a class="cb" href="' + googleCalLink(EVENTS.day2) + '" style="' + btnStyle + '">+ Day 2 — Wedding &amp; Reception</a>');
   }
 
   return buttons.join('<br>');
