@@ -1602,9 +1602,264 @@
     .scroll-top:hover { background: #fff; transform: translateY(-2px); }
     .scroll-top:focus-visible { outline: 2px solid #75886D; outline-offset: 2px; }
     .scroll-top svg { width: 18px; height: 18px; }
+
+    /* ===== STICKY NAV ===== */
+    .site-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 50;
+      background: rgba(61,74,56,0.96);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      transform: translateY(-100%);
+      transition: transform 0.35s ease;
+    }
+    .site-nav.visible { transform: translateY(0); }
+    .site-nav-inner {
+      max-width: 72rem;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.25rem;
+      height: 50px;
+      gap: 0.5rem;
+    }
+    .site-nav-logo {
+      font-family: "New Icon Script", cursive;
+      font-size: 1.4rem;
+      color: #fff;
+      text-decoration: none;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .site-nav-links {
+      display: flex;
+      align-items: center;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      flex: 1;
+      justify-content: center;
+    }
+    .site-nav-links::-webkit-scrollbar { display: none; }
+    .site-nav-link {
+      font-family: "arek-armenian", serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.68);
+      text-decoration: none;
+      padding: 0 0.65rem;
+      white-space: nowrap;
+      border: none;
+      background: none;
+      cursor: pointer;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      transition: color 0.2s;
+    }
+    .site-nav-link:hover { color: #fff; }
+    .site-nav-rsvp {
+      font-family: "arek-armenian", serif;
+      font-size: 0.62rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #fff;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.22);
+      border-radius: 2rem;
+      padding: 0.38rem 0.9rem;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.2s;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+    .site-nav-rsvp:hover { background: rgba(255,255,255,0.2); }
+    @media (max-width: 480px) {
+      .site-nav-logo { font-size: 1.1rem; }
+      .site-nav-link { font-size: 0.6rem; padding: 0 0.5rem; letter-spacing: 0.1em; }
+      .site-nav-rsvp { font-size: 0.58rem; padding: 0.35rem 0.7rem; }
+    }
+
+    /* ===== SCHEDULE TABS ===== */
+    .schedule-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-bottom: 2.5rem;
+      flex-wrap: wrap;
+    }
+    .schedule-tab {
+      font-family: "arek-armenian", serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 0.6rem 1.6rem;
+      border-radius: 2rem;
+      border: 1.5px solid rgba(117,136,109,0.35);
+      background: transparent;
+      color: #75886D;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+    .schedule-tab.active { background: #3D4A38; color: #fff; border-color: #3D4A38; }
+    .schedule-tab:hover:not(.active) { border-color: #75886D; color: #3D4A38; }
+    .schedule-panel { display: none; }
+    .schedule-panel.active { display: block; }
+
+    /* ===== COMBINED DRESS CODE ===== */
+    .dress-combined-section {
+      padding: 3.5rem 1.5rem;
+      background: hsl(40 37% 96%);
+    }
+    @media (min-width: 768px) { .dress-combined-section { padding: 5rem 3rem; } }
+    .dress-combined-inner { max-width: 58rem; margin: 0 auto; }
+    .dress-combined-header { text-align: center; margin-bottom: 2.5rem; }
+    .dress-combined-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+    @media (min-width: 620px) { .dress-combined-grid { grid-template-columns: 1fr 1fr; } }
+    .dress-combined-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 1.25rem;
+      min-height: 320px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .dress-combined-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+    .dress-combined-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.25), rgba(0,0,0,0.45));
+    }
+    .dress-combined-content {
+      position: relative;
+      z-index: 1;
+      background: rgba(255,255,255,0.91);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-radius: 0.875rem;
+      border: 1px solid rgba(61,74,56,0.15);
+      padding: 1.75rem 1.75rem 2rem;
+      text-align: center;
+      margin: 1.5rem;
+      width: calc(100% - 3rem);
+    }
+    .dress-day-label {
+      font-family: "arek-armenian", serif;
+      font-size: 0.68rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: #75886D;
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+    }
+
+    /* ===== COMBINED VENUES SECTION ===== */
+    .venues-section {
+      padding: 3.5rem 1.5rem;
+      background: #fff;
+    }
+    @media (min-width: 768px) { .venues-section { padding: 5rem 3rem; } }
+    .venues-inner { max-width: 58rem; margin: 0 auto; }
+    .venues-header { text-align: center; margin-bottom: 2.5rem; }
+    .venues-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+    @media (min-width: 620px) { .venues-grid { grid-template-columns: 1fr 1fr; } }
+    .venue-day-card {
+      background: hsl(40 37% 97%);
+      border-radius: 1.25rem;
+      padding: 2rem 2rem 2.25rem;
+      text-align: center;
+      border: 1px solid rgba(117,136,109,0.15);
+      box-shadow: 0 2px 16px rgba(0,0,0,0.04);
+    }
+    .venue-day-label {
+      font-family: "arek-armenian", serif;
+      font-size: 0.68rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: #75886D;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+    .venue-day-name {
+      font-family: "New Icon Script", cursive;
+      font-size: 2.2rem;
+      color: #3D4A38;
+      margin-bottom: 0.2rem;
+      line-height: 1.2;
+    }
+    @media (min-width: 768px) { .venue-day-name { font-size: 2.8rem; } }
+    .venue-day-location {
+      font-family: "arek-armenian", serif;
+      font-size: 0.85rem;
+      color: #75886D;
+      letter-spacing: 0.08em;
+      margin-bottom: 1rem;
+    }
+    .venue-day-sep {
+      width: 3rem;
+      height: 1px;
+      background: rgba(117,136,109,0.25);
+      margin: 1rem auto;
+    }
+    .venue-day-desc {
+      font-family: "arek-armenian", serif;
+      font-size: 0.95rem;
+      color: #5C6E54;
+      line-height: 1.65;
+      margin-bottom: 1.25rem;
+    }
+    .venue-day-shuttle {
+      font-family: "arek-armenian", serif;
+      font-size: 0.85rem;
+      color: #6B7D63;
+      background: rgba(117,136,109,0.08);
+      border-radius: 0.5rem;
+      padding: 0.65rem 1rem;
+      margin-top: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      justify-content: center;
+    }
   </style>
 </head>
 <body>
+
+  <!-- ===== STICKY NAV ===== -->
+  <nav class="site-nav" id="site-nav" aria-label="Site navigation">
+    <div class="site-nav-inner">
+      <a class="site-nav-logo" href="#hero" onclick="event.preventDefault();document.getElementById('hero').scrollIntoView({behavior:'smooth'})">L &amp; S</a>
+      <div class="site-nav-links">
+        <a class="site-nav-link" href="#schedule" onclick="event.preventDefault();document.getElementById('schedule').scrollIntoView({behavior:'smooth'})">Schedule</a>
+        <a class="site-nav-link" href="#dress-code" onclick="event.preventDefault();document.getElementById('dress-code').scrollIntoView({behavior:'smooth'})">Dress</a>
+        <a class="site-nav-link" href="#venues" onclick="event.preventDefault();document.getElementById('venues').scrollIntoView({behavior:'smooth'})">Venues</a>
+        <a class="site-nav-link" href="#accommodation" onclick="event.preventDefault();document.getElementById('accommodation').scrollIntoView({behavior:'smooth'})">Hotels</a>
+        <a class="site-nav-link" href="#getting-here" onclick="event.preventDefault();document.getElementById('getting-here').scrollIntoView({behavior:'smooth'})">Getting Here</a>
+        <a class="site-nav-link" href="#qa" onclick="event.preventDefault();document.getElementById('qa').scrollIntoView({behavior:'smooth'})">FAQ</a>
+      </div>
+      <a class="site-nav-rsvp" href="#rsvp" onclick="event.preventDefault();document.getElementById('rsvp').scrollIntoView({behavior:'smooth'})">RSVP</a>
+    </div>
+  </nav>
 
   <!-- Splash / Envelope Intro Overlay -->
   <div class="splash-overlay" id="splash-overlay">
@@ -1753,82 +2008,114 @@
       </div>
     </section>
 
-    <!-- ===== DAY PROGRAMME ===== -->
-    <section class="programme-section" id="programme">
+    <!-- ===== SCHEDULE (TABBED) ===== -->
+    <section class="programme-section" id="schedule">
       <div class="programme-inner">
-        <h2 class="programme-title fade-up">Day 1</h2>
-        <p class="programme-events fade-up delay-1">Engagement &nbsp;·&nbsp; Mylanchi &nbsp;·&nbsp; Chantham Charthal</p>
-        <p class="programme-date fade-up delay-1">03 January 2027</p>
-        <div class="timeline" data-timeline>
-          <div class="tl-row tl-has-detail">
-            <div class="tl-content">
-              <span class="tl-time">4:00 PM</span>
-              <p class="tl-label">Engagement Church Ceremony</p>
-              <div class="tl-detail"><div class="tl-detail-inner"><p class="tl-detail-text">A formal promise made in the presence of God and family. Our engagement ceremony at the church serves as the spiritual opening to our wedding festivities. It is a moment of sacred commitment and shared blessings before we transition into the music, laughter, and traditions of our Knanaya heritage.</p></div></div>
+        <h2 class="programme-title fade-up" style="margin-bottom:1.5rem;">The Celebrations</h2>
+        <div class="schedule-tabs fade-up delay-1">
+          <button class="schedule-tab active" data-tab="day1">Day 1 &mdash; 3rd January</button>
+          <button class="schedule-tab" data-tab="day2">Day 2 &mdash; 5th January</button>
+        </div>
+
+        <!-- Day 1 Panel -->
+        <div class="schedule-panel active" id="tab-day1">
+          <p class="programme-events">Engagement &nbsp;&middot;&nbsp; Mylanchi &nbsp;&middot;&nbsp; Chantham Charthal</p>
+          <p class="programme-date">03 January 2027</p>
+          <div class="timeline" data-timeline>
+            <div class="tl-row tl-has-detail">
+              <div class="tl-content">
+                <span class="tl-time">4:00 PM</span>
+                <p class="tl-label">Engagement Church Ceremony</p>
+                <div class="tl-detail"><div class="tl-detail-inner"><p class="tl-detail-text">A formal promise made in the presence of God and family. Our engagement ceremony at the church serves as the spiritual opening to our wedding festivities. It is a moment of sacred commitment and shared blessings before we transition into the music, laughter, and traditions of our Knanaya heritage.</p></div></div>
+              </div>
             </div>
-          </div>
-          <div class="tl-row">
-            <div class="tl-content">
-              <span class="tl-time">5:00 PM</span>
-              <p class="tl-label">Engagement Reception at Windsor Castle</p>
+            <div class="tl-row">
+              <div class="tl-content">
+                <span class="tl-time">5:00 PM</span>
+                <p class="tl-label">Engagement Reception at Windsor Castle</p>
+              </div>
             </div>
-          </div>
-          <div class="tl-row tl-has-detail">
-            <div class="tl-content">
-              <span class="tl-time">6:00 PM</span>
-              <p class="tl-label">Mylanchi Ideel</p>
-              <p class="tl-sublabel">Brides Henna Ceremony</p>
-              <div class="tl-detail"><div class="tl-detail-inner"><p class="tl-detail-text">A vibrant tradition of beauty and blessing. The Mylanchi Ideel is a cherished Knanaya ritual where the bride is adorned with henna, symbolizing her transition into marriage. Accompanied by ancient folk songs (Purathanappattu), this ceremony is a joyful expression of community and heritage, celebrating the grace and new beginnings of the bride.</p></div></div>
+            <div class="tl-row tl-has-detail">
+              <div class="tl-content">
+                <span class="tl-time">6:00 PM</span>
+                <p class="tl-label">Mylanchi Ideel</p>
+                <p class="tl-sublabel">Brides Henna Ceremony</p>
+                <div class="tl-detail"><div class="tl-detail-inner"><p class="tl-detail-text">A vibrant tradition of beauty and blessing. The Mylanchi Ideel is a cherished Knanaya ritual where the bride is adorned with henna, symbolizing her transition into marriage. Accompanied by ancient folk songs (Purathanappattu), this ceremony is a joyful expression of community and heritage, celebrating the grace and new beginnings of the bride.</p></div></div>
+              </div>
             </div>
-          </div>
-          <div class="tl-row tl-has-detail">
-            <div class="tl-content">
-              <span class="tl-time">7:00 PM</span>
-              <p class="tl-label">Chantham Charthal</p>
-              <p class="tl-sublabel">Grooms Pre-wedding rituals</p>
-              <div class="tl-detail"><div class="tl-detail-inner"><p class="tl-detail-text">Chantham Charthal is a cherished pre-wedding ritual for the groom, involving a ceremonial shave and oiling. Accompanied by music, dance, and family blessings, this ritual prepares the groom for the wedding day and is a joyful expression of Knanaya tradition.</p></div></div>
+            <div class="tl-row tl-has-detail">
+              <div class="tl-content">
+                <span class="tl-time">7:00 PM</span>
+                <p class="tl-label">Chantham Charthal</p>
+                <p class="tl-sublabel">Grooms Pre-wedding rituals</p>
+                <div class="tl-detail"><div class="tl-detail-inner"><p class="tl-detail-text">Chantham Charthal is a cherished pre-wedding ritual for the groom, involving a ceremonial shave and oiling. Accompanied by music, dance, and family blessings, this ritual prepares the groom for the wedding day and is a joyful expression of Knanaya tradition.</p></div></div>
+              </div>
             </div>
-          </div>
-          <div class="tl-row">
-            <div class="tl-content">
-              <span class="tl-time">8:00 PM</span>
-              <p class="tl-label">Dinner and Cocktails</p>
+            <div class="tl-row">
+              <div class="tl-content">
+                <span class="tl-time">8:00 PM</span>
+                <p class="tl-label">Dinner and Cocktails</p>
+              </div>
             </div>
-          </div>
-          <div class="tl-row">
-            <div class="tl-content">
-              <span class="tl-time">11:00 PM</span>
-              <p class="tl-label">Finish</p>
+            <div class="tl-row">
+              <div class="tl-content">
+                <span class="tl-time">11:00 PM</span>
+                <p class="tl-label">Finish</p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- ===== DRESS CODE ===== -->
-    <section class="dress-section">
-      <img src="assets/windsor-img.jpg" alt="" class="dress-bg" loading="lazy">
-      <div class="dress-inner">
-        <div class="dress-card fade-up">
-          <h2 class="dress-title"><span style="display:block; font-size:0.4em; font-family:'arek-armenian',serif; letter-spacing:0.3em; text-transform:uppercase; color:#75886D; margin-bottom:0.3em; font-weight:600;">Day 1</span>Dress Code</h2>
-          <p class="dress-desc" style="margin-bottom:0.75rem;">The colour scheme and dress code for Day 1 will be updated on this website closer to the event — check back here for full details!</p>
+        <!-- Day 2 Panel -->
+        <div class="schedule-panel" id="tab-day2">
+          <p class="programme-events">Wedding Day</p>
+          <p class="programme-date">05 January 2027</p>
+          <div class="timeline" data-timeline>
+            <div class="tl-row">
+              <div class="tl-content">
+                <span class="tl-time">2:45 PM</span>
+                <p class="tl-label">Church Wedding Ceremony</p>
+              </div>
+            </div>
+            <div class="tl-row">
+              <div class="tl-content">
+                <span class="tl-time">5:00 PM</span>
+                <p class="tl-label">Wedding Reception at Backwater Ripples</p>
+              </div>
+            </div>
+            <div class="tl-row">
+              <div class="tl-content">
+                <span class="tl-time">5:30 PM</span>
+                <p class="tl-label">Cake Cutting</p>
+              </div>
+            </div>
+            <div class="tl-row">
+              <div class="tl-content">
+                <span class="tl-time">6:00 PM</span>
+                <p class="tl-label">Entertainment</p>
+              </div>
+            </div>
+            <div class="tl-row">
+              <div class="tl-content">
+                <span class="tl-time">6:30 PM</span>
+                <p class="tl-label">Cocktails</p>
+              </div>
+            </div>
+            <div class="tl-row">
+              <div class="tl-content">
+                <span class="tl-time">7:00 PM</span>
+                <p class="tl-label">Dinner</p>
+              </div>
+            </div>
+            <div class="tl-row">
+              <div class="tl-content">
+                <span class="tl-time">8:00 PM</span>
+                <p class="tl-label">Dancing the Night Away!</p>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-    </section>
 
-
-    <!-- ===== DAY 1 TRANSPORT ===== -->
-    <section class="transport-section" id="day1-transport">
-      <div class="transport-inner">
-        <h2 class="transport-title fade-up">Day 1 &nbsp;<span style="font-family:'arek-armenian',serif; font-size:0.45em; letter-spacing:0.2em; text-transform:uppercase; color:#75886D; font-weight:600;">Location &amp; Transportation</span></h2>
-        <div class="transport-card fade-up delay-1">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#75886D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin:0 auto 0.75rem;display:block;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          <p class="transport-address">Following the ceremony at Aramana Palli, join us at Windsor Castle, Kodimatha, Kottayam for an evening of vibrant pre-wedding festivities!</p>
-          <a href="https://maps.app.goo.gl/WiGJ1Zv1qzFMtBju7" target="_blank" rel="noopener noreferrer" class="transport-map-link">Google Maps</a>
-          <div class="transport-sep"></div>
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#75886D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin:0 auto 0.75rem;display:block;"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></svg>
-          <p class="transport-overview">A bus will be available to take guests from the church to the reception at Windsor Castle.</p>
-        </div>
       </div>
     </section>
 
@@ -1839,96 +2126,74 @@
       <p class="jan4-text">Take a breath, soak in Kerala, and come back refreshed. See our suggestions in the <a href="#qa" onclick="event.preventDefault();document.getElementById('qa').scrollIntoView({behavior:'smooth'})">Questions &amp; Answers</a> section.</p>
     </div>
 
-    <!-- DIVIDER: above day 2 -->
-    <div class="ivory-divider" style="padding-top:0; padding-bottom:0;">
-      <img src="assets/div-22.png" alt="" style="width:min(60%, 18rem);" class="fade-up" loading="lazy">
-    </div>
-
-    <!-- ===== DAY 2 PROGRAMME ===== -->
-    <section class="programme-section" id="programme-day2" style="padding-top:1.5rem;">
-      <div class="programme-inner">
-        <h2 class="programme-title fade-up">Day 2</h2>
-        <p class="programme-events fade-up delay-1">Wedding Day</p>
-        <p class="programme-date fade-up delay-1">05 January 2027</p>
-        <div class="timeline" data-timeline>
-          <div class="tl-row">
-            <div class="tl-content">
-              <span class="tl-time">2:45 PM</span>
-              <p class="tl-label">Church Wedding Ceremony</p>
+    <!-- ===== COMBINED DRESS CODE ===== -->
+    <section class="dress-combined-section" id="dress-code">
+      <div class="dress-combined-inner">
+        <div class="dress-combined-header">
+          <p class="fade-up" style="font-family:'arek-armenian',serif;font-size:0.72rem;letter-spacing:0.3em;text-transform:uppercase;color:#75886D;font-weight:600;margin-bottom:0.5rem;">Dress Code</p>
+          <h2 class="fade-up delay-1" style="font-family:'New Icon Script',cursive;font-size:clamp(2.5rem,6vw,3.5rem);color:#3D4A38;line-height:1.1;">What to Wear</h2>
+        </div>
+        <div class="dress-combined-grid">
+          <div class="dress-combined-card fade-up">
+            <img class="dress-combined-bg" src="assets/windsor-img.jpg" alt="Windsor Castle" loading="lazy">
+            <div class="dress-combined-overlay"></div>
+            <div class="dress-combined-content">
+              <p class="dress-day-label">Day 1 &mdash; 3rd January</p>
+              <h3 style="font-family:'New Icon Script',cursive;font-size:2rem;color:#3D4A38;margin-bottom:0.75rem;line-height:1.2;">Engagement Night</h3>
+              <p style="font-family:'arek-armenian',serif;font-size:0.9rem;color:#5C6E54;line-height:1.65;">The colour scheme and dress code for Day 1 will be updated closer to the event &mdash; check back here for details!</p>
             </div>
           </div>
-          <div class="tl-row">
-            <div class="tl-content">
-              <span class="tl-time">5:00 PM</span>
-              <p class="tl-label">Wedding Reception at Backwater Ripples</p>
-            </div>
-          </div>
-          <div class="tl-row">
-            <div class="tl-content">
-              <span class="tl-time">5:30 PM</span>
-              <p class="tl-label">Cake Cutting</p>
-            </div>
-          </div>
-          <div class="tl-row">
-            <div class="tl-content">
-              <span class="tl-time">6:00 PM</span>
-              <p class="tl-label">Entertainment</p>
-            </div>
-          </div>
-          <div class="tl-row">
-            <div class="tl-content">
-              <span class="tl-time">6:30 PM</span>
-              <p class="tl-label">Cocktails</p>
-            </div>
-          </div>
-          <div class="tl-row">
-            <div class="tl-content">
-              <span class="tl-time">7:00 PM</span>
-              <p class="tl-label">Dinner</p>
-            </div>
-          </div>
-          <div class="tl-row">
-            <div class="tl-content">
-              <span class="tl-time">8:00 PM</span>
-              <p class="tl-label">Dancing the Night Away!</p>
+          <div class="dress-combined-card fade-up delay-1">
+            <img class="dress-combined-bg" src="assets/backwater-ripples.jpg" alt="Backwater Ripples" loading="lazy">
+            <div class="dress-combined-overlay"></div>
+            <div class="dress-combined-content">
+              <p class="dress-day-label">Day 2 &mdash; 5th January</p>
+              <h3 style="font-family:'New Icon Script',cursive;font-size:2rem;color:#3D4A38;margin-bottom:0.75rem;line-height:1.2;">Wedding Day</h3>
+              <p style="font-family:'arek-armenian',serif;font-size:0.9rem;color:#5C6E54;line-height:1.65;margin-bottom:0.6rem;"><strong style="font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:#3D4A38;">Ladies:</strong> Saree, lehenga, or gown &mdash; anything that makes you feel gorgeous and confident.</p>
+              <p style="font-family:'arek-armenian',serif;font-size:0.9rem;color:#5C6E54;line-height:1.65;"><strong style="font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:#3D4A38;">Gentlemen:</strong> Strictly formal attire &mdash; feel and look unstoppable.</p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ===== DAY 2 DRESS CODE ===== -->
-    <section class="dress-section">
-      <img src="assets/backwater-ripples.jpg" alt="" class="dress-bg" loading="lazy">
-      <div class="dress-inner">
-        <div class="dress-card fade-up">
-          <h2 class="dress-title"><span style="display:block; font-size:0.4em; font-family:'arek-armenian',serif; letter-spacing:0.3em; text-transform:uppercase; color:#75886D; margin-bottom:0.3em; font-weight:600;">Day 2</span>Dress Code</h2>
-          <h3 class="dress-gender">Ladies</h3>
-          <p class="dress-desc">Dress to impress! Wear a saree, lehenga or a gown — anything that makes you feel gorgeous and confident.</p>
-          <div class="dress-divider"></div>
-          <h3 class="dress-gender">Gentlemen</h3>
-          <p class="dress-desc">Strictly formal attire — we want you all feeling AND looking unstoppable.</p>
+    <!-- ===== COMBINED VENUES & TRANSPORT ===== -->
+    <section class="venues-section" id="venues">
+      <div class="venues-inner">
+        <div class="venues-header">
+          <p class="fade-up" style="font-family:'arek-armenian',serif;font-size:0.72rem;letter-spacing:0.3em;text-transform:uppercase;color:#75886D;font-weight:600;margin-bottom:0.5rem;">Venues &amp; Transport</p>
+          <h2 class="fade-up delay-1" style="font-family:'New Icon Script',cursive;font-size:clamp(2.5rem,6vw,3.5rem);color:#3D4A38;line-height:1.1;">Where to Be</h2>
+        </div>
+        <div class="venues-grid">
+          <div class="venue-day-card fade-up">
+            <p class="venue-day-label">Day 1 &mdash; 3rd January</p>
+            <p class="venue-day-name">Windsor Castle</p>
+            <p class="venue-day-location">Kodimatha, Kottayam</p>
+            <div class="venue-day-sep"></div>
+            <p class="venue-day-desc">Following the ceremony at Aramana Palli, join us at Windsor Castle for an evening of vibrant pre-wedding festivities!</p>
+            <a href="https://maps.app.goo.gl/WiGJ1Zv1qzFMtBju7" target="_blank" rel="noopener noreferrer" style="display:inline-block;margin-top:0.5rem;font-family:'arek-armenian',serif;font-size:0.82rem;color:#75886D;text-decoration:underline;text-underline-offset:3px;">View on Google Maps</a>
+            <div class="venue-day-shuttle">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></svg>
+              Shuttle bus from church to reception
+            </div>
+          </div>
+          <div class="venue-day-card fade-up delay-1">
+            <p class="venue-day-label">Day 2 &mdash; 5th January</p>
+            <p class="venue-day-name">Backwater Ripples</p>
+            <p class="venue-day-location">Kumarakom</p>
+            <div class="venue-day-sep"></div>
+            <p class="venue-day-desc">Following our marriage ceremony at Aramana Palli, the reception unfolds at Backwater Ripples &mdash; with music, laughter, and unforgettable memories.</p>
+            <a href="https://maps.app.goo.gl/N6ZYkhJHT9gvLB2A9" target="_blank" rel="noopener noreferrer" style="display:inline-block;margin-top:0.5rem;font-family:'arek-armenian',serif;font-size:0.82rem;color:#75886D;text-decoration:underline;text-underline-offset:3px;">View on Google Maps</a>
+            <div class="venue-day-shuttle">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></svg>
+              Shuttle bus from church to reception
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-
-    <!-- ===== DAY 2 TRANSPORT ===== -->
-    <section class="transport-section" id="day2-transport">
-      <div class="transport-inner">
-        <h2 class="transport-title fade-up">Day 2 &nbsp;<span style="font-family:'arek-armenian',serif; font-size:0.45em; letter-spacing:0.2em; text-transform:uppercase; color:#75886D; font-weight:600;">Location &amp; Transportation</span></h2>
-        <div class="transport-card fade-up delay-1">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#75886D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin:0 auto 0.75rem;display:block;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          <p class="transport-address">Following our marriage ceremony at Aramana Palli, the reception will be held at Backwater Ripples, Kumarakom—where the magic unfolds and we celebrate as a newly wedded couple with our loved ones, filled with music, laughter, and unforgettable memories.</p>
-          <a href="https://maps.app.goo.gl/N6ZYkhJHT9gvLB2A9" target="_blank" rel="noopener noreferrer" class="transport-map-link">Google Maps</a>
-          <div class="transport-sep"></div>
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#75886D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin:0 auto 0.75rem;display:block;"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></svg>
-          <p class="transport-overview">A bus will be available to take guests from the church to the reception at Backwater Ripples.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== ACCOMMODATION ===== -->
+        <!-- ===== ACCOMMODATION ===== -->
     <section class="accommodation-section" id="accommodation">
       <div class="accommodation-inner">
         <h2 class="accommodation-title fade-up">Accommodation</h2>
@@ -2098,26 +2363,10 @@
 
           <div class="qa-item">
             <div class="qa-question">
-              Where are the ceremonies taking place?
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
-            </div>
-            <div class="qa-answer-wrap"><div class="qa-answer-inner"><p class="qa-answer">Day 1 (3rd Jan) — Engagement ceremony at Aramana Palli, Kottayam, followed by the engagement reception at Windsor Castle, Kodimatha. Day 2 (5th Jan) — Marriage ceremony at Aramana Palli, followed by the wedding reception at Backwater Ripples, Kumarakom.</p></div></div>
-          </div>
-
-          <div class="qa-item">
-            <div class="qa-question">
               What should we expect during the church ceremony?
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
             </div>
             <div class="qa-answer-wrap"><div class="qa-answer-inner"><p class="qa-answer">The Knanaya Catholic ceremony runs for approximately one hour and is a beautiful, dignified occasion — nothing to be nervous about!<br><br><strong>Sitting and standing:</strong> The congregation will rise and be seated at key moments throughout the service. Simply follow those around you and you'll be perfectly in step.<br><br><strong>Language:</strong> The ceremony is conducted in Malayalam, with some English elements. The atmosphere is warm and the meaning of each moment will be felt regardless of language.<br><br><strong>Holy Communion:</strong> When the congregation goes forward to receive Communion, non-Catholics are warmly welcome to remain seated — this is completely normal and respected. You may also go forward with arms crossed over your chest to receive a blessing instead, if you'd like to participate in that moment.<br><br><strong>Photography:</strong> Please follow any guidance from the priest or ushers on the day regarding photos during the ceremony.<br><br>Come as you are, bring your warmth, and leave the rest to us.</p></div></div>
-          </div>
-
-          <div class="qa-item">
-            <div class="qa-question">
-              Will there be transportation between venues?
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
-            </div>
-            <div class="qa-answer-wrap"><div class="qa-answer-inner"><p class="qa-answer">Yes! A shuttle bus will be available from the church to the reception venue on both days. Details will be shared closer to the event.</p></div></div>
           </div>
 
           <div class="qa-item">
@@ -2800,6 +3049,38 @@
       container.addEventListener('touchstart', function(e) { e.preventDefault(); dropRing(); }, { passive: false });
 
       loop();
+    })();
+
+    // ===== STICKY NAV SHOW/HIDE =====
+    (function() {
+      var nav = document.getElementById('site-nav');
+      var hero = document.getElementById('hero');
+      if (!nav || !hero) return;
+      function onScroll() {
+        var heroBottom = hero.getBoundingClientRect().bottom;
+        if (heroBottom < 80) {
+          nav.classList.add('visible');
+        } else {
+          nav.classList.remove('visible');
+        }
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+    })();
+
+    // ===== SCHEDULE TAB SWITCHER =====
+    (function() {
+      var tabs = document.querySelectorAll('.schedule-tab');
+      var panels = document.querySelectorAll('.schedule-panel');
+      tabs.forEach(function(tab) {
+        tab.addEventListener('click', function() {
+          var target = tab.getAttribute('data-tab');
+          tabs.forEach(function(t) { t.classList.remove('active'); });
+          panels.forEach(function(p) { p.classList.remove('active'); });
+          tab.classList.add('active');
+          var panel = document.getElementById('tab-' + target);
+          if (panel) panel.classList.add('active');
+        });
+      });
     })();
 
     // ===== Q&A ACCORDION =====
