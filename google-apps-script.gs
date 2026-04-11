@@ -86,7 +86,13 @@ function doPost(e) {
     sheet.autoResizeColumns(1, HEADERS.length);
 
     // Send confirmation email if an address was provided
-    if (data.email && data.email.trim() !== '') {
+    // For no-RSVPs, the contact field may have been an email — fall back to mobile
+    var emailAddr = (data.email || '').trim();
+    if (!emailAddr && (data.mobile || '').indexOf('@') !== -1) {
+      emailAddr = data.mobile.trim();
+      data.email = emailAddr;
+    }
+    if (emailAddr) {
       sendConfirmationEmail(data);
     }
 

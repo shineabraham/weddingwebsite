@@ -2867,13 +2867,16 @@
 
       var rawDays = daysEl ? daysEl.value : '';
 
+      var contactNo = !isYes && document.getElementById('contact-no') ? document.getElementById('contact-no').value.trim() : '';
+      var yesEmail  = isYes && document.getElementById('email') ? document.getElementById('email').value.trim() : '';
+
       var payload = {
         attending:      isYes ? 'Yes' : 'No',
         fullname:       fullname,
         mobile:         isYes
                           ? (document.getElementById('mobile') ? document.getElementById('mobile').value.trim() : '')
-                          : (document.getElementById('contact-no') ? document.getElementById('contact-no').value.trim() : ''),
-        email:          document.getElementById('email') ? document.getElementById('email').value.trim() : '',
+                          : contactNo,
+        email:          isYes ? yesEmail : (contactNo.indexOf('@') !== -1 ? contactNo : ''),
         guests:         document.getElementById('guests') ? document.getElementById('guests').value : '',
         days_attending: daysMap[rawDays] || rawDays,
         dietary:        document.getElementById('dietary') ? document.getElementById('dietary').value.trim() : '',
