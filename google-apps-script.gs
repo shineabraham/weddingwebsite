@@ -1,16 +1,15 @@
 /**
  * Larisa & Shine Wedding RSVP — Google Apps Script
  *
- * HOW TO DEPLOY:
- * 1. Open your Google Sheet
- * 2. Extensions → Apps Script
- * 3. Delete all existing code and paste this entire file
- * 4. Click Save (Ctrl+S)
- * 5. Click Deploy → Manage Deployments
- * 6. Click the pencil (edit) on the existing deployment
- * 7. Set Version to "New version"
- * 8. Click Deploy
- * 9. Copy the new Web App URL and update the fetch() in index.html if it changed
+ * HOW TO DEPLOY (must do this every time you update the script):
+ * 1. Open your Google Sheet → Extensions → Apps Script
+ * 2. Delete ALL existing code and paste this entire file
+ * 3. Click Save (Ctrl+S / Cmd+S)
+ * 4. Click Deploy → Manage Deployments
+ * 5. Click the pencil icon (edit) on the existing deployment
+ * 6. Change "Version" dropdown to "New version"   ← CRITICAL — skipping this means old code runs
+ * 7. Click Deploy
+ * 8. The Web App URL stays the same — no need to update index.html
  *
  * SHEET COLUMNS (auto-created on first submission if sheet is empty):
  * Timestamp | Attending | Full Name | Mobile / WhatsApp | Email | Party Size |
@@ -114,12 +113,24 @@ function doPost(e) {
 function sendConfirmationEmail(data) {
   var isYes     = (data.attending || '').toLowerCase() === 'yes';
   var firstName = (data.fullname || 'there').split(' ')[0];
+
+  // Plain subjects — no emoji, no ALL CAPS, no promotional wording (reduces spam score)
   var subject   = isYes
-    ? 'We\'re so excited to celebrate with you — RSVP Confirmed ✓'
-    : 'We\'ll miss you — RSVP Received';
+    ? 'Your RSVP is confirmed — Larisa & Shine, 5 January 2027'
+    : 'Thank you for letting us know — Larisa & Shine';
 
   var htmlBody  = isYes ? buildYesEmail(data, firstName) : buildNoEmail(data, firstName);
-  var options   = { htmlBody: htmlBody, name: 'Larisa & Shine' };
+
+  // Plain-text fallback — email clients and spam filters expect both
+  var plainBody = isYes
+    ? 'Dear ' + firstName + ',\n\nYour RSVP is confirmed! We are so excited to celebrate with you on 5 January 2027 in Kottayam, Kerala.\n\nVisit the wedding website for all the details: ' + WEDDING_SITE_URL + '\n\nWith love,\nLarisa & Shine'
+    : 'Dear ' + firstName + ',\n\nThank you so much for letting us know. We will miss you dearly, and hope to celebrate with you another time.\n\nWith love,\nLarisa & Shine';
+
+  var options = {
+    htmlBody:  htmlBody,
+    name:      'Larisa & Shine Wedding',
+    replyTo:   'shineabraham1@gmail.com'
+  };
 
   // Attach ICS calendar file(s) for attending guests
   if (isYes) {
@@ -131,7 +142,7 @@ function sendConfirmationEmail(data) {
     }
   }
 
-  MailApp.sendEmail(data.email.trim(), subject, '', options);
+  MailApp.sendEmail(data.email.trim(), subject, plainBody, options);
 }
 
 // ─────────────────────────────────────────────
