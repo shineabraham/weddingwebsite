@@ -172,8 +172,8 @@ function buildYesEmail(data, firstName) {
 
   var detailRowsHTML = detailRows.map(function(r) {
     return '<tr>' +
-      '<td style="padding:9px 16px;font-family:Georgia,serif;font-size:13px;color:#6B7D63;font-weight:600;border-bottom:1px solid #f0ece4;width:38%;vertical-align:top;">' + r[0] + '</td>' +
-      '<td style="padding:9px 16px;font-family:Georgia,serif;font-size:13px;color:#3D4A38;border-bottom:1px solid #f0ece4;">' + r[1] + '</td>' +
+      '<td style="padding:9px 16px;font-family:Georgia,serif;font-size:13px;color:#75886D;font-weight:600;border-bottom:1px solid rgba(61,74,56,0.08);width:38%;vertical-align:top;">' + r[0] + '</td>' +
+      '<td style="padding:9px 16px;font-family:Georgia,serif;font-size:13px;color:#3D4A38;border-bottom:1px solid rgba(61,74,56,0.08);">' + r[1] + '</td>' +
       '</tr>';
   }).join('');
 
@@ -189,17 +189,17 @@ function buildYesEmail(data, firstName) {
     '}' +
     '</style>';
 
-  return '<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">' + mobileStyles + '</head><body style="margin:0;padding:0;background:#f5f0e8;">' +
-    '<table width="100%" cellpadding="0" cellspacing="0" style="background:#f5f0e8;padding:24px 12px;">' +
+  return '<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">' + mobileStyles + '</head><body style="margin:0;padding:0;background:#f2ede4;">' +
+    '<table width="100%" cellpadding="0" cellspacing="0" style="background:#f2ede4;padding:24px 12px;">' +
     '<tr><td align="center">' +
-    '<table width="100%" style="max-width:560px;background:#fffdf8;border-radius:16px;overflow:hidden;box-shadow:0 4px 32px rgba(61,74,56,0.10);">' +
+    '<table width="100%" style="max-width:560px;background:#f9f7f2;border-radius:16px;overflow:hidden;box-shadow:0 4px 32px rgba(61,74,56,0.12);">' +
 
     // Header
-    '<tr><td class="eh" style="background:#3D4A38;padding:36px 32px 24px;text-align:center;">' +
-    '<p class="en" style="margin:0;font-family:Georgia,serif;font-size:38px;font-weight:400;color:#fff;line-height:1.15;">Larisa <span style="font-style:italic;color:rgba(255,255,255,0.5);">&amp;</span> Shine</p>' +
-    '<div style="padding:10px 0;"><div style="display:inline-flex;align-items:center;gap:10px;margin-bottom:10px;"><div style="height:1px;width:40px;background:rgba(255,255,255,0.2);"></div><span style="color:rgba(255,255,255,0.35);font-size:12px;">✦</span><div style="height:1px;width:40px;background:rgba(255,255,255,0.2);"></div></div></div>' +
-    '<p style="margin:0 0 10px;font-family:Georgia,serif;font-size:16px;font-style:italic;color:rgba(255,255,255,0.9);">So glad you can make it!</p>' +
-    '<p class="ep" style="margin:0;font-family:Georgia,serif;font-size:12px;color:rgba(255,255,255,0.5);letter-spacing:0.18em;text-transform:uppercase;">5th January 2027 · Kottayam, Kerala</p>' +
+    '<tr><td class="eh" style="background:#3D4A38;padding:36px 32px 28px;text-align:center;">' +
+    '<p class="en" style="margin:0;font-family:Georgia,serif;font-size:38px;font-weight:400;color:#fff;line-height:1.15;">Larisa <span style="font-style:italic;color:rgba(255,255,255,0.45);">&amp;</span> Shine</p>' +
+    '<div style="padding:12px 0 4px;text-align:center;"><div style="display:inline-flex;align-items:center;gap:10px;"><div style="height:1px;width:40px;background:rgba(255,255,255,0.2);"></div><span style="color:rgba(255,255,255,0.35);font-size:12px;">✦</span><div style="height:1px;width:40px;background:rgba(255,255,255,0.2);"></div></div></div>' +
+    '<p style="margin:8px 0 10px;font-family:Georgia,serif;font-size:16px;font-style:italic;color:rgba(255,255,255,0.9);">So glad you can make it!</p>' +
+    '<p class="ep" style="margin:0;font-family:Georgia,serif;font-size:12px;color:rgba(255,255,255,0.85);letter-spacing:0.18em;text-transform:uppercase;">5th January 2027 &nbsp;&middot;&nbsp; Kottayam, Kerala</p>' +
     '</td></tr>' +
 
     // Greeting
@@ -210,7 +210,7 @@ function buildYesEmail(data, firstName) {
 
     // RSVP summary card
     '<tr><td class="es" style="padding:0 32px 24px;">' +
-    '<table width="100%" cellpadding="0" cellspacing="0" style="background:#f7f3eb;border-radius:10px;overflow:hidden;border:1px solid #e8e0d0;">' +
+    '<table width="100%" cellpadding="0" cellspacing="0" style="background:#f9f7f2;border-radius:10px;overflow:hidden;border:1px solid rgba(61,74,56,0.12);">' +
     '<tr><td style="padding:12px 16px;background:#75886D;">' +
     '<p style="margin:0;font-family:Georgia,serif;font-size:11px;letter-spacing:0.3em;text-transform:uppercase;color:#fff;">Your RSVP Details</p>' +
     '</td></tr>' +
@@ -221,18 +221,18 @@ function buildYesEmail(data, firstName) {
     // Add to calendar section
     (calButtons ? (
       '<tr><td class="es" style="padding:0 32px 28px;text-align:center;">' +
-      '<p style="margin:0 0 14px;font-family:Georgia,serif;font-size:11px;letter-spacing:0.25em;text-transform:uppercase;color:#6B7D63;">Add to your calendar</p>' +
+      '<p style="margin:0 0 14px;font-family:Georgia,serif;font-size:11px;letter-spacing:0.25em;text-transform:uppercase;color:#75886D;">Add to your calendar</p>' +
       calButtons +
-      '<p style="margin:14px 0 0;font-family:Georgia,serif;font-size:12px;color:#9aaa94;font-style:italic;">A .ics file is also attached — open it to save to any calendar app.</p>' +
+      '<p style="margin:14px 0 0;font-family:Georgia,serif;font-size:12px;color:#6B7D63;font-style:italic;">A .ics file is also attached — open it to save to any calendar app.</p>' +
       '</td></tr>'
     ) : '') +
 
     // Helpful note
     '<tr><td class="es" style="padding:0 32px 24px;">' +
-    '<table width="100%" cellpadding="0" cellspacing="0" style="background:#eef2eb;border-radius:10px;border-left:3px solid #75886D;">' +
+    '<table width="100%" cellpadding="0" cellspacing="0" style="background:rgba(117,136,109,0.1);border-radius:10px;border-left:3px solid #75886D;">' +
     '<tr><td style="padding:14px 18px;">' +
     '<p style="margin:0 0 5px;font-family:Georgia,serif;font-size:11px;font-weight:600;color:#3D4A38;text-transform:uppercase;letter-spacing:0.1em;">Good to know</p>' +
-    '<p style="margin:0;font-family:Georgia,serif;font-size:13px;color:#5C6E54;line-height:1.65;">Wedding shuttles will run between venues on both days. All logistical details will be shared closer to the celebrations. In the meantime, visit our <a href="' + WEDDING_SITE_URL + '" style="color:#75886D;">wedding website</a> for travel, accommodation, and dress code info.</p>' +
+    '<p style="margin:0;font-family:Georgia,serif;font-size:13px;color:#5C6E54;line-height:1.65;">Wedding shuttles will run between venues on both days. All logistical details will be shared closer to the celebrations. In the meantime, visit our <a href="' + WEDDING_SITE_URL + '" style="color:#3D4A38;font-weight:600;">wedding website</a> for travel, accommodation, and dress code info.</p>' +
     '</td></tr>' +
     '</table>' +
     '</td></tr>' +
@@ -269,16 +269,16 @@ function buildNoEmail(data, firstName) {
     '}' +
     '</style>';
 
-  return '<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">' + mobileStyles + '</head><body style="margin:0;padding:0;background:#f5f0e8;">' +
-    '<table width="100%" cellpadding="0" cellspacing="0" style="background:#f5f0e8;padding:24px 12px;">' +
+  return '<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">' + mobileStyles + '</head><body style="margin:0;padding:0;background:#f2ede4;">' +
+    '<table width="100%" cellpadding="0" cellspacing="0" style="background:#f2ede4;padding:24px 12px;">' +
     '<tr><td align="center">' +
-    '<table width="100%" style="max-width:560px;background:#fffdf8;border-radius:16px;overflow:hidden;box-shadow:0 4px 32px rgba(61,74,56,0.10);">' +
+    '<table width="100%" style="max-width:560px;background:#f9f7f2;border-radius:16px;overflow:hidden;box-shadow:0 4px 32px rgba(61,74,56,0.12);">' +
 
-    '<tr><td class="eh" style="background:#3D4A38;padding:36px 32px 24px;text-align:center;">' +
-    '<p class="en" style="margin:0;font-family:Georgia,serif;font-size:38px;font-weight:400;color:#fff;line-height:1.15;">Larisa <span style="font-style:italic;color:rgba(255,255,255,0.5);">&amp;</span> Shine</p>' +
-    '<div style="padding:10px 0;"><div style="display:inline-flex;align-items:center;gap:10px;margin-bottom:10px;"><div style="height:1px;width:40px;background:rgba(255,255,255,0.2);"></div><span style="color:rgba(255,255,255,0.35);font-size:12px;">✦</span><div style="height:1px;width:40px;background:rgba(255,255,255,0.2);"></div></div></div>' +
-    '<p style="margin:0 0 10px;font-family:Georgia,serif;font-size:16px;font-style:italic;color:rgba(255,255,255,0.9);">We\'ll miss you dearly</p>' +
-    '<p class="ep" style="margin:0;font-family:Georgia,serif;font-size:12px;color:rgba(255,255,255,0.5);letter-spacing:0.18em;text-transform:uppercase;">5th January 2027 · Kottayam, Kerala</p>' +
+    '<tr><td class="eh" style="background:#3D4A38;padding:36px 32px 28px;text-align:center;">' +
+    '<p class="en" style="margin:0;font-family:Georgia,serif;font-size:38px;font-weight:400;color:#fff;line-height:1.15;">Larisa <span style="font-style:italic;color:rgba(255,255,255,0.45);">&amp;</span> Shine</p>' +
+    '<div style="padding:12px 0 4px;text-align:center;"><div style="display:inline-flex;align-items:center;gap:10px;"><div style="height:1px;width:40px;background:rgba(255,255,255,0.2);"></div><span style="color:rgba(255,255,255,0.35);font-size:12px;">✦</span><div style="height:1px;width:40px;background:rgba(255,255,255,0.2);"></div></div></div>' +
+    '<p style="margin:8px 0 10px;font-family:Georgia,serif;font-size:16px;font-style:italic;color:rgba(255,255,255,0.9);">We\'ll miss you dearly</p>' +
+    '<p class="ep" style="margin:0;font-family:Georgia,serif;font-size:12px;color:rgba(255,255,255,0.85);letter-spacing:0.18em;text-transform:uppercase;">5th January 2027 &nbsp;&middot;&nbsp; Kottayam, Kerala</p>' +
     '</td></tr>' +
 
     '<tr><td class="eb" style="padding:32px 32px 28px;text-align:center;">' +
