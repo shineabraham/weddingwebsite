@@ -1189,6 +1189,25 @@
     .footer-amp { font-family: "New Icon Script", cursive; font-size: 1.875rem; color: #3D4A38; font-style: italic; display: block; margin: 0.25rem 0; }
     @media (min-width: 768px) { .footer-amp { font-size: 2.25rem; } }
     .footer-date { font-size: 1.125rem; color: #75886D; font-family: "arek-armenian", serif; font-weight: 600; margin-top: 0.5rem; }
+    .footer-rsvp-btn {
+      display: inline-block;
+      margin-top: 2rem;
+      font-family: "arek-armenian", serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #f9f7f2;
+      background: #75886D;
+      border: none;
+      border-radius: 2rem;
+      padding: 0.85rem 2.25rem;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+      min-height: 44px;
+    }
+    .footer-rsvp-btn:hover { background: #3D4A38; transform: translateY(-1px); }
+    .footer-rsvp-btn:active { transform: translateY(0); }
 
     /* ===== RSVP CONDITIONAL BLOCKS ===== */
     .rsvp-conditional { display: none; }
@@ -2552,6 +2571,9 @@
         <span class="footer-amp">&amp;</span>
         <p class="footer-name">Shine</p>
         <p class="footer-date">05 January 2027</p>
+      </div>
+      <div class="fade-up delay-2">
+        <a class="footer-rsvp-btn" href="#rsvp" onclick="event.preventDefault();document.getElementById('rsvp').scrollIntoView({behavior:'smooth'})">RSVP</a>
       </div>
     </footer>
 
