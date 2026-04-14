@@ -891,37 +891,35 @@
 
     /* ===== ACCOMMODATION ===== */
     .accommodation-section {
-      padding: 1.5rem 1.5rem 5rem;
+      padding: 3.5rem 1.5rem 5rem;
       position: relative;
       overflow: hidden;
-      /* textured paper bg removed — file missing */
-      background-size: cover;
-      background-position: center;
+      background-color: #75886D;
     }
-    @media (min-width: 768px) { .accommodation-section { padding: 2rem 3rem 6rem; } }
+    @media (min-width: 768px) { .accommodation-section { padding: 5rem 3rem 6rem; } }
     .accommodation-inner { max-width: 48rem; margin: 0 auto; position: relative; z-index: 1; }
     .accommodation-title {
       font-family: "New Icon Script", cursive;
       font-size: 2.5rem;
-      color: #3D4A38;
+      color: #f9f7f2;
       text-align: center;
       line-height: 1.1;
     }
     @media (min-width: 768px) { .accommodation-title { font-size: 4.5rem; } }
     .accommodation-subtitle {
       font-family: "arek-armenian", serif;
-      font-size: 1.05rem;
-      color: #5C6E54;
+      font-size: 1rem;
+      color: rgba(249,247,242,0.8);
       text-align: center;
       margin: 1rem 0 2rem;
+      line-height: 1.7;
     }
     .accommodation-card {
-      background: rgba(255,255,255,0.8);
-      backdrop-filter: blur(8px);
-      border: 1px solid rgba(117,136,109, 0.2);
+      background: rgba(255,255,255,0.93);
+      border: 1px solid rgba(255,255,255,0.3);
       border-radius: 1rem;
       padding: 1.5rem 1.5rem;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.06);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.12);
     }
     @media (min-width: 768px) { .accommodation-card { padding: 2rem 2.5rem; } }
     .hotel-item { text-align: center; padding: 1.5rem 0; }
@@ -930,14 +928,14 @@
     .hotel-divider { width: 3rem; height: 1px; background: rgba(117,136,109, 0.25); margin: 0 auto; }
     .hotel-name { font-family: "arek-armenian", serif; font-size: 1rem; letter-spacing: 0.12em; text-transform: uppercase; color: #3D4A38; font-weight: 500; }
     .hotel-location { font-family: "arek-armenian", serif; font-size: 0.95rem; font-style: italic; color: #6B7D63; margin-top: 0.25rem; }
-    .hotel-details { font-family: "arek-armenian", serif; font-size: 0.9rem; color: #8A9B83; margin-top: 0.375rem; }
-    .hotel-phone { font-family: "arek-armenian", serif; font-size: 0.9rem; color: #8A9B83; margin-top: 0.125rem; }
-    .hotel-phone a { color: inherit; text-decoration: underline; transition: color 0.3s; }
+    .hotel-details { font-family: "arek-armenian", serif; font-size: 0.9rem; color: #6B7D63; margin-top: 0.375rem; }
+    .hotel-phone { font-family: "arek-armenian", serif; font-size: 0.9rem; color: #6B7D63; margin-top: 0.125rem; }
+    .hotel-phone a { color: #3D4A38; text-decoration: underline; transition: color 0.3s; }
     .hotel-phone a:hover { color: #75886D; }
     .hotel-website { margin-top: 0.75rem; display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap; }
-    .hotel-website a { font-family: "arek-armenian", serif; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; color: #75886D; text-decoration: none; border: 1px solid rgba(117,136,109,0.4); border-radius: 2rem; padding: 0.5rem 1rem; min-height: 44px; display: inline-flex; align-items: center; transition: background 0.2s, border-color 0.2s, color 0.2s; }
-    .hotel-website a:hover { background: #75886D; color: #fff; border-color: #75886D; }
-    .hotel-website a:focus-visible { outline: 2px solid #75886D; outline-offset: 2px; }
+    .hotel-website a { font-family: "arek-armenian", serif; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; color: #3D4A38; text-decoration: none; border: 1px solid rgba(61,74,56,0.3); border-radius: 2rem; padding: 0.5rem 1rem; min-height: 44px; display: inline-flex; align-items: center; transition: background 0.2s, border-color 0.2s, color 0.2s; }
+    .hotel-website a:hover { background: #3D4A38; color: #fff; border-color: #3D4A38; }
+    .hotel-website a:focus-visible { outline: 2px solid #3D4A38; outline-offset: 2px; }
 
     /* ===== JAN 4 BRIDGE ===== */
     .jan4-bridge {
@@ -2049,11 +2047,6 @@
       </div>
     </section>
 
-    <!-- DIVIDER -->
-    <div class="ivory-divider">
-      <img src="assets/div123.png" alt="" style="width:min(60%, 18rem); mix-blend-mode:multiply; opacity:0.85;" class="fade-up" loading="lazy">
-    </div>
-
     <!-- ===== VENUE (GOLD BG) ===== -->
     <section class="venue-gold">
       <div class="venue-gold-inner">
@@ -2096,6 +2089,11 @@
         </div>
       </div>
     </section>
+
+    <!-- DIVIDER -->
+    <div class="ivory-divider">
+      <img src="assets/div123.png" alt="" style="width:min(60%, 18rem); mix-blend-mode:multiply; opacity:0.85;" class="fade-up" loading="lazy">
+    </div>
 
     <!-- ===== KNANAYA HERITAGE ===== -->
     <section class="heritage-section">
@@ -2238,7 +2236,7 @@
             <img class="dress-combined-bg" src="assets/windsor-img.jpg" alt="Windsor Castle" loading="lazy">
             <div class="dress-combined-overlay"></div>
             <div class="dress-combined-content">
-              <p class="dress-day-label">Day 1 &mdash; 3rd January</p>
+              <p class="dress-day-label">Day 1</p>
               <h3 style="font-family:'New Icon Script',cursive;font-size:2rem;color:#3D4A38;margin-bottom:0.75rem;line-height:1.2;">Day 1 Events</h3>
               <p style="font-family:'arek-armenian',serif;font-size:0.9rem;color:#5C6E54;line-height:1.65;">The colour scheme and dress code for this event will be updated closer to the time &mdash; please check back here for details.</p>
             </div>
@@ -2247,7 +2245,7 @@
             <img class="dress-combined-bg" src="assets/backwater-ripples.jpg" alt="Backwater Ripples" loading="lazy">
             <div class="dress-combined-overlay"></div>
             <div class="dress-combined-content">
-              <p class="dress-day-label">Day 2 &mdash; 5th January</p>
+              <p class="dress-day-label">Day 2</p>
               <h3 style="font-family:'New Icon Script',cursive;font-size:2rem;color:#3D4A38;margin-bottom:0.75rem;line-height:1.2;">Day 2 Events</h3>
               <p style="font-family:'arek-armenian',serif;font-size:0.9rem;color:#5C6E54;line-height:1.65;margin-bottom:0.6rem;"><strong style="font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:#3D4A38;">Ladies:</strong> Saree, lehenga, or gown &mdash; anything that makes you feel gorgeous and confident.</p>
               <p style="font-family:'arek-armenian',serif;font-size:0.9rem;color:#5C6E54;line-height:1.65;">Gents &mdash; we want you to feel and look unstoppable.</p>
@@ -2261,8 +2259,7 @@
     <section class="venues-section" id="venues">
       <div class="venues-inner">
         <div class="venues-header">
-          <p class="fade-up" style="font-family:'arek-armenian',serif;font-size:0.72rem;letter-spacing:0.3em;text-transform:uppercase;color:#75886D;font-weight:600;margin-bottom:0.5rem;">Venues &amp; Transport</p>
-          <h2 class="fade-up delay-1" style="font-family:'New Icon Script',cursive;font-size:clamp(2.5rem,6vw,3.5rem);color:#3D4A38;line-height:1.1;">Where to Be</h2>
+          <h2 class="fade-up" style="font-family:'New Icon Script',cursive;font-size:clamp(2.5rem,6vw,3.5rem);color:#3D4A38;line-height:1.1;">Venues</h2>
         </div>
         <div class="venues-grid">
           <div class="venue-day-card fade-up">
@@ -2335,7 +2332,7 @@
         <div style="text-align:center; margin-top:2rem; margin-bottom:1rem;">
           <img src="assets/div44.png" alt="" style="width:min(60%, 18rem); mix-blend-mode:multiply; opacity:0.85;" class="fade-up" loading="lazy">
         </div>
-        <p class="accommodation-subtitle fade-up delay-3" style="font-size:0.95rem;">These are a few other recommendations from our events planner. Feel free to <a href="https://www.tripadvisor.in/HotelsNear-g678552-d607992-Backwater_Ripples_Kumarakom-Kottayam_District_Kerala.html" target="_blank" rel="noopener noreferrer" style="color:#75886D; text-decoration:underline; text-underline-offset:2px;">explore more options here</a> or get in touch with us if you have any further questions.</p>
+        <p class="accommodation-subtitle fade-up delay-3" style="font-size:0.95rem;">These are a few other recommendations from our events planner. Feel free to <a href="https://www.tripadvisor.in/HotelsNear-g678552-d607992-Backwater_Ripples_Kumarakom-Kottayam_District_Kerala.html" target="_blank" rel="noopener noreferrer" style="color:#f9f7f2; text-decoration:underline; text-underline-offset:2px;">explore more options here</a> or get in touch with us if you have any further questions.</p>
       </div>
     </section>
 
@@ -2490,7 +2487,7 @@
               Do I need a visa to visit India?
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
             </div>
-            <div class="qa-answer-wrap"><div class="qa-answer-inner"><p class="qa-answer">Here is what we understand based on publicly available information — please verify with your country's embassy or the official Indian e-Visa portal for the latest requirements, as policies can change.<br><br><div class="visa-table-wrap"><table class="visa-table"><thead><tr><th>Nationality</th><th>Visa Required?</th><th>Type</th><th>Notes</th></tr></thead><tbody><tr><td>UK Citizens</td><td>Yes</td><td>e-Tourist Visa</td><td>Apply online. Approval usually within 72 hours.</td></tr><tr><td>US Citizens</td><td>Yes</td><td>e-Tourist Visa</td><td>1-year and 5-year options available.</td></tr><tr><td>UAE Nationals</td><td>No</td><td>Visa on Arrival</td><td>Available at major Indian airports including Kochi (COK).</td></tr><tr><td>UAE Expats</td><td>Depends</td><td>e-Visa</td><td>Based on your original passport nationality.</td></tr><tr><td>Saudi Nationals</td><td>Yes</td><td>e-Visa</td><td>Apply online.</td></tr><tr><td>Saudi Expats</td><td>Depends</td><td>e-Visa</td><td>Based on your original passport nationality.</td></tr><tr><td>Pakistani Nationals</td><td>Yes</td><td>Paper Visa</td><td>Cannot use e-Visa. Apply for a Visit Visa with significant lead time — allow 60–90 days minimum.</td></tr></tbody></table></div><br>We recommend applying <strong>at least 2 weeks before travel</strong>. For the most accurate and up-to-date information, always check with your governing embassy or the official portal.</p></div></div>
+            <div class="qa-answer-wrap"><div class="qa-answer-inner"><div class="qa-answer"><p>Here is what we understand based on publicly available information — please verify with your country's embassy or the official Indian e-Visa portal for the latest requirements, as policies can change.</p><div class="visa-table-wrap"><table class="visa-table"><thead><tr><th>Nationality</th><th>Visa Required?</th><th>Type</th><th>Notes</th></tr></thead><tbody><tr><td>UK Citizens</td><td>Yes</td><td>e-Tourist Visa</td><td>Apply online. Approval usually within 72 hours.</td></tr><tr><td>US Citizens</td><td>Yes</td><td>e-Tourist Visa</td><td>1-year and 5-year options available.</td></tr><tr><td>UAE Nationals</td><td>No</td><td>Visa on Arrival</td><td>Available at major Indian airports including Kochi (COK).</td></tr><tr><td>UAE Expats</td><td>Depends</td><td>e-Visa</td><td>Based on your original passport nationality.</td></tr><tr><td>Saudi Nationals</td><td>Yes</td><td>e-Visa</td><td>Apply online.</td></tr><tr><td>Saudi Expats</td><td>Depends</td><td>e-Visa</td><td>Based on your original passport nationality.</td></tr><tr><td>Pakistani Nationals</td><td>Yes</td><td>Paper Visa</td><td>Cannot use e-Visa. Apply for a Visit Visa with significant lead time — allow 60–90 days minimum.</td></tr></tbody></table></div><p style="margin-top:0.75rem;">We recommend applying <strong>at least 2 weeks before travel</strong>. For the most accurate and up-to-date information, always check with your governing embassy or the official portal.</p></div></div></div>
           </div>
 
           <div class="qa-item">
