@@ -1262,6 +1262,31 @@
     .splash-video { transition: opacity 50ms ease-out; opacity: 0; }
     .splash-video.show { opacity: 1; }
     .splash-poster.hide { opacity: 0; }
+    .splash-tap-hint {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      animation: splash-pulse 2s ease-in-out infinite;
+    }
+    .splash-tap-hint.visible { display: flex; }
+    .splash-tap-hint span {
+      font-family: "arek-armenian", serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(61,74,56,0.7);
+    }
+    .splash-tap-hint svg { opacity: 0.5; }
+    @keyframes splash-pulse {
+      0%, 100% { opacity: 0.6; transform: translateX(-50%) translateY(0); }
+      50% { opacity: 1; transform: translateX(-50%) translateY(-4px); }
+    }
 
     /* Gallery marquee second strip */
     .gallery-marquee-section {
@@ -1873,6 +1898,10 @@
     <video id="splash-video" class="splash-video" muted playsinline preload="auto" poster="assets/intro-img.png">
       <source src="assets/intro-video.mp4" type="video/mp4">
     </video>
+    <div class="splash-tap-hint" id="splash-tap-hint">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3D4A38" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+      <span>Tap to open</span>
+    </div>
   </div>
 
   <main class="bg-background">
@@ -2699,18 +2728,34 @@
       var splash = document.getElementById('splash-overlay');
       var splashVideo = document.getElementById('splash-video');
       var splashPoster = document.getElementById('splash-poster');
+      var tapHint = document.getElementById('splash-tap-hint');
       var splashState = 'idle'; // idle -> playing -> fading -> done
       var videoStarted = false;
 
-      // Click anywhere on splash to start the envelope video
-      splash.addEventListener('click', function() {
+      function startVideo() {
         if (splashState !== 'idle') return;
         splashState = 'playing';
-
-        // Play the envelope video
+        if (tapHint) tapHint.classList.remove('visible');
         var p = splashVideo.play();
         if (p && typeof p.catch === 'function') p.catch(function(){});
-      });
+      }
+
+      // Attempt autoplay immediately (allowed for muted videos in all modern browsers)
+      var autoplayPromise = splashVideo.play();
+      if (autoplayPromise !== undefined) {
+        autoplayPromise.then(function() {
+          // Autoplay succeeded — video is playing
+          splashState = 'playing';
+        }).catch(function() {
+          // Autoplay blocked — show the tap hint
+          splashVideo.pause();
+          splashState = 'idle';
+          if (tapHint) tapHint.classList.add('visible');
+        });
+      }
+
+      // Click anywhere on splash as fallback / for autoplay-blocked browsers
+      splash.addEventListener('click', function() { startVideo(); });
 
       // As video plays, swap poster for video, then fade out near end
       splashVideo.addEventListener('timeupdate', function() {
