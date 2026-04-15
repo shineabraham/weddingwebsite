@@ -25,7 +25,6 @@ var HEADERS = [
   'Party Size',
   'Days Attending',
   'Dietary Requirements',
-  'Pre / Post Wedding Plans',
   'Message'
 ];
 
@@ -77,7 +76,6 @@ function doPost(e) {
       data.guests         || '',
       data.days_attending || '',
       data.dietary        || '',
-      data.plans          || '',
       data.message        || ''
     ];
 
