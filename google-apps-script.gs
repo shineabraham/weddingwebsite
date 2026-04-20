@@ -193,7 +193,7 @@ function buildYesEmail(data, firstName) {
     '<table width="100%" style="max-width:560px;background:#f9f7f2;border-radius:16px;overflow:hidden;box-shadow:0 4px 32px rgba(61,74,56,0.12);">' +
 
     // Header
-    '<tr><td class="eh" style="background:#3D4A38;padding:36px 32px 28px;text-align:center;">' +
+    '<tr><td class="eh" style="background:#76886D;padding:36px 32px 28px;text-align:center;">' +
     '<p class="en" style="margin:0;font-family:Georgia,serif;font-size:38px;font-weight:400;color:#fff;line-height:1.15;">Larisa <span style="font-style:italic;color:rgba(255,255,255,0.45);">&amp;</span> Shine</p>' +
     '<div style="padding:12px 0 4px;text-align:center;"><div style="display:inline-flex;align-items:center;gap:10px;"><div style="height:1px;width:40px;background:rgba(255,255,255,0.2);"></div><span style="color:rgba(255,255,255,0.35);font-size:12px;">✦</span><div style="height:1px;width:40px;background:rgba(255,255,255,0.2);"></div></div></div>' +
     '<p style="margin:8px 0 10px;font-family:Georgia,serif;font-size:16px;font-style:italic;color:rgba(255,255,255,0.9);">So glad you can make it!</p>' +
@@ -242,8 +242,7 @@ function buildYesEmail(data, firstName) {
     '</td></tr>' +
 
     // Footer
-    '<tr><td class="ef" style="background:#3D4A38;padding:18px 32px;text-align:center;">' +
-    '<p style="margin:0;font-family:Georgia,serif;font-size:11px;color:rgba(255,255,255,0.4);letter-spacing:0.08em;">This is an automated confirmation. Please do not reply.</p>' +
+    '<tr><td class="ef" style="background:#76886D;padding:18px 32px;text-align:center;">' +
     '</td></tr>' +
 
     '</table>' +
@@ -272,7 +271,7 @@ function buildNoEmail(data, firstName) {
     '<tr><td align="center">' +
     '<table width="100%" style="max-width:560px;background:#f9f7f2;border-radius:16px;overflow:hidden;box-shadow:0 4px 32px rgba(61,74,56,0.12);">' +
 
-    '<tr><td class="eh" style="background:#3D4A38;padding:36px 32px 28px;text-align:center;">' +
+    '<tr><td class="eh" style="background:#76886D;padding:36px 32px 28px;text-align:center;">' +
     '<p class="en" style="margin:0;font-family:Georgia,serif;font-size:38px;font-weight:400;color:#fff;line-height:1.15;">Larisa <span style="font-style:italic;color:rgba(255,255,255,0.45);">&amp;</span> Shine</p>' +
     '<div style="padding:12px 0 4px;text-align:center;"><div style="display:inline-flex;align-items:center;gap:10px;"><div style="height:1px;width:40px;background:rgba(255,255,255,0.2);"></div><span style="color:rgba(255,255,255,0.35);font-size:12px;">✦</span><div style="height:1px;width:40px;background:rgba(255,255,255,0.2);"></div></div></div>' +
     '<p style="margin:8px 0 10px;font-family:Georgia,serif;font-size:16px;font-style:italic;color:rgba(255,255,255,0.9);">We\'ll miss you dearly</p>' +
@@ -290,8 +289,7 @@ function buildNoEmail(data, firstName) {
     '<p style="margin:0;font-family:Georgia,serif;font-size:26px;font-style:italic;color:#3D4A38;">Larisa &amp; Shine</p>' +
     '</td></tr>' +
 
-    '<tr><td class="ef" style="background:#3D4A38;padding:18px 32px;text-align:center;">' +
-    '<p style="margin:0;font-family:Georgia,serif;font-size:11px;color:rgba(255,255,255,0.4);letter-spacing:0.08em;">This is an automated confirmation. Please do not reply.</p>' +
+    '<tr><td class="ef" style="background:#76886D;padding:18px 32px;text-align:center;">' +
     '</td></tr>' +
 
     '</table>' +
