@@ -305,22 +305,23 @@ function buildCalendarButtons(data) {
   var days = (data.days_attending || '').toLowerCase();
   var buttons = [];
 
-  var btnStyle = 'display:inline-block;padding:12px 20px;background:#75886D;color:#fff;text-decoration:none;border-radius:8px;font-family:Georgia,serif;font-size:13px;margin:4px;';
+  var btnStyle = 'display:block;width:100%;box-sizing:border-box;padding:13px 20px;background:#75886D;color:#fff;text-decoration:none;border-radius:8px;font-family:Georgia,serif;font-size:13px;text-align:center;';
+  var wrapStyle = 'margin:5px 0;';
 
   if (days.indexOf('both') !== -1 || days.indexOf('day 1') !== -1 || days.indexOf('3rd') !== -1 || days.indexOf('engagement') !== -1) {
-    buttons.push('<a class="cb" href="' + googleCalLink(EVENTS.day1) + '" style="' + btnStyle + '">+ Day 1 — Engagement &amp; Reception</a>');
+    buttons.push('<div style="' + wrapStyle + '"><a href="' + googleCalLink(EVENTS.day1) + '" style="' + btnStyle + '">+ Day 1 — Engagement &amp; Reception</a></div>');
   }
   if (days.indexOf('both') !== -1 || days.indexOf('day 2') !== -1 || days.indexOf('5th') !== -1 || days.indexOf('wedding') !== -1) {
-    buttons.push('<a class="cb" href="' + googleCalLink(EVENTS.day2) + '" style="' + btnStyle + '">+ Day 2 — Wedding &amp; Reception</a>');
+    buttons.push('<div style="' + wrapStyle + '"><a href="' + googleCalLink(EVENTS.day2) + '" style="' + btnStyle + '">+ Day 2 — Wedding &amp; Reception</a></div>');
   }
 
   // Fallback: show both buttons if we couldn't parse the days
   if (buttons.length === 0) {
-    buttons.push('<a class="cb" href="' + googleCalLink(EVENTS.day1) + '" style="' + btnStyle + '">+ Day 1 — Engagement &amp; Reception</a>');
-    buttons.push('<a class="cb" href="' + googleCalLink(EVENTS.day2) + '" style="' + btnStyle + '">+ Day 2 — Wedding &amp; Reception</a>');
+    buttons.push('<div style="' + wrapStyle + '"><a href="' + googleCalLink(EVENTS.day1) + '" style="' + btnStyle + '">+ Day 1 — Engagement &amp; Reception</a></div>');
+    buttons.push('<div style="' + wrapStyle + '"><a href="' + googleCalLink(EVENTS.day2) + '" style="' + btnStyle + '">+ Day 2 — Wedding &amp; Reception</a></div>');
   }
 
-  return buttons.join('<br>');
+  return buttons.join('');
 }
 
 function googleCalLink(ev) {
